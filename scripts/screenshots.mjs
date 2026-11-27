@@ -11,7 +11,9 @@ await desk.goto('http://localhost:4400/'); await desk.evaluate(() => document.fo
 await desk.screenshot({ path: OUT + 'start.png' });
 await desk.goto(URL_RES); await desk.reload(); await desk.waitForSelector('#results:not([hidden])'); await desk.evaluate(() => document.fonts.ready); await desk.waitForTimeout(2200);
 await desk.addStyleTag({ content: 'html{scroll-behavior:auto!important}.sticky{position:static!important}' });
-for (const [id, name] of [['#wynik', 'wynik'], ['#droga', 'droga'], ['#paragon', 'paragon'], ['#kiedy', 'kiedy'], ['#kalendarz', 'kalendarz'], ['#na-co', 'na-co'], ['#produkty', 'produkty']]) {
+// Odsłoń zwinięte części (jak po kliknięciu „Pokaż więcej” i „Pokaż więcej produktów”).
+await desk.click('#more-btn'); await desk.click('#prod-more'); await desk.waitForTimeout(300);
+for (const [id, name] of [['#wynik', 'wynik'], ['#droga', 'droga'], ['#monety', 'monety'], ['#paragon', 'paragon'], ['#kiedy', 'kiedy'], ['#kalendarz', 'kalendarz'], ['#na-co', 'na-co'], ['#produkty', 'produkty']]) {
   await desk.locator(id).screenshot({ path: OUT + name + '.png' });
 }
 await desk.goto('http://localhost:4400/jak-dziala-system/'); await desk.evaluate(() => document.fonts.ready);

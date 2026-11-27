@@ -3,17 +3,17 @@
 # Ile oddajesz?
 
 **Edukacyjny kalkulator wszystkich podatków i składek w Polsce.**
-Wpisz pensję i zobacz, ile naprawdę trafia do państwa: kiedy, gdzie i na co.
+Wpisz, ile dostajesz na konto, i zobacz, ile naprawdę trafia do państwa: kiedy, gdzie i na co.
 
 [![Stan prawny](https://img.shields.io/badge/stan_prawny-27.11.2026-2f4bdb)](src/data/rates-2026.json)
-[![Testy](https://img.shields.io/badge/testy-39_jednostkowych_·_9_e2e-128a63)](#testy-i-jakość)
+[![Testy](https://img.shields.io/badge/testy-39_jednostkowych_·_14_e2e-128a63)](#testy-i-jakość)
 [![WCAG](https://img.shields.io/badge/dostępność-WCAG_2.1_AA-128a63)](#testy-i-jakość)
 [![Licencja kodu](https://img.shields.io/badge/kod-MIT-555)](LICENSE)
 [![Licencja treści](https://img.shields.io/badge/treści-CC_BY_4.0-555)](LICENSE)
 
 **[ileoddajesz.pl](https://ileoddajesz.pl)** · [Metodologia](https://ileoddajesz.pl/metodologia/) · [Zgłoś błąd](https://github.com/NexaITPoland/ileoddajesz/issues/new)
 
-<img src="docs/screenshots/wynik.png" alt="Wynik kalkulatora: z każdych 100 zł kosztu pracy 48 zł trafia do państwa, pokazane jako 100 kolorowych monet" width="820">
+<img src="docs/screenshots/wynik.png" alt="Wynik kalkulatora: pracodawca wydaje 11 225 zł = 6681 zł na konto + 4544 zł do państwa; z każdych 100 zł państwo dostaje 48 zł" width="820">
 
 </div>
 
@@ -32,6 +32,7 @@ Wpisz pensję i zobacz, ile naprawdę trafia do państwa: kiedy, gdzie i na co.
 - [Testy i jakość](#testy-i-jakość)
 - [Publikacja](#publikacja)
 - [Coroczna aktualizacja danych](#coroczna-aktualizacja-danych)
+- [Plan rozwoju](#plan-rozwoju)
 - [Ograniczenia i uproszczenia](#ograniczenia-i-uproszczenia)
 - [Jak pomóc](#jak-pomóc)
 - [FAQ](#faq)
@@ -41,7 +42,7 @@ Wpisz pensję i zobacz, ile naprawdę trafia do państwa: kiedy, gdzie i na co.
 
 ## Po co to jest
 
-Większość danin w Polsce jest niewidoczna dla osoby, która je finansuje:
+Większość podatków i składek w Polsce jest niewidoczna dla osoby, która je finansuje:
 
 - **składki „od pracodawcy”** (emerytalna, rentowa, wypadkowa, Fundusz Pracy i Solidarnościowy, FGŚP) nie pojawiają się na pasku płacowym,
 - **składki i zaliczkę na PIT** potrąca i przelewa pracodawca, zanim pensja trafi na konto,
@@ -57,43 +58,49 @@ Przed rozpoczęciem przejrzeliśmy podobne narzędzia w Polsce i na świecie (no
 
 ## Co pokazuje narzędzie
 
-Kalkulator prowadzi przez wynik jak przez opowieść: każdy krok to jedna myśl i jedna wizualizacja.
+Kalkulator prowadzi przez wynik jak przez opowieść: każdy krok to jedna myśl i jedna wizualizacja. Najważniejsze widać od razu, a szczegóły po kliknięciu „Pokaż więcej”.
 
 | # | Sekcja | Co widzisz |
 |---|---|---|
-| 1 | **Twoja pensja** | Kwota brutto lub na rękę; umowa o pracę, zlecenie albo B2B (liniowy, ryczałt, skala; duży, preferencyjny lub zerowy ZUS); ulga dla młodych |
+| 1 | **Twoja pensja** | Domyślnie kwota **na rękę** (tę każdy zna), opcjonalnie brutto; umowa o pracę, zlecenie albo B2B (liniowy, ryczałt, skala; pełny, preferencyjny lub zerowy ZUS); ulga dla młodych |
 | 2 | **Zgadnij** | Zanim zobaczysz wynik, zgadujesz, ile z każdych 100 zł trafia do państwa. Potem porównujesz (efekt przewidywania, ang. *pretesting*, poprawia zapamiętywanie) |
-| 3 | **100 monet** | Z każdych 100 zł kosztu pracy: ile monet idzie do ZUS, NFZ, PIT, VAT, akcyzy, a ile zostaje |
-| 4 | **Droga pieniędzy** | Kurczący się pasek: koszt pracy → brutto → na rękę → realna wartość zakupów |
-| 5 | **Paragon od państwa** | Wszystkie daniny miesiąca lub roku na „paragonie”, w kolejności, w jakiej znikają |
-| 6 | **Kiedy i gdzie płacisz** | Oś czasu: kto przelewa (pracodawca, sklep, producent), do kiedy (15./20./25. dnia, raty, 30 kwietnia) i dokąd |
-| 7 | **Twój rok i dzień** | Osobisty dzień wolności podatkowej na kalendarzu 365 dni oraz „zegar” 8-godzinnego dnia pracy |
-| 8 | **Na co idą pieniądze** | Twoje daniny rozłożone na funkcje państwa (emerytury, zdrowie, edukacja…), w zł miesięcznie i dziennie |
-| 9 | **Druga strona rachunku** | Ile państwo wydaje na przeciętnego mieszkańca, deficyt, porównanie z UE |
-| 10 | **Ile podatku jest w…** | Litr paliwa, paczka papierosów, wódka, piwo, wino, rachunek za prąd, chleb, cola |
-| 11 | **Dopasuj do siebie** | Gospodarstwo domowe, dzieci, druga osoba zarabiająca, własne zużycie paliwa, prądu, papierosów i alkoholu, mieszkanie, odsetki |
-| 12 | **Podziel się** | Obrazek do udostępnienia (tylko procenty i data, bez kwot) i link z ustawieniami |
+| 3 | **Wynik w trzech liczbach** | „Pracodawca wydaje na Ciebie 11 225 zł = 6681 zł na Twoje konto + 4544 zł do państwa”, a pod spodem: ile z pensji wraca jeszcze do państwa w cenach zakupów |
+| 4 | **Droga pieniędzy** | Kurczący się pasek od tego, co wydaje pracodawca, przez brutto („to masz w umowie”) i na rękę („to widzisz na koncie”), do tego, co realnie możesz kupić |
+| 5 | **Z każdych 100 zł** | 100 monet: ile idzie do ZUS, NFZ, PIT, VAT, akcyzy i gminy, a ile zostaje; legenda z kwotą ze 100 zł i kwotą miesięczną |
+| 6 | **Paragon od państwa** | Wszystkie podatki i składki miesiąca lub roku na „paragonie”, w kolejności, w jakiej znikają |
+| 7 | **Ile podatku jest w…** | Litr paliwa, paczka papierosów, wódka, piwo, wino, rachunek za prąd, chleb, cola (3 karty od razu, reszta po kliknięciu) |
+| 8 | **Kiedy i gdzie płacisz** | Oś czasu: kto przelewa (pracodawca, sklep, producent), z kwotą w jednym zdaniu; terminy i przepisy w „Szczegółach” |
+| 9 | **Twój rok i dzień** | Osobisty dzień wolności podatkowej na kalendarzu 365 dni oraz „zegar” 8-godzinnego dnia pracy |
+| 10 | **Na co idą pieniądze** | Twoje podatki i składki rozłożone na funkcje państwa (emerytury, zdrowie, edukacja…) |
+| 11 | **Druga strona rachunku** | Ile państwo wydaje na przeciętnego mieszkańca i jak działa system w cyklu życia; deficyt i porównania w części rozwijanej |
+| 12 | **Dopasuj do siebie** | Gospodarstwo domowe, dzieci, druga osoba zarabiająca, własne zużycie paliwa, prądu, papierosów i alkoholu, mieszkanie, odsetki |
+| 13 | **Podziel się** | Obrazek do udostępnienia (tylko procenty i data, bez kwot) i link z ustawieniami |
 
-Przełącznik **„Licz emerytalną jako daninę”** działa we wszystkich sekcjach. Składki emerytalne i rentowe można traktować jak daninę (tak liczy OECD) albo jak odkładanie na własną emeryturę.
+Sekcje 8–12 są zwinięte pod przyciskiem „Pokaż więcej”, żeby strona na telefonie nie była przytłaczająca.
+
+Przełącznik **„Liczę składki emerytalne i rentowe jako podatek”** działa we wszystkich sekcjach. Składki można traktować jak podatek (tak liczy OECD) albo jak odkładanie na własną emeryturę i rentę. Ocena zgadywania zawsze odnosi się do pełnego wyniku, żeby przełącznik jej nie odwracał.
 
 <table>
 <tr>
-<td width="50%"><img src="docs/screenshots/droga.png" alt="Droga pieniędzy: kurczący się pasek od kosztu pracy do realnej wartości zakupów"></td>
-<td width="50%"><img src="docs/screenshots/paragon.png" alt="Paragon od państwa z listą wszystkich danin w miesiącu"></td>
+<td width="50%"><img src="docs/screenshots/droga.png" alt="Droga pieniędzy: kurczący się pasek od tego, co wydaje pracodawca, do realnej wartości zakupów"></td>
+<td width="50%"><img src="docs/screenshots/monety.png" alt="100 monet: kto dostaje Twoje pieniądze z każdych 100 zł"></td>
+</tr>
+<tr>
+<td><img src="docs/screenshots/paragon.png" alt="Paragon od państwa z listą wszystkich podatków i składek w miesiącu"></td>
+<td><img src="docs/screenshots/kiedy.png" alt="Oś czasu: kiedy i gdzie płacisz poszczególne podatki"></td>
 </tr>
 <tr>
 <td><img src="docs/screenshots/kalendarz.png" alt="Kalendarz roku z zaznaczonym osobistym dniem wolności podatkowej i zegar dnia pracy"></td>
 <td><img src="docs/screenshots/produkty.png" alt="Karty produktów pokazujące udział podatków w cenie paliwa, papierosów i alkoholu"></td>
 </tr>
 <tr>
-<td><img src="docs/screenshots/kiedy.png" alt="Oś czasu: kiedy i gdzie płacisz poszczególne daniny"></td>
-<td><img src="docs/screenshots/na-co.png" alt="Podział Twoich danin na funkcje państwa"></td>
+<td colspan="2"><img src="docs/screenshots/na-co.png" alt="Podział Twoich podatków i składek na funkcje państwa"></td>
 </tr>
 </table>
 
 Dodatkowe strony:
 
-- **[Jak działa system](https://ileoddajesz.pl/jak-dziala-system/)**: schemat przepływu pieniędzy, trzy drogi płacenia danin, tabela „kto, kiedy, gdzie, ile”, quiz utrwalający (5 pytań z wyjaśnieniami) i słowniczek.
+- **[Jak działa system](https://ileoddajesz.pl/jak-dziala-system/)**: schemat przepływu pieniędzy, trzy drogi płacenia podatków, tabela „kto, kiedy, gdzie, ile”, quiz utrwalający (5 pytań z wyjaśnieniami) i słowniczek.
 - **[Metodologia](https://ileoddajesz.pl/metodologia/)**: każdy parametr z wartością, podstawą prawną i linkiem do źródła; koszyk zakupów, przykład wzorcowy, lista uproszczeń.
 - **[O projekcie](https://ileoddajesz.pl/o-projekcie/)**: neutralność, dokładność, zgłaszanie błędów.
 - **[Prywatność i zasady](https://ileoddajesz.pl/prywatnosc/)**.
@@ -108,17 +115,18 @@ Dodatkowe strony:
 
 ### 1. Zrozumiałość dla każdego
 
+- **Przegląd oczami laika.** Strona przeszła trzy rundy recenzji w roli osoby bez wiedzy finansowej („Janusz”: 6000 zł na rękę, umowa o pracę, czyta na telefonie). Recenzje wykonywali niezależni agenci AI na zrzutach z prawdziwej przeglądarki; po każdej rundzie poprawiliśmy wszystko, co było niejasne (domyślnie „na rękę”, wynik w trzech liczbach, bez żargonu, krótsza strona). Test z prawdziwymi użytkownikami jest kolejnym krokiem przed premierą.
 - Jedna myśl na ekran; szczegóły dopiero po rozwinięciu („progressive disclosure”).
 - Złotówki i rzeczy zamiast procentów: „z każdych 100 zł…”, „bułka”, „litr benzyny”.
-- Zero żargonu w pierwszej warstwie: każdy skrót (ZUS, PIT, VAT) ma podpis po ludzku.
-- Kolor zawsze znaczy to samo: zielony = Twoje, pozostałe kolory = kolejne daniny. Bez czerwieni alarmowej.
+- Zero żargonu w pierwszej warstwie: „podatki i składki” zamiast „danin”, każdy skrót (ZUS, PIT, VAT, akcyza) ma podpis po ludzku.
+- Kolor zawsze znaczy to samo: zielony = Twoje, pozostałe kolory = kolejne podatki i składki. Bez czerwieni alarmowej.
 - Przy każdej liczbie można rozwinąć „skąd to wiemy?”.
 
 ### 2. Neutralność
 
 - Żadnych nazwisk polityków ani nazw partii: pilnuje tego automatyczna bramka w buildzie ([`scripts/gates.mjs`](scripts/gates.mjs)).
 - Kategorie wydatków z oficjalnej klasyfikacji COFOG, a nie z własnego podziału.
-- Obie strony rachunku: daniny i to, co państwo finansuje (wraz z deficytem).
+- Obie strony rachunku: podatki i składki oraz to, co państwo finansuje (wraz z deficytem).
 - Dwie interpretacje składek emerytalnych (przełącznik), bo w tej sprawie ekonomiści się różnią.
 
 ### 3. Weryfikowalność
@@ -149,7 +157,7 @@ do wydania   ──►  − oszczędności  →  wydatki  →  VAT + akcyza   �
 
 1. **Składki i PIT** liczone są dla całego roku, jak w rocznym zeznaniu: próg 120 000 zł, kwota wolna 30 000 zł, koszty uzyskania przychodu, roczny limit składek (30-krotność, 282 600 zł; dotyczy też FP, FS i FGŚP), ulga dla młodych (z proporcjonalnym odliczeniem składek), ulga prorodzinna ze zwrotem nadwyżki, danina solidarnościowa.
 2. **VAT i akcyza** liczone są z wydatków. Dochód netto minus oszczędności rozkładamy na 16 kategorii według struktury wydatków gospodarstw domowych o podobnym dochodzie (GUS, *Budżety gospodarstw domowych w 2025 r.*, kwintyle). W każdej kategorii liczymy, jaka część ceny to VAT (mapowanie 68 pozycji na stawki z załączników ustawy o VAT) i akcyza. Jeśli użytkownik poda własne zużycie paliwa, prądu, papierosów lub alkoholu, liczymy je dokładnie ze stawek ustawowych, a resztę koszyka proporcjonalnie zmniejszamy.
-3. **Udział danin** = suma danin ÷ pełny koszt pracy.
+3. **Udział** = suma podatków i składek ÷ kwota, którą pracodawca wydaje na pracownika (pełny koszt pracy).
 4. **Dzień wolności podatkowej** = udział × liczba dni w roku, licząc od 1 stycznia. **Zegar** = udział × 8 godzin, od 8:00.
 5. **Na co idą pieniądze**: proporcjonalnie do struktury wydatków sektora instytucji rządowych i samorządowych (Eurostat, COFOG 2024). Tak samo robią „paragony podatkowe” urzędów skarbowych Wielkiej Brytanii i Australii.
 
@@ -157,10 +165,13 @@ Przykład dla przeciętnego wynagrodzenia (9 317,01 zł brutto, GUS, III kwarta�
 
 | | miesięcznie |
 |---|---:|
-| Pełny koszt pracy | 11 225 zł |
-| Na konto | 6 681 zł |
-| Wszystkie daniny (z emerytalną) | 5 418 zł |
-| Udział danin w koszcie pracy | **48%** |
+| Pracodawca wydaje na pracownika | 11 225 zł |
+| Na konto (na rękę) | 6 681 zł |
+| Do państwa, zanim pensja trafi na konto | 4 544 zł |
+| Wraca do państwa w cenach zakupów i opłacie za śmieci | 874 zł |
+| Wszystkie podatki i składki (ze składkami emerytalnymi i rentowymi) | 5 418 zł |
+| Realnie dla pracownika | 5 807 zł |
+| Udział podatków i składek w koszcie pracy | **48%** |
 | Osobisty dzień wolności podatkowej | 26 czerwca |
 
 ---
@@ -241,6 +252,7 @@ Wszystkie komendy:
 │   │   ├── labor.ts              #   składki, PIT, umowa o pracę, zlecenie, B2B, wypłata styczniowa
 │   │   ├── consumption.ts        #   koszyk GUS, VAT, akcyza, paliwo, papierosy, alkohol, prąd
 │   │   ├── index.ts              #   całość, przełącznik ZUS, dzień wolności, zegar, COFOG
+│   │   ├── pension.ts            #   prognoza emerytury (przygotowana, jeszcze niepodpięta do strony)
 │   │   └── types.ts              #   typy pliku danych
 │   ├── scripts/app.ts            # kalkulator i wszystkie wizualizacje (czysty TS + SVG/CSS)
 │   ├── components/Products.astro # „Ile podatku jest w…” (liczone przy buildzie)
@@ -249,7 +261,9 @@ Wszystkie komendy:
 │   └── styles/global.css         # tokeny kolorów (jasny i ciemny motyw), typografia, komponenty
 ├── tests/
 │   ├── unit/engine.test.ts       # 39 testów silnika, w tym zgodność z wyliczeniami wzorcowymi
-│   └── e2e/site.spec.ts          # 9 testów: ścieżka użytkownika, mobile 375 px, WCAG AA, oba motywy
+│   └── e2e/
+│       ├── site.spec.ts          # strony, mobile 375 px, WCAG AA, oba motywy, ścieżka użytkownika
+│       └── every-control.spec.ts # „każda kontrolka działa” (telefon i desktop), quiz, linki
 ├── scripts/
 │   ├── gates.mjs                 # bramki: zero obcych domen, neutralność, meta, H1, martwe linki, placeholdery
 │   ├── headers.mjs               # dist/_headers: CSP z hashami, HSTS, nosniff, Permissions-Policy, cache
@@ -279,7 +293,7 @@ const r = compute({
   zusAsTax: true,
 }, R);
 
-r.share;                                  // 0.479 – udział danin w koszcie pracy
+r.share;                                  // 0.479 – udział podatków i składek w koszcie pracy
 r.slices;                                 // pozycje paragonu: { id, group, label, plain, amount, payer }
 freedomDay(r.share, 2026);                // Date – osobisty dzień wolności podatkowej
 ```
@@ -303,7 +317,7 @@ Najważniejsze funkcje:
 ```bash
 npm test            # 39 testów jednostkowych
 npm run build       # bramki jakości (zatrzymują build przy błędzie)
-npm run test:e2e    # 9 testów w przeglądarce
+npm run test:e2e    # 14 testów w przeglądarce
 ```
 
 **Testy jednostkowe** sprawdzają m.in.:
@@ -312,9 +326,11 @@ npm run test:e2e    # 9 testów w przeglądarce
 - podatki w produktach zgodne z niezależnymi wyliczeniami: benzyna 1,96 zł (33,7%; 44,8% przy stawkach standardowych), olej napędowy 1,94 zł, papierosy 20,24 zł, wódka 22,77 zł, piwo 1,44 zł,
 - przypadki brzegowe: próg podatkowy, kwota wolna, limit 30-krotności (także FP, FS i FGŚP), ulga dla młodych, ulga prorodzinna z limitem dochodu małżonków, progi opłaty mocowej,
 - spójność danych: koszyk i COFOG sumują się do 100%, każdy parametr ma źródło z adresem HTTPS,
-- spójność bilansu: daniny + to, co zostaje = koszt pracy, monotoniczność netto względem brutto.
+- spójność bilansu: podatki i składki + to, co zostaje = koszt pracy, monotoniczność netto względem brutto.
 
-**Testy e2e** (Playwright + axe-core) sprawdzają:
+**Test „każda kontrolka działa”** (`tests/e2e/every-control.spec.ts`, na telefonie i desktopie) klika po kolei wszystko na stronie i przy każdej kontrolce sprawdza, że wynik faktycznie się zmienia: pola formularza i opcje B2B/zlecenia, suwak zgadywania, przełączniki miesiąc/rok i składek, rozwijane wyjaśnienia, „Pokaż więcej” i „Pokaż więcej produktów” (wszystkie karty widoczne, przycisk dokładnie jeden), każde z 14 pól „Dopasuj”, pobranie obrazka, kopiowanie linku, odtworzenie wyniku z linku w nowej karcie, quiz i wszystkie linki wewnętrzne. Po drodze wyłapuje błędy konsoli i zdublowane identyfikatory po wyrenderowaniu.
+
+**Pozostałe testy e2e** (Playwright + axe-core) sprawdzają:
 
 - pełną ścieżkę: wpisanie pensji → zgadywanie → wynik (100 monet, paragon, kalendarz 365 dni, 12 funkcji państwa),
 - odtwarzanie wyniku z linku i działanie przełącznika ZUS, umowy B2B i zlecenia,
@@ -328,6 +344,7 @@ npm run test:e2e    # 9 testów w przeglądarce
 - w treści pojawi się nazwa partii, nazwisko polityka albo słowo nacechowane („haracz”, „grabież”…),
 - brakuje tytułu, opisu, canonical albo jest więcej niż jeden H1,
 - link wewnętrzny prowadzi donikąd,
+- ten sam identyfikator (`id`) występuje na stronie więcej niż raz,
 - w treści zostało `undefined`, `NaN`, `TODO` albo „lorem ipsum”.
 
 Rozmiar: cała strona ok. 0,5 MB, skrypt kalkulatora ok. 56 KB razem z kompletem danych i źródeł.
@@ -371,6 +388,13 @@ Stawki zmieniają się co roku (część już jest uchwalona na 2027 r. – patr
 
 ---
 
+## Plan rozwoju
+
+- **Prognoza emerytury.** Silnik (`src/lib/engine/pension.ts`) i dane ze źródeł pierwotnych (`research/pension-2026.md`) są gotowe: wzór z art. 26 ustawy o emeryturach i rentach z FUS, tablice dalszego trwania życia GUS od 1.04.2026 (60 lat: 268,9 mies., 65 lat: 222,7 mies.), wskaźniki waloryzacji konta i subkonta, emerytura minimalna 1 978,49 zł, prognoza płac ZUS (FUS23) i stopa zastąpienia z EU Ageing Report 2024. ZUS nie publikuje prognozy waloryzacji ani przyszłej stopy zastąpienia, więc ten element będzie jawnie opisanym założeniem. Sekcja trafi na stronę po przejściu tego samego przeglądu czytelności co reszta.
+- **Stawki na 2027 r.** Część już uchwalono (akcyza na alkohol i papierosy, opłata paliwowa, abonament RTV, płaca minimalna 4 950 zł, limit składek 300 990 zł) – szczegóły w `research/*-2026.md`. Aktualizacja danych od 1.01.2027.
+
+---
+
 ## Ograniczenia i uproszczenia
 
 Uczciwie o tym, czego narzędzie nie robi (pełna lista: [Metodologia → Uproszczenia](https://ileoddajesz.pl/metodologia/#uproszczenia)):
@@ -379,7 +403,7 @@ Uczciwie o tym, czego narzędzie nie robi (pełna lista: [Metodologia → Uprosz
 - **Ceny alkoholu i prądu to przedziały rynkowe**, bo nie znaleźliśmy publikowanej średniej ceny. Karty produktów pokazują wynik dla całego przedziału. Cenę papierosów wyliczamy z oficjalnej średniej ceny MF.
 - **Struktura wydatków na alkohol** (47% mocne alkohole, 44% piwo, 9% wino) to założenie projektu na podstawie doniesień prasowych o rynku.
 - **Paliwa** liczone są według stawek obowiązujących w dniu aktualizacji (czasowa obniżka do 31.12.2026). W części roku obowiązywały stawki standardowe.
-- **Pensja stała przez cały rok**; bez premii, PPK (to oszczędności, nie danina), ulgi dla rodzin 4+, ulgi na powrót, ulg odliczanych od dochodu.
+- **Pensja stała przez cały rok**; bez premii, PPK (to oszczędności, nie podatek), ulgi dla rodzin 4+, ulgi na powrót, ulg odliczanych od dochodu.
 - **Składka wypadkowa:** stawka dla firm do 9 ubezpieczonych (1,67%).
 - **Podatki płacone przez firmy** (CIT, podatek od nieruchomości firm) częściowo przenoszą się na ceny, ale nie są liczone. To kolejny powód, dla którego wynik jest raczej zaniżony.
 - **„Na co idą pieniądze”** to podział proporcjonalny, a nie śledzenie konkretnej złotówki.
@@ -405,7 +429,7 @@ Nie. To niezależny projekt edukacyjny, niezwiązany z żadną instytucją publi
 OECD liczy klin tylko dla podatków i składek od pracy, a my dodajemy VAT, akcyzę i opłaty w cenach. OECD stosuje też własną definicję przeciętnego wynagrodzenia i klasyfikacji danin.
 
 **Dlaczego mój dzień wolności podatkowej różni się od tego z mediów?**
-Centrum im. Adama Smitha liczy jeden dzień dla całej Polski z relacji wszystkich wydatków publicznych do PKB (łącznie z deficytem). My liczymy z Twoich własnych danin.
+Centrum im. Adama Smitha liczy jeden dzień dla całej Polski z relacji wszystkich wydatków publicznych do PKB (łącznie z deficytem). My liczymy z Twoich własnych podatków i składek.
 
 **Czy składki emerytalne to podatek?**
 To kwestia sporna, dlatego jest przełącznik. Składki zwiększają Twoją przyszłą emeryturę (indywidualne konto w ZUS), ale są obowiązkowe, a dzisiejsze wpłaty od razu finansują dzisiejszych emerytów.
