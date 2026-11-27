@@ -37,6 +37,8 @@ for (const f of pages) {
   if (d.length < 50 || d.length > 300) errors.push(`${where}: opis meta ma ${d.length} znaków`);
   if (!f.startsWith('404') && !doc.querySelector('link[rel="canonical"]')) errors.push(`${where}: brak canonical`);
   const h1 = doc.querySelectorAll('h1').length; if (h1 !== 1) errors.push(`${where}: ${h1} nagłówków H1`);
+  const ids = new Map(); for (const el of doc.querySelectorAll('[id]')) { const id = el.getAttribute('id'); ids.set(id, (ids.get(id) ?? 0) + 1); }
+  for (const [id, n] of ids) if (n > 1) errors.push(`${where}: identyfikator #${id} występuje ${n} razy`);
   const text = doc.querySelector('body')?.structuredText ?? '';
   for (const re of FORBIDDEN) { const m = text.match(re); if (m) errors.push(`${where}: zakazane słowo „${m[0]}”`); }
   for (const a of doc.querySelectorAll('a[href]')) {

@@ -22,7 +22,7 @@ const rows: Row[] = [
   { label: 'Wódka 40%', unit: 'butelka 0,5 l', price: vodka.price, parts: [{ label: 'akcyza', g: 'akcyza', v: vodka.excise }, { label: 'VAT 23%', g: 'vat', v: vodka.vat }], note: 'Akcyzę liczy się od ilości czystego alkoholu: 0,5 l × 40% = 0,2 l spirytusu.' + range('vodka', R.alcohol.vodkaRange) },
   { label: 'Piwo', unit: 'butelka 0,5 l', price: beer.price, parts: [{ label: 'akcyza', g: 'akcyza', v: beer.excise }, { label: 'VAT 23%', g: 'vat', v: beer.vat }], note: 'Akcyza na piwo zależy od zawartości ekstraktu (stopnie Plato); przyjęliśmy typowe 12°.' + range('beer', R.alcohol.beerRange) },
   { label: 'Wino', unit: 'butelka 0,75 l', price: wine.price, parts: [{ label: 'akcyza', g: 'akcyza', v: wine.excise }, { label: 'VAT 23%', g: 'vat', v: wine.vat }], note: 'Wino ma stałą stawkę akcyzy za hektolitr, niezależnie od mocy (do 15%).' + range('wine', R.alcohol.wineRange) },
-  { label: 'Prąd', unit: `rachunek za 200 kWh`, price: el.bill, parts: [{ label: 'akcyza', g: 'akcyza', v: el.excise }, { label: 'opłaty mocowa, OZE, kogeneracyjna', g: 'lokalne', v: el.levies }, { label: 'VAT 23%', g: 'vat', v: el.vat }], note: `Opłaty mocowa, OZE i kogeneracyjna to opłaty ustawowe doliczane na rachunku; finansują rezerwy mocy i dopłaty do zielonej energii. Przy cenie od ${zl(R.electricity.priceRange[0])} do ${zl(R.electricity.priceRange[1])} za kWh daniny to ${elShare(elLo)}–${elShare(elHi)}% rachunku.` },
+  { label: 'Prąd', unit: `rachunek za 200 kWh`, price: el.bill, parts: [{ label: 'akcyza', g: 'akcyza', v: el.excise }, { label: 'opłaty na OZE i rezerwę mocy', g: 'lokalne', v: el.levies }, { label: 'VAT 23%', g: 'vat', v: el.vat }], note: `Na rachunku są też opłaty ustawowe: na prąd z wiatru i słońca (OZE) i na rezerwę mocy elektrowni (mocowa, kogeneracyjna). Przy cenie od ${zl(R.electricity.priceRange[0])} do ${zl(R.electricity.priceRange[1])} za kWh podatki i opłaty to ${elShare(elLo)}–${elShare(elHi)}% rachunku.` },
   ...R.products.map((p) => {
     const vat = p.price * p.vatRate / (1 + p.vatRate);
     const parts = [{ label: `VAT ${Math.round(p.vatRate * 100)}%`, g: 'vat', v: Math.round(vat * 100) / 100 }];
@@ -35,17 +35,17 @@ const rows: Row[] = [
 <section class="sec" id="produkty">
   <div class="wrap">
     <div class="head">
-      <p class="kicker"><b>10</b> Ile podatku jest w…</p>
+      <p class="kicker"><b>7</b> Ile podatku jest w…</p>
       <h2 class="h2">Codzienne zakupy pod lupą</h2>
       <p class="lead">Ten sam mechanizm w przykładach, które znasz ze sklepu. Stawki podatków są ustawowe; ceny paliw to ceny maksymalne z 27 listopada {R.meta.year} r., pozostałe ceny to typowe ceny sklepowe.</p>
     </div>
-    <ul class="prod">
-      {rows.map((r) => {
+    <ul class="prod collapsed" id="prod-list">
+      {rows.map((r, i) => {
         const tax = r.parts.reduce((s, p) => s + p.v, 0);
         const share = tax / r.price;
         return (
-          <li class="prod-i">
-            <div class="prod-top"><div><b>{r.label}</b><small>{r.unit} · {zl(r.price)}</small></div><span class="prod-pct num">{Math.round(share * 100)}%<small>to daniny</small></span></div>
+          <li class="prod-i" data-more={i >= 3 ? '1' : undefined}>
+            <div class="prod-top"><div><b>{r.label}</b><small>{r.unit} · {zl(r.price)}</small></div><span class="prod-pct num">{Math.round(share * 100)}%<small>to podatki i opłaty</small></span></div>
             <div class="prod-bar" role="img" aria-label={`${r.label}: ${zl(tax)} z ${zl(r.price)} to podatki i opłaty`}>
               {r.parts.map((p) => <span class={`g-${p.g}`} style={`width:${(p.v / r.price) * 100}%`}></span>)}
               <span class="rest"></span>
@@ -59,6 +59,7 @@ const rows: Row[] = [
         );
       })}
     </ul>
+    <button class="btn btn--ghost prod-more" type="button" id="prod-more">Pokaż więcej produktów ({rows.length - 3})</button>
     <p class="note">Ceny: {R.fuel.priceNote} {R.tobacco.priceNote} {R.alcohol.priceNote} {R.electricity.priceNote} Stawki i źródła: <a href="/metodologia/#akcyza">Metodologia</a>.</p>
   </div>
 </section>
@@ -78,4 +79,6 @@ const rows: Row[] = [
   .prod-leg li { display: flex; gap: 8px; align-items: center; }
   .prod-leg b { margin-left: auto; color: var(--ink); }
   .prod-note { font-size: 13.5px; color: var(--faint); }
+  .prod.collapsed .prod-i[data-more] { display: none; }
+  .prod-more { margin-top: 16px; }
 </style>

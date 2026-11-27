@@ -45,6 +45,19 @@ export interface Product {
 
 export interface SpendingFunction { id: string; label: string; plain: string; share: number }
 
+export interface GrowthPath { from: number; to: number; value: number }
+export interface PensionRates {
+  retirementAge: { k: number; m: number };
+  kontoRate: number; subkontoRate: number;
+  lifeTableYear: number; lifeTableMinAge: number; lifeTableMaxAge: number; lifeTable: Record<string, number>;
+  lifeExpectancyGainMonthsPerYear: number;
+  realWageGrowth: GrowthPath[]; realValorization: GrowthPath[];
+  pastRealWageGrowth: GrowthPath[]; pastRealValorization: GrowthPath[];
+  minimumPension: number; minimumRealGrowthShare: number; minimumStazYears: { k: number; m: number };
+  averagePension: number; thirteenth: number;
+  replacementForecast: { year: number; rate: number }[];
+}
+
 export interface Rates {
   meta: { year: number; asOf: string; version: string };
   sources: Record<string, SourceRef>;
@@ -60,6 +73,7 @@ export interface Rates {
   local: { rtvMonthly: number; wastePerPerson: number; propertyPerM2: number; belka: number; pccRate: number };
   basket: { categories: BasketCategory[]; savingsRate: number[]; quintileIncome: number[]; year: number; avgHouseholdSize: number };
   products: Product[];
+  pension: PensionRates;
   sugar: number[];
   refs: Record<string, string>;
   checks: { minWageNet: number; minWageEmployerCost: number };

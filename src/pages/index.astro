@@ -2,7 +2,9 @@
 import Base from '../layouts/Base.astro';
 import Products from '../components/Products.astro';
 import rates from '../data/rates-2026.json';
+import { computeLabor, type Rates } from '../lib/engine';
 const avgGross = rates.wages.average;
+const avgNet = computeLabor({ contract: 'uop', monthly: avgGross, under26: false }, rates as unknown as Rates).net / 12;
 const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
 ---
 <Base title="Kalkulator" path="/" description="Wpisz pensję i zobacz wszystkie podatki i składki, które płacisz: ZUS, NFZ, PIT, VAT i akcyzę w cenach. Z wyjaśnieniem, kiedy, gdzie i na co idą Twoje pieniądze. Dane i przepisy na 2026 r.">
@@ -11,7 +13,7 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
       <div class="hero-copy">
         <p class="kicker"><b>1</b> Twoja pensja</p>
         <h1 class="h1">Ile naprawdę oddajesz państwu?</h1>
-        <p class="lead">Na pasku płacowym widać tylko część danin. Resztę płaci za Ciebie pracodawca albo sklep, w cenie zakupów. Wpisz swoją pensję i w minutę zobacz <strong>całość</strong>: kiedy, gdzie i na co.</p>
+        <p class="lead">Na pasku płacowym widać tylko część podatków i składek. Resztę płaci za Ciebie pracodawca albo sklep – w cenach zakupów. Wpisz, ile dostajesz na konto, a w minutę zobaczysz <strong>całość</strong>: ile, kiedy i na co.</p>
         <ul class="hero-points">
           <li><span class="dot g-you"></span>Liczone z ustaw i danych GUS na {new Date(rates.meta.asOf).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' })}</li>
           <li><span class="dot g-zus"></span>Przy każdej liczbie: skąd ją wzięliśmy</li>
@@ -20,15 +22,15 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
       </div>
       <form class="card calc" id="calc" novalidate>
         <div class="field">
-          <label for="amount" id="amount-label">Ile zarabiasz miesięcznie?</label>
-          <div class="money"><input id="amount" name="amount" inputmode="numeric" autocomplete="off" value={fmt(avgGross)} aria-describedby="amount-hint" /><span>zł</span></div>
-          <p class="hint" id="amount-hint">Podpowiedź: przeciętne wynagrodzenie brutto to {fmt(avgGross)} zł ({rates.wages.averageLabel}).</p>
+          <label for="amount" id="amount-label">Ile dostajesz co miesiąc?</label>
+          <div class="money"><input id="amount" name="amount" inputmode="numeric" autocomplete="off" value={fmt(avgNet)} aria-describedby="amount-hint" /><span>zł</span></div>
+          <p class="hint" id="amount-hint">Wpisaliśmy przeciętną pensję: {fmt(avgNet)} zł na rękę, czyli {fmt(avgGross)} zł brutto ({rates.wages.averageLabel}). Zmień na swoją.</p>
         </div>
         <fieldset class="field fs">
           <legend class="lbl">To kwota…</legend>
           <div class="seg">
-            <label><input type="radio" name="amountIs" value="gross" checked /><span>brutto (z umowy)</span></label>
-            <label><input type="radio" name="amountIs" value="net" /><span>na rękę (netto)</span></label>
+            <label><input type="radio" name="amountIs" value="net" checked /><span>na rękę (tyle wpływa na konto)</span></label>
+            <label><input type="radio" name="amountIs" value="gross" /><span>brutto (tyle jest w umowie)</span></label>
           </div>
         </fieldset>
         <fieldset class="field fs">
@@ -60,7 +62,7 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
     <div class="wrap narrow">
       <p class="kicker"><b>2</b> Zanim zobaczysz wynik</p>
       <h2 class="h2">Zgadnij: ile z każdych 100 zł trafia do państwa?</h2>
-      <p class="lead">Chodzi o pełny koszt Twojej pracy: razem ze składkami płaconymi przez pracodawcę i podatkami w cenach zakupów. Najpierw zgadnij, potem porównaj z wynikiem.</p>
+      <p class="lead">Twój pracodawca wydaje na Ciebie co miesiąc więcej, niż masz w umowie. Z każdych 100 zł tej kwoty – ile w sumie trafia do państwa, licząc też podatki w sklepie? Najpierw zgadnij, potem porównaj.</p>
       <div class="card guess">
         <label for="guess" class="guess-lbl">Moim zdaniem: <output id="guess-out" class="num">25 zł</output> ze 100 zł</label>
         <input type="range" id="guess" min="0" max="90" step="1" value="25" />
@@ -76,13 +78,13 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
   <div id="results" hidden>
     <div class="sticky" id="sticky" role="region" aria-label="Podsumowanie i ustawienia">
       <div class="wrap sticky-in">
-        <p class="sticky-total"><span id="st-label">Miesięcznie oddajesz</span> <strong class="num" id="st-amount">—</strong> <span class="sticky-pct num" id="st-pct">—</span></p>
+        <p class="sticky-total"><span id="st-label">Oddajesz miesięcznie</span> <span class="st-nums"><strong class="num" id="st-amount">—</strong> <span class="sticky-pct num" id="st-pct">—</span></span></p>
         <div class="sticky-ctrl">
           <div class="seg seg-sm" role="group" aria-label="Okres">
             <button type="button" data-period="m" aria-pressed="true">miesiąc</button>
             <button type="button" data-period="y" aria-pressed="false">rok</button>
           </div>
-          <label class="switch"><input type="checkbox" id="zusAsTax" checked /><span><span class="sw-long">Licz emerytalną jako daninę</span><span class="sw-short" aria-hidden="true">emerytalna = danina</span></span></label>
+          <label class="switch"><input type="checkbox" id="zusAsTax" checked /><span><span class="sw-long">Liczę składki emerytalne i rentowe jako podatek</span><span class="sw-short" aria-hidden="true">składki ZUS = podatek</span></span></label>
           <a class="btn btn--ghost btn--small" href="#dopasuj">Dopasuj</a>
         </div>
       </div>
@@ -92,16 +94,10 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
       <div class="wrap">
         <p class="kicker"><b>3</b> Wynik</p>
         <h2 class="h2 big-result" id="big-result">—</h2>
-        <p class="lead" id="big-sub"></p>
         <p class="guess-cmp" id="guess-cmp" hidden></p>
-        <div class="coins-wrap card">
-          <div class="coins" id="coins" role="img"></div>
-          <ul class="legend" id="coins-legend"></ul>
-        </div>
-        <details class="why"><summary>Dlaczego liczymy od pełnego kosztu pracy, a nie od pensji brutto?</summary><div>
-          <p>Część składek ZUS płaci pracodawca, ale tylko dlatego, że Cię zatrudnia: to koszt Twojego stanowiska pracy. Ekonomiści (np. OECD w raporcie „Taxing Wages”) liczą obciążenie pracy właśnie od tej kwoty, nazywanej potocznie „brutto-brutto”. Dzięki temu można porównać umowę o pracę z B2B i Polskę z innymi krajami.</p></div></details>
-        <details class="why"><summary>Co zmienia przełącznik „Licz emerytalną jako daninę”?</summary><div>
-          <p>Składki emerytalne i rentowe różnią się od podatku: trafiają na Twoje indywidualne konto w ZUS i zwiększają przyszłą emeryturę. Z drugiej strony są obowiązkowe, a dzisiejsze wpłaty od razu finansują wypłaty obecnych emerytów (system repartycyjny). Dlatego pokazujemy obie wersje. Po wyłączeniu przełącznika te składki są osobną pozycją „odłożone na emeryturę”.</p></div></details>
+        <div class="three" id="three"></div>
+        <p class="lead big-sub" id="big-sub"></p>
+        <p class="note pension-note">W tej kwocie są też składki emerytalne i rentowe: są obowiązkowe, ale wrócą do Ciebie jako emerytura lub renta. Jeśli nie chcesz ich liczyć jako podatku, wyłącz przełącznik na górnym pasku.</p>
       </div>
     </section>
 
@@ -109,19 +105,37 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
       <div class="wrap">
         <div class="head">
           <p class="kicker"><b>4</b> Droga Twoich pieniędzy</p>
-          <h2 class="h2">Od kosztu pracy do tego, co naprawdę możesz kupić</h2>
-          <p class="lead">Każdy pasek to ta sama pensja na kolejnym etapie. Kolorowe kawałki to daniny zabierane po drodze.</p>
+          <h2 class="h2">Od tego, co wydaje pracodawca, do tego, co naprawdę możesz kupić</h2>
+          <p class="lead">Czytaj od góry: każdy pasek to te same pieniądze na kolejnym etapie. Kolorowe kawałki to podatki i składki zabierane po drodze, a paski w kratkę – to, co zabrano już wcześniej.</p>
         </div>
         <ol class="flow" id="flow"></ol>
+      </div>
+    </section>
+
+    <section class="sec" id="monety">
+      <div class="wrap">
+        <div class="head">
+          <p class="kicker"><b>5</b> Z każdych 100 zł</p>
+          <h2 class="h2">Kto dostaje Twoje pieniądze</h2>
+          <p class="lead">Każda moneta to 1 zł z każdych 100 zł, które pracodawca wydaje na Ciebie. Kolor pokazuje, dokąd trafia.</p>
+        </div>
+        <div class="coins-wrap card">
+          <div class="coins" id="coins" role="img"></div>
+          <ul class="legend" id="coins-legend"></ul>
+        </div>
+        <details class="why"><summary>Dlaczego liczymy od pełnego kosztu pracy, a nie od pensji brutto?</summary><div>
+          <p>Część składek ZUS płaci pracodawca, ale tylko dlatego, że Cię zatrudnia: to koszt Twojego stanowiska pracy. Ekonomiści (np. OECD w raporcie „Taxing Wages”) liczą obciążenie pracy właśnie od tej kwoty, nazywanej potocznie „brutto-brutto”. Dzięki temu można porównać umowę o pracę z B2B i Polskę z innymi krajami.</p></div></details>
+        <details class="why"><summary>Co zmienia przełącznik „Liczę składki emerytalne i rentowe jako podatek”?</summary><div>
+          <p>Składki emerytalne i rentowe różnią się od podatku: trafiają na Twoje indywidualne konto w ZUS i zwiększają przyszłą emeryturę. Z drugiej strony są obowiązkowe, a dzisiejsze wpłaty od razu finansują wypłaty obecnych emerytów (system repartycyjny). Dlatego pokazujemy obie wersje. Po wyłączeniu przełącznika te składki są osobną pozycją „odłożone na emeryturę”.</p></div></details>
       </div>
     </section>
 
     <section class="sec" id="paragon">
       <div class="wrap grid-2">
         <div>
-          <p class="kicker"><b>5</b> Paragon od państwa</p>
+          <p class="kicker"><b>6</b> Paragon od państwa</p>
           <h2 class="h2">Gdyby państwo wystawiało paragon</h2>
-          <p class="lead">Wszystkie daniny z jednego miesiąca lub roku w jednym miejscu. Pozycje w tej samej kolejności, w jakiej pieniądze znikają: najpierw u pracodawcy, potem z pensji, na końcu w sklepie.</p>
+          <p class="lead">Wszystkie podatki i składki z jednego miesiąca lub roku w jednym miejscu. Pozycje w tej samej kolejności, w jakiej pieniądze znikają: najpierw u pracodawcy, potem z pensji, na końcu w sklepie.</p>
           <div class="seg seg-sm period-inline" role="group" aria-label="Okres paragonu">
             <button type="button" data-period="m" aria-pressed="true">miesiąc</button>
             <button type="button" data-period="y" aria-pressed="false">rok</button>
@@ -133,12 +147,17 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
       </div>
     </section>
 
+    <Products />
+
+    <div class="more-gate" id="more-gate"><div class="wrap"><p class="lead">Wiesz już najważniejsze. Poniżej: kiedy płacisz, Twój dzień wolności podatkowej, na co państwo wydaje pieniądze i jak dopasować wynik do siebie.</p><button class="btn btn--primary" type="button" id="more-btn" aria-expanded="false" aria-controls="more">Pokaż więcej <span aria-hidden="true">↓</span></button></div></div>
+    <div id="more" hidden>
+
     <section class="sec" id="kiedy">
       <div class="wrap">
         <div class="head">
-          <p class="kicker"><b>6</b> Kiedy i gdzie płacisz</p>
-          <h2 class="h2">Twoje daniny w ciągu miesiąca i roku</h2>
-          <p class="lead">Większości danin nie płacisz sam: robi to za Ciebie pracodawca, sklep, stacja paliw albo elektrownia. Dlatego tak łatwo ich nie zauważyć.</p>
+          <p class="kicker"><b>8</b> Kiedy i gdzie płacisz</p>
+          <h2 class="h2">Kiedy i jak płacisz – często nawet o tym nie wiedząc</h2>
+          <p class="lead">Większości podatków nie płacisz sam: robi to za Ciebie pracodawca, sklep, stacja paliw albo elektrownia. Dlatego tak łatwo ich nie zauważyć.</p>
         </div>
         <ol class="timeline" id="timeline"></ol>
       </div>
@@ -147,7 +166,7 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
     <section class="sec" id="kalendarz">
       <div class="wrap">
         <div class="head">
-          <p class="kicker"><b>7</b> Twój rok i Twój dzień</p>
+          <p class="kicker"><b>9</b> Twój rok i Twój dzień</p>
           <h2 class="h2" id="cal-title">—</h2>
           <p class="lead" id="cal-lead"></p>
         </div>
@@ -161,40 +180,39 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
           <div class="clock-scale" aria-hidden="true"><span>8:00</span><span>10:00</span><span>12:00</span><span>14:00</span><span>16:00</span></div>
         </div>
         <details class="why"><summary>Czym jest „dzień wolności podatkowej”?</summary><div>
-          <p>To obrazowy sposób pokazania udziału danin w dochodzie: gdyby cały zarobek z początku roku szedł najpierw na podatki i składki, to od tego dnia zarabiasz już tylko dla siebie. Centrum im. Adama Smitha liczy taki dzień dla całej Polski (w {rates.meta.year} r. wypadł {new Date(rates.context.casFreedomDay).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long' })}), ale z innej metody: z relacji wszystkich wydatków publicznych do PKB, łącznie z deficytem. Twój dzień liczymy z Twoich danin, więc wynik się różni.</p></div></details>
+          <p>To obrazowy sposób pokazania, jaką część zarobków zabierają podatki i składki: gdyby cały zarobek z początku roku szedł najpierw na podatki i składki, to od tego dnia zarabiasz już tylko dla siebie. Centrum im. Adama Smitha liczy taki dzień dla całej Polski (w {rates.meta.year} r. wypadł {new Date(rates.context.casFreedomDay).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long' })}), ale z innej metody: z relacji wszystkich wydatków publicznych do PKB, łącznie z deficytem. Twój dzień liczymy z Twoich podatków i składek, więc wynik się różni.</p></div></details>
       </div>
     </section>
 
     <section class="sec" id="na-co">
       <div class="wrap">
         <div class="head">
-          <p class="kicker"><b>8</b> Na co idą Twoje pieniądze</p>
+          <p class="kicker"><b>10</b> Na co idą Twoje pieniądze</p>
           <h2 class="h2" id="where-title">—</h2>
-          <p class="lead">Podział według tego, na co państwo (rząd, ZUS, NFZ i samorządy razem) wydaje pieniądze. Wydatki państwa w {rates.cofog.year} r. rozłożyliśmy proporcjonalnie na Twoje daniny.</p>
+          <p class="lead">Podział według tego, na co państwo (rząd, ZUS, NFZ i samorządy razem) wydaje pieniądze. Wydatki państwa w {rates.cofog.year} r. rozłożyliśmy proporcjonalnie na Twoje podatki i składki.</p>
         </div>
         <ul class="where" id="where"></ul>
         <details class="why"><summary>Dlaczego proporcjonalnie?</summary><div>
-          <p>Pieniądze z różnych danin w dużej mierze mieszają się w budżecie, a ZUS i NFZ i tak dostają dotacje z podatków. Dlatego, tak jak robią to brytyjski urząd skarbowy (HMRC) czy australijski ATO w „paragonach podatkowych”, dzielimy Twoje daniny według struktury wydatków całego sektora publicznego (klasyfikacja COFOG, Eurostat).</p></div></details>
+          <p>Pieniądze z różnych podatków i składek w dużej mierze mieszają się w budżecie, a ZUS i NFZ i tak dostają dotacje z podatków. Dlatego, tak jak robią to brytyjski urząd skarbowy (HMRC) czy australijski ATO w „paragonach podatkowych”, dzielimy Twoje podatki i składki według struktury wydatków całego sektora publicznego (klasyfikacja COFOG, Eurostat).</p></div></details>
       </div>
     </section>
 
     <section class="sec" id="w-zamian">
       <div class="wrap">
         <div class="head">
-          <p class="kicker"><b>9</b> Druga strona rachunku</p>
+          <p class="kicker"><b>11</b> Druga strona rachunku</p>
           <h2 class="h2">Co państwo wydaje na przeciętnego mieszkańca</h2>
-          <p class="lead">Daniny to nie tylko koszt. Wracają jako emerytury, leczenie, szkoły, drogi czy bezpieczeństwo. Dla uczciwego obrazu pokazujemy obie strony.</p>
+          <p class="lead">Podatki i składki to nie tylko koszt. Wracają jako emerytury, leczenie, szkoły, drogi czy bezpieczeństwo. Dla uczciwego obrazu pokazujemy obie strony.</p>
         </div>
         <div class="return-grid" id="returns"></div>
       </div>
     </section>
 
-    <Products />
 
     <section class="sec" id="dopasuj">
       <div class="wrap">
         <div class="head">
-          <p class="kicker"><b>11</b> Dopasuj do siebie</p>
+          <p class="kicker"><b>12</b> Dopasuj do siebie</p>
           <h2 class="h2">Im więcej powiesz, tym dokładniejszy wynik</h2>
           <p class="lead">Puste pole = średnia GUS dla gospodarstw o podobnym dochodzie. Wszystko przelicza się od razu.</p>
         </div>
@@ -203,7 +221,7 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
             <div class="inp-row">
               <div class="field"><label for="persons">Ile osób utrzymuje się z tych dochodów?</label><input class="inp" id="persons" name="persons" type="number" min="1" max="12" value="1" /></div>
               <div class="field"><label for="children">Dzieci z ulgą prorodzinną</label><input class="inp" id="children" name="children" type="number" min="0" max="10" value="0" /></div>
-              <div class="field"><label for="partner">Druga osoba zarabia (brutto, umowa o pracę)</label><input class="inp" id="partner" name="partner" inputmode="numeric" placeholder="np. 6000" /></div>
+              <div class="field"><label for="partner">Druga osoba zarabia na rękę (zł miesięcznie)</label><input class="inp" id="partner" name="partner" inputmode="numeric" placeholder="np. 5000" /></div>
             </div>
           </fieldset>
           <fieldset class="fit-group"><legend class="h3">Zakupy z akcyzą</legend>
@@ -232,10 +250,12 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
       </div>
     </section>
 
+    </div>
+
     <section class="sec" id="udostepnij">
       <div class="wrap share">
         <div>
-          <p class="kicker"><b>12</b> Podziel się</p>
+          <p class="kicker"><b>13</b> Podziel się</p>
           <h2 class="h2">Pokaż innym, jak działa system</h2>
           <p class="lead">Obrazek pokazuje tylko procenty i datę, bez Twoich kwot. Link otwiera kalkulator z tymi samymi ustawieniami; dane są w części linku, której przeglądarka nie wysyła na serwer.</p>
           <div class="share-actions">
@@ -273,7 +293,8 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
   .guess-actions, .share-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   .sticky { position: sticky; top: 64px; z-index: 40; background: var(--panel); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); }
   .sticky-in { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between; padding-block: 8px; }
-  .sticky-total { font-size: 15px; color: var(--muted); }
+  .sticky-total { font-size: 15px; color: var(--muted); min-width: 0; }
+  .st-nums { white-space: nowrap; }
   .sticky-total strong { font-family: var(--display); font-size: 1.3rem; color: var(--ink); margin-inline: 4px; }
   .sticky-pct { font-weight: 700; color: var(--ink); background: var(--bg-2); padding: 2px 10px; border-radius: var(--r-pill); }
   .sticky-ctrl { display: flex; gap: 10px 16px; align-items: center; flex-wrap: wrap; }
@@ -282,7 +303,8 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
   .period-inline { margin-top: 18px; }
   @media (max-width: 640px) {
     .sticky-in { flex-wrap: nowrap; gap: 10px; padding-block: 6px; }
-    .sticky-total { font-size: 13px; line-height: 1.25; }
+    .sticky-total { font-size: 12.5px; line-height: 1.25; }
+    .sticky-pct { padding: 1px 6px; }
     .sticky-total strong { font-size: 1.05rem; display: inline-block; }
     .sticky-ctrl .seg, .sticky-ctrl .btn { display: none; }
     .sticky-ctrl .switch { gap: 8px; font-size: 12.5px; line-height: 1.2; }
@@ -290,6 +312,19 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
     .sw-short { display: inline; }
   }
   .big-result { font-size: clamp(2rem, 1.2rem + 3.6vw, 3.6rem); }
+  .three { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); gap: 12px; align-items: stretch; margin-top: 26px; }
+  @media (max-width: 760px) { .three { grid-template-columns: 1fr; gap: 4px; } .three-op { justify-self: center; font-size: 1.2rem; line-height: 1; } .three-i { padding: 12px 14px; } .three-i b { font-size: 1.6rem; } }
+  .three-i { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-m); padding: 16px 18px; display: grid; gap: 4px; align-content: start; }
+  .three-k { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .three-i b { font-family: var(--display); font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); line-height: 1.1; }
+  .three-i small { color: var(--faint); font-size: 14px; }
+  .three-you b { color: var(--c-you); }
+  .three-state b { color: var(--accent); }
+  .three-op { align-self: center; font-family: var(--display); font-size: 1.8rem; color: var(--faint); }
+  .big-sub { margin-top: 18px; }
+  .pension-note { margin-top: 10px; }
+  .more-gate { padding-block: 32px 48px; text-align: left; border-top: 1px solid var(--line); }
+  .more-gate .btn { margin-top: 18px; }
   .big-result em { font-style: normal; color: var(--accent); }
   .guess-cmp { margin-top: 14px; font-weight: 600; padding: 12px 16px; border-radius: var(--r-m); background: var(--bg-2); display: inline-block; }
   .coins-wrap { margin-top: 28px; display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); align-items: center; }
@@ -300,6 +335,9 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
   .legend { display: grid; gap: 10px; }
   .legend li { display: grid; grid-template-columns: 14px 1fr auto; gap: 10px; align-items: baseline; font-size: 15px; }
   .legend li .dot { transform: translateY(1px); }
+  .legend .legend-h { font-size: 12px; color: var(--faint); text-transform: uppercase; letter-spacing: .05em; }
+  .legend .legend-h small { display: block; text-transform: none; letter-spacing: 0; }
+  .legend .num small { display: block; color: var(--faint); font-size: 13px; font-weight: 500; }
   .legend b { font-weight: 600; }
   .legend small { display: block; color: var(--faint); font-size: 13px; }
   .legend .num { font-weight: 700; }
@@ -308,6 +346,7 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
   .flow-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
   .flow-top b { font-family: var(--display); font-size: 1.1rem; }
   .flow-top small { color: var(--faint); display: block; font-size: 14px; }
+  .flow-tag { display: inline-block; margin-left: 8px; font-size: 12.5px; font-weight: 600; color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); padding: 2px 8px; border-radius: var(--r-pill); vertical-align: 2px; }
   .flow-top .num { font-family: var(--display); font-size: 1.3rem; font-weight: 700; }
   .flow-bar { display: flex; height: 44px; border-radius: 10px; overflow: hidden; background: var(--bg-2); }
   .flow-bar > span { display: block; height: 100%; transition: width .6s var(--ease); min-width: 0; }
@@ -316,6 +355,7 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
   .flow-bar .lost { background: repeating-linear-gradient(-45deg, var(--line), var(--line) 4px, transparent 4px, transparent 8px); }
   .flow-cut { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; color: var(--muted); }
   .flow-cut span { display: inline-flex; gap: 6px; align-items: center; }
+  .flow-cut-h { flex-basis: 100%; font-style: normal; font-weight: 600; color: var(--ink); font-size: 13.5px; }
   .receipt { font-family: var(--mono); font-size: 14px; background: #fffef9; color: #222; padding: 28px 24px 36px; max-width: 440px; width: 100%; justify-self: center; box-shadow: var(--shadow); position: relative; line-height: 1.5;
     -webkit-mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%; mask: conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) 50% / 16px 100%; }
   .receipt h3 { font-family: var(--mono); text-align: center; font-size: 16px; letter-spacing: .08em; }
@@ -338,7 +378,10 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
   .tl-ico svg { width: 26px; height: 26px; }
   .tl-when { font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); }
   .tl h3 { font-size: 1.15rem; margin: 2px 0 6px; }
-  .tl p { color: var(--muted); font-size: 15.5px; max-width: 70ch; }
+  .tl p, .tl-text { color: var(--muted); font-size: 15.5px; max-width: 70ch; }
+  .tl-more { margin-top: 6px; font-size: 14px; }
+  .tl-more summary { cursor: pointer; color: var(--accent); font-weight: 600; }
+  .tl-more span { display: block; margin-top: 6px; color: var(--faint); }
   .tl .amt { font-family: var(--display); font-weight: 700; color: var(--ink); }
   .cal-card, .clock-card { margin-top: 20px; }
   .cal { display: grid; gap: 4px; }
@@ -364,6 +407,8 @@ const fmt = (n: number) => Math.round(n).toLocaleString('pl-PL');
   .ret .num { font-family: var(--display); font-size: 1.7rem; font-weight: 700; display: block; margin: 4px 0; }
   .ret p { color: var(--muted); font-size: 15px; }
   .ret.wide { grid-column: 1 / -1; background: var(--bg-2); }
+  .ret .ret-big { font-size: 17px; color: var(--ink); margin-bottom: 8px; }
+  .ret details.why { margin-top: 12px; }
   .fit { display: grid; gap: 28px; }
   .fit-group { border: 0; padding: 0; margin: 0; display: grid; gap: 14px; }
   .fit-group legend { margin-bottom: 12px; padding: 0; }

@@ -28,7 +28,7 @@ test('kalkulator: pełna ścieżka z zgadywaniem, wynik i wszystkie sekcje', asy
   await expect(page.locator('#results')).toBeVisible();
   await expect(page.locator('#big-result')).toContainText('zł');
   await expect(page.locator('#coins .coin')).toHaveCount(100);
-  await expect(page.locator('#receipt')).toContainText('RAZEM DANINY');
+  await expect(page.locator('#receipt')).toContainText('RAZEM DO PAŃSTWA');
   await expect(page.locator('#cal-days, #cal .cal-days i')).toHaveCount(365);
   await expect(page.locator('#where li')).toHaveCount(12);
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -64,4 +64,18 @@ test('ciemny i jasny motyw: wynik czytelny (axe kontrast)', async ({ page }) => 
   const axe = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
   expect(axe.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).slice(0, 4).join(' | ')}`)).toEqual([]);
   await page.screenshot({ path: 'reports/light-result.png', fullPage: false });
+});
+
+test('stopniowe odsłanianie: „Pokaż więcej” i więcej produktów; zgadywanie bez ruszania suwaka', async ({ page }) => {
+  await page.goto('/');
+  await page.click('button[type=submit]');
+  await page.click('#guess-go');
+  await expect(page.locator('#zgadnij')).toBeHidden();
+  await expect(page.locator('#guess-cmp')).toBeHidden();
+  await expect(page.locator('#kiedy')).toBeHidden();
+  await page.click('#more-btn');
+  await expect(page.locator('#kiedy')).toBeVisible();
+  await expect(page.locator('#prod-list .prod-i[data-more]').first()).toBeHidden();
+  await page.click('#prod-more');
+  await expect(page.locator('#prod-list .prod-i[data-more]').first()).toBeVisible();
 });

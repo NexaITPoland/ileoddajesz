@@ -48,8 +48,8 @@ export const LABELS: Record<ItemId, { label: string; plain: string; group: Group
   zus_emer_er: { label: 'Składka emerytalna (pracodawca)', plain: 'Na Twoją przyszłą emeryturę', group: 'zus', pension: true },
   zus_rent_er: { label: 'Składka rentowa (pracodawca)', plain: 'Na rentę, gdybyś nie mógł pracować', group: 'zus', pension: true },
   zus_wyp: { label: 'Składka wypadkowa', plain: 'Na wypadki przy pracy', group: 'zus' },
-  fp: { label: 'Fundusz Pracy i Solidarnościowy', plain: 'Zasiłki dla bezrobotnych, wsparcie osób z niepełnosprawnościami', group: 'fp' },
-  fgsp: { label: 'FGŚP', plain: 'Na pensje, gdy firma zbankrutuje', group: 'fp' },
+  fp: { label: 'Fundusz Pracy i Solidarnościowy', plain: 'Na zasiłki dla bezrobotnych i wsparcie osób z niepełnosprawnościami', group: 'fp' },
+  fgsp: { label: 'Fundusz na pensje przy upadłości firmy', plain: 'Wypłaca pensje, gdy pracodawca zbankrutuje (FGŚP)', group: 'fp' },
   zus_emer_emp: { label: 'Składka emerytalna (Ty)', plain: 'Na Twoją przyszłą emeryturę', group: 'zus', pension: true },
   zus_rent_emp: { label: 'Składka rentowa (Ty)', plain: 'Na rentę, gdybyś nie mógł pracować', group: 'zus', pension: true },
   zus_chor: { label: 'Składka chorobowa', plain: 'Na L4 i zasiłek macierzyński', group: 'zus' },
@@ -59,7 +59,7 @@ export const LABELS: Record<ItemId, { label: string; plain: string; group: Group
   b2b_rent: { label: 'Składka rentowa', plain: 'Na rentę, gdybyś nie mógł pracować', group: 'zus', pension: true },
   b2b_chor: { label: 'Składka chorobowa', plain: 'Na L4 (dobrowolna)', group: 'zus' },
   b2b_wyp: { label: 'Składka wypadkowa', plain: 'Na wypadki przy pracy', group: 'zus' },
-  b2b_fp: { label: 'Fundusz Pracy i Solidarnościowy', plain: 'Zasiłki dla bezrobotnych, wsparcie osób z niepełnosprawnościami', group: 'fp' },
+  b2b_fp: { label: 'Fundusz Pracy i Solidarnościowy', plain: 'Na zasiłki dla bezrobotnych i wsparcie osób z niepełnosprawnościami', group: 'fp' },
 };
 
 function laborFor(p: PersonInput, R: Rates): LaborResult {
@@ -102,7 +102,7 @@ export function compute(input: Input, R: Rates): Result {
 
   const consumption = computeConsumption(Math.max(0, disposable - localSpend), input.basket, R);
   if (consumption.vat) slices.push({ id: 'vat', group: 'vat', label: 'VAT w cenach', plain: 'Ukryty w cenie prawie wszystkiego, co kupujesz', amount: consumption.vat, payer: 'prices' });
-  if (consumption.excise) slices.push({ id: 'excise', group: 'akcyza', label: 'Akcyza i opłaty w cenach', plain: 'Paliwo, prąd, alkohol, papierosy, słodkie napoje', amount: consumption.excise, payer: 'prices' });
+  if (consumption.excise) slices.push({ id: 'excise', group: 'akcyza', label: 'Akcyza w cenach', plain: 'Dodatkowy podatek na paliwo, prąd, alkohol, papierosy i słodkie napoje', amount: consumption.excise, payer: 'prices' });
   slices.push(...local);
 
   const pensionContrib = r2(slices.filter((s) => s.pension).reduce((s, x) => s + x.amount, 0));

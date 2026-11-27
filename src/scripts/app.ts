@@ -19,15 +19,15 @@ const parseNum = (s: string | null | undefined): number | undefined => {
 };
 
 const GROUPS: Record<Group | 'you' | 'pension', { label: string; plain: string }> = {
-  you: { label: 'Zostaje dla Ciebie', plain: 'Na zakupy i oszczędności' },
+  you: { label: 'Realnie dla Ciebie', plain: 'Na zakupy (już bez podatków w cenach) i oszczędności' },
   zus: { label: 'ZUS', plain: 'Emerytury, renty, L4, wypadki' },
-  pension: { label: 'Odłożone na emeryturę', plain: 'Składki emerytalne i rentowe' },
+  pension: { label: 'Odłożone na emeryturę i rentę', plain: 'Składki emerytalne i rentowe (wrócą jako świadczenie)' },
   nfz: { label: 'NFZ', plain: 'Leczenie' },
-  pit: { label: 'PIT', plain: 'Podatek od pensji i odsetek' },
-  fp: { label: 'Fundusze celowe', plain: 'Fundusz Pracy, Solidarnościowy, FGŚP' },
+  pit: { label: 'PIT', plain: 'Podatek dochodowy od pensji' },
+  fp: { label: 'Fundusz Pracy i inne', plain: 'Zasiłki dla bezrobotnych, pomoc gdy firma upadnie' },
   vat: { label: 'VAT', plain: 'W cenach zakupów' },
-  akcyza: { label: 'Akcyza i opłaty', plain: 'Paliwo, prąd, alkohol, papierosy' },
-  lokalne: { label: 'Gmina i media publiczne', plain: 'Nieruchomość, śmieci, RTV' },
+  akcyza: { label: 'Akcyza', plain: 'Dodatkowy podatek w cenie paliwa, prądu, alkoholu i papierosów' },
+  lokalne: { label: 'Gmina', plain: 'Opłata za śmieci (i ewentualnie RTV, podatek od mieszkania)' },
 };
 const ORDER: (Group | 'pension')[] = ['pension', 'zus', 'fp', 'nfz', 'pit', 'vat', 'akcyza', 'lokalne'];
 
@@ -95,7 +95,7 @@ function toInput(): Input {
     b2bTax: state.b2bTax, b2bZus: state.b2bZus, ryczaltRate: state.ryczaltRate, b2bCostsMonthly: state.b2bCosts,
   };
   const people: PersonInput[] = [main];
-  if (state.partner) people.push({ contract: 'uop', amount: state.partner, amountIs: 'gross', under26: false });
+  if (state.partner) people.push({ contract: 'uop', amount: state.partner, amountIs: 'net', under26: false });
   const persons = Math.max(state.persons, people.length);
   return {
     people,
@@ -167,20 +167,34 @@ function render() {
   const base = res.base || 1;
 
   // Pasek przyklejony
-  $('#st-label').textContent = `${state.period === 'm' ? 'Miesięcznie' : 'Rocznie'} oddajesz`;
+  $('#st-label').textContent = `Oddajesz ${state.period === 'm' ? 'miesięcznie' : 'rocznie'}`;
   $('#st-amount').textContent = zl(per(res.taxes));
   $('#st-pct').textContent = pct(res.share);
   $$('[data-period]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.period === state.period)));
 
   // Wielki wynik
   const per100 = Math.round(res.share * 100);
-  $('#big-result').innerHTML = `Z każdych 100&nbsp;zł kosztu Twojej pracy do państwa trafia <em class="num">${per100}&nbsp;zł</em>`;
-  $('#big-sub').innerHTML = `To <strong class="num">${zl(res.taxes / 12)}</strong> miesięcznie i <strong class="num">${zl(res.taxes)}</strong> rocznie${pensionAsSeparate ? `, nie licząc <strong class="num">${zl(res.pensionContrib / 12)}</strong> miesięcznie składek odkładanych na Twoją emeryturę` : ''}. Pełny koszt Twojej pracy to <strong class="num">${zl(res.laborCost / 12)}</strong> miesięcznie, a na konto trafia <strong class="num">${zl(res.net / 12)}</strong>.`;
+  const b2b = state.contract === 'b2b';
+  $('#big-result').innerHTML = `Z każdych 100&nbsp;zł, które ${b2b ? 'zarabia Twoja firma' : 'pracodawca wydaje na Ciebie'}, państwo dostaje <em class="num">${per100}&nbsp;zł</em>`;
+  const inPrices = res.taxes - res.slices.filter((x) => x.payer === 'employer' || x.payer === 'you').reduce((a, x) => a + x.amount, 0);
+  $('#three').innerHTML = `
+    <div class="three-i"><span class="three-k">${b2b ? 'Firma zarabia' : 'Pracodawca wydaje na Ciebie'}</span><b class="num">${zl(res.laborCost / 12)}</b><small>${b2b ? 'przychód minus koszty, miesięcznie' : 'pensja brutto + składki, których nie widzisz na pasku'}</small></div>
+    <div class="three-op" aria-hidden="true">=</div>
+    <div class="three-i three-you"><span class="three-k">Na Twoje konto</span><b class="num">${zl(res.net / 12)}</b><small>${b2b ? 'po ZUS, NFZ i podatku' : `na rękę (w umowie: ${zl(res.gross / 12)} brutto)`}</small></div>
+    <div class="three-op" aria-hidden="true">+</div>
+    <div class="three-i three-state"><span class="three-k">Do państwa</span><b class="num">${zl((res.laborCost - res.net) / 12)}</b><small>składki i podatek, zanim dostaniesz pensję</small></div>`;
+  $('#big-sub').innerHTML = `A to nie koniec: z ${zl(res.net / 12)} na koncie około <strong class="num">${zl(inPrices / 12)}</strong> wraca do państwa przy zakupach (VAT, akcyza) i w opłacie za śmieci. Razem oddajesz więc <strong class="num">${zl(res.taxes / 12)}</strong> miesięcznie, czyli <strong class="num">${zl(res.taxes)}</strong> rocznie${pensionAsSeparate ? ` (bez <strong class="num">${zl(res.pensionContrib / 12)}</strong> miesięcznie składek emerytalnych i rentowych)` : ''}. Realnie dla Ciebie zostaje <strong class="num">${zl(res.kept / 12)}</strong> miesięcznie.`;
   const gc = $('#guess-cmp');
   if (state.guess != null) {
-    const diff = per100 - state.guess;
+    const fullShare = state.zusAsTax ? per100 : Math.round(compute({ ...toInput(), zusAsTax: true }, R).share * 100);
+    const diff = fullShare - state.guess;
     gc.hidden = false;
-    gc.textContent = Math.abs(diff) <= 3 ? `Twój typ: ${state.guess} zł. Prawie idealnie!` : diff > 0 ? `Twój typ: ${state.guess} zł. W rzeczywistości o ${diff} zł więcej.` : `Twój typ: ${state.guess} zł. W rzeczywistości o ${-diff} zł mniej.`;
+    // Typ zawsze oceniamy względem pełnego wyniku (ze składkami emerytalnymi i rentowymi), niezależnie od przełącznika.
+    const full = state.zusAsTax ? per100 : Math.round(compute({ ...toInput(), zusAsTax: true }, R).share * 100);
+    const ratio = state.guess > 0 ? full / state.guess : 0;
+    const times = ratio >= 1.8 ? ` – prawie ${Math.round(ratio)} razy więcej` : ` – o ${diff} zł więcej`;
+    const extra = state.zusAsTax ? '' : ` (bez składek emerytalnych i rentowych: ${per100} zł)`;
+    gc.textContent = Math.abs(diff) <= 3 ? `Strzelałeś ${state.guess} zł, a jest ${full} zł${extra}. Prawie idealnie!` : diff > 0 ? `Strzelałeś ${state.guess} zł, a naprawdę jest ${full} zł${times}${extra}.` : `Strzelałeś ${state.guess} zł, a naprawdę jest ${full} zł – o ${-diff} zł mniej${extra}.`;
   } else gc.hidden = true;
 
   renderCoins(res, groups, base);
@@ -207,10 +221,11 @@ function renderCoins(res: Result, groups: { key: string; amount: number }[], bas
   for (const p of floor) for (let k = 0; k < p.n; k++) coins.push(`<i class="coin ${cssGroup(p.key)}${p.key === 'pension' ? ' is-pension' : ''}" style="--i:${i++}"></i>`);
   const el = $('#coins'); el.innerHTML = coins.join('');
   el.setAttribute('aria-label', `100 monet: ${floor.map((p) => `${p.n} – ${GROUPS[p.key as keyof typeof GROUPS].label}`).join(', ')}`);
-  $('#coins-legend').innerHTML = floor.filter((p) => p.n > 0 || p.key === 'you').map((p) => {
+  $('#coins-legend').innerHTML = `<li class="legend-h"><span></span><span></span><span class="num">ze 100 zł<small>${perLabel()}</small></span></li>` + floor.map((p) => {
     const g = GROUPS[p.key as keyof typeof GROUPS];
     const amount = p.key === 'you' ? res.kept : groups.find((x) => x.key === p.key)!.amount;
-    return `<li><span class="dot ${cssGroup(p.key)}"></span><span><b>${g.label}</b><small>${g.plain}</small></span><span class="num">${p.n} zł <small>${zl(per(amount))}</small></span></li>`;
+    const n = p.n === 0 ? '<1 zł' : `${p.n} zł`;
+    return `<li><span class="dot ${cssGroup(p.key)}"></span><span><b>${g.label}</b><small>${g.plain}</small></span><span class="num">${n}<small>${zl(per(amount))}</small></span></li>`;
   }).join('');
 }
 
@@ -218,18 +233,18 @@ function renderFlow(res: Result) {
   const base = res.base || 1;
   const bySlice = (pred: (s: Slice) => boolean) => res.slices.filter(pred);
   const pensionSlices = !state.zusAsTax ? computePensionSlices(res) : [];
-  const stages: { title: string; sub: string; cut: { label: string; group: string; amount: number }[] }[] = [];
+  const stages: { title: string; tag: string; sub: string; cutLabel?: string; cut: { label: string; group: string; amount: number }[] }[] = [];
   const b2b = state.contract === 'b2b';
   const employer = bySlice((s) => s.payer === 'employer').concat(pensionSlices.filter((s) => s.payer === 'employer'));
   const you = bySlice((s) => s.payer === 'you').concat(pensionSlices.filter((s) => s.payer === 'you'));
   const local = bySlice((s) => s.payer === 'local');
   const prices = bySlice((s) => s.payer === 'prices');
   const cutOf = (arr: Slice[]) => arr.map((s) => ({ label: s.label, group: s.pension && !state.zusAsTax ? 'pension' : s.group, amount: s.amount }));
-  stages.push({ title: b2b ? 'Twój przychód minus koszty firmy' : 'Ile naprawdę kosztuje Twoja praca', sub: b2b ? 'Tyle zarabia Twoja firma przed daninami' : 'Tyle wydaje pracodawca („brutto-brutto”)', cut: [] });
-  if (!b2b && employer.length) stages.push({ title: 'Pensja brutto', sub: 'Kwota z umowy. Wcześniej pracodawca płaci swoją część składek', cut: cutOf(employer) });
-  stages.push({ title: 'Na rękę', sub: b2b ? 'Po opłaceniu ZUS, zdrowotnej i podatku' : 'Po składkach i podatku potrąconych z pensji', cut: cutOf(you) });
-  if (local.length) stages.push({ title: 'Po opłatach lokalnych', sub: 'Gmina, abonament, podatek od odsetek', cut: cutOf(local) });
-  stages.push({ title: 'Realna wartość zakupów i oszczędności', sub: 'Po odjęciu VAT i akcyzy ukrytych w cenach', cut: cutOf(prices) });
+  stages.push({ title: b2b ? 'Twoja firma zarabia' : 'Pracodawca wydaje na Ciebie', tag: b2b ? '' : 'tego nie widzisz nigdzie', sub: b2b ? 'Przychód minus koszty firmy' : 'Pensja brutto plus składki płacone „od pracodawcy”', cut: [] });
+  if (!b2b && employer.length) stages.push({ title: 'Pensja brutto', tag: 'to masz w umowie', sub: 'Zanim ją zobaczysz, pracodawca przelał już swoją część składek', cutLabel: 'Tyle pracodawca płaci ponad Twoje brutto:', cut: cutOf(employer) });
+  stages.push({ title: 'Na rękę', tag: 'to widzisz na koncie', sub: b2b ? 'Po opłaceniu ZUS, zdrowotnej i podatku' : 'Po Twoich składkach i podatku potrąconych z pensji', cutLabel: b2b ? 'Tyle płacisz z przychodu:' : 'Tyle potrącono z Twojej pensji brutto:', cut: cutOf(you) });
+  if (local.length) stages.push({ title: 'Po opłatach dla gminy', tag: '', sub: local.map((x) => x.label).join(', '), cutLabel: 'Tyle płacisz gminie:', cut: cutOf(local) });
+  stages.push({ title: 'Co naprawdę możesz kupić', tag: 'realnie Twoje', sub: 'Przy zakupach część pieniędzy wraca do państwa w cenach (VAT, akcyza)', cutLabel: 'Tyle wraca do państwa w cenach zakupów:', cut: cutOf(prices) });
 
   let remaining = base; let lost = 0;
   const html = stages.map((st) => {
@@ -238,8 +253,8 @@ function renderFlow(res: Result) {
     const prevLost = lost; lost += cutSum;
     const w = (x: number) => `${Math.max(0, (x / base) * 100).toFixed(2)}%`;
     const bar = `<span class="keep" style="width:${w(remaining)}"></span>${st.cut.map((c) => `<span class="gone ${cssGroup(c.group)}" style="width:${w(c.amount)}" title="${esc(c.label)}"></span>`).join('')}<span class="lost" style="width:${w(prevLost)}"></span>`;
-    const cut = st.cut.length ? `<div class="flow-cut">${st.cut.map((c) => `<span><i class="dot ${cssGroup(c.group)}"></i>${esc(c.label)} <b class="num">−${zl(per(c.amount))}</b></span>`).join('')}</div>` : '';
-    return `<li class="flow-step"><div class="flow-top"><div><b>${st.title}</b><small>${st.sub}</small></div><span class="num">${zl(per(remaining))}</span></div><div class="flow-bar" aria-hidden="true">${bar}</div>${cut}</li>`;
+    const cut = st.cut.length ? `<div class="flow-cut">${st.cutLabel ? `<em class="flow-cut-h">${st.cutLabel}</em>` : ''}${st.cut.map((c) => `<span><i class="dot ${cssGroup(c.group)}"></i>${esc(c.label)} <b class="num">−${zl(per(c.amount))}</b></span>`).join('')}</div>` : '';
+    return `<li class="flow-step"><div class="flow-top"><div><b>${st.title}</b>${st.tag ? ` <span class="flow-tag">${st.tag}</span>` : ''}<small>${st.sub}</small></div><span class="num">${zl(per(remaining))}</span></div><div class="flow-bar" aria-hidden="true">${bar}</div>${cut}</li>`;
   }).join('');
   $('#flow').innerHTML = html;
 }
@@ -264,10 +279,10 @@ function renderReceipt(res: Result) {
   const date = new Date().toLocaleDateString('pl-PL');
   let h = `<h3>PARAGON OD PAŃSTWA</h3><p class="rc-c">wydruk edukacyjny · nie jest dokumentem fiskalnym<br>${state.period === 'm' ? 'okres: 1 miesiąc' : `okres: rok ${R.meta.year}`} · ${date}</p><hr>`;
   for (const sec of sections) if (sec.items.length) h += `<p class="rc-g">${sec.title}</p>${sec.items.map(line).join('')}`;
-  h += `<hr><div class="rc-l rc-tot"><span>RAZEM DANINY</span><i></i><span class="num">${m(res.taxes)}</span></div>`;
-  h += `<div class="rc-l"><span>Udział w koszcie pracy</span><i></i><span class="num">${pct(res.share)}</span></div>`;
-  if (pensionSlices.length) h += `<hr><p class="rc-g">ODŁOŻONE NA TWOJĄ EMERYTURĘ (NIE LICZONE JAKO DANINA)</p>${pensionSlices.map(line).join('')}`;
-  h += `<hr><div class="rc-l rc-keep"><span>ZOSTAJE DLA CIEBIE</span><i></i><span class="num">${m(res.kept)}</span></div>`;
+  h += `<hr><div class="rc-l rc-tot"><span>RAZEM DO PAŃSTWA</span><i></i><span class="num">${m(res.taxes)}</span></div>`;
+  h += `<p class="rc-c" style="text-align:left">to ${pct(res.share)} z ${m(res.base)}, które ${state.contract === 'b2b' ? 'zarabia firma' : 'wydaje na Ciebie pracodawca'}</p>`;
+  if (pensionSlices.length) h += `<hr><p class="rc-g">ODŁOŻONE NA TWOJĄ EMERYTURĘ (NIE LICZONE JAKO PODATEK)</p>${pensionSlices.map(line).join('')}`;
+  h += `<hr><div class="rc-l rc-keep"><span>REALNIE DLA CIEBIE</span><i></i><span class="num">${m(res.kept)}</span></div>`;
   h += `<p class="rc-c" style="margin-top:14px">Źródła i wzory: strona Metodologia.<br>Stan prawny: ${new Date(R.meta.asOf).toLocaleDateString('pl-PL')}</p>`;
   $('#receipt').innerHTML = h;
 }
@@ -292,20 +307,21 @@ function renderTimeline(res: Result) {
   items.push(tl('pay', 'g-zus', 'Co miesiąc, zanim pieniądze trafią na Twoje konto', b2b ? 'Przelewasz sam: ZUS, NFZ i PIT' : 'Pracodawca potrąca i przelewa za Ciebie',
     b2b
       ? `Do 20. dnia następnego miesiąca wysyłasz do ZUS składki społeczne i zdrowotną, a do urzędu skarbowego zaliczkę na podatek. Razem <span class="amt">${zl(payroll / 12)}</span> miesięcznie. Fakturując z VAT, co miesiąc do 25. rozliczasz też VAT pobrany od klientów, ale to pieniądze klientów, nie Twój koszt.`
-      : `Na pasku widzisz kwotę brutto i netto. Różnicę oraz składki „od pracodawcy” firma przelewa do ZUS do 15. dnia następnego miesiąca (firmy z osobowością prawną, np. sp. z o.o.) albo do 20. (pozostali pracodawcy, np. jednoosobowe firmy i spółki cywilne); ZUS przekazuje składkę zdrowotną do NFZ. Zaliczkę na PIT pracodawca wpłaca bezpośrednio do urzędu skarbowego do 20. Razem <span class="amt">${zl(payroll / 12)}</span> miesięcznie, z czego Ty widzisz na pasku tylko część.`));
+      : `Co miesiąc pracodawca przelewa za Ciebie <span class="amt">${zl(payroll / 12)}</span>: do ZUS (emerytura, renta, chorobowe, NFZ) i do urzędu skarbowego (podatek). Na pasku płacowym widzisz tylko część tej kwoty.${more('Terminy: składki do ZUS do 15. dnia następnego miesiąca (firmy z osobowością prawną, np. sp. z o.o.) albo do 20. (pozostali pracodawcy). ZUS przekazuje składkę zdrowotną do NFZ. Zaliczkę na podatek pracodawca wpłaca do urzędu skarbowego do 20.')}`));
   items.push(tl('shop', 'g-vat', 'Codziennie, przy każdym zakupie', 'VAT w cenie: sklep płaci, Ty finansujesz',
-    `Średnio <span class="amt">${zl(vat / 365, true)}</span> dziennie, czyli <span class="amt">${zl(vat / 12)}</span> miesięcznie. Na paragonie VAT jest wydrukowany na dole, ale już w cenie. Sklep odprowadza go do urzędu skarbowego do 25. dnia następnego miesiąca. Stawki: 5% podstawowa żywność i książki, 8% m.in. usługi gastronomiczne, leki i transport publiczny, 23% pozostałe.`));
+    `Około <span class="amt">${zl(vat / 12)}</span> miesięcznie. VAT jest już wliczony w każdą cenę – na paragonie widać go na samym dole.${more('Sklep odprowadza VAT do urzędu skarbowego do 25. dnia następnego miesiąca. Stawki: 5% podstawowa żywność i książki, 8% m.in. jedzenie w restauracji, leki, bilety, 23% pozostałe rzeczy.')}`));
   items.push(tl('fuel', 'g-akcyza', 'Na stacji, przy rachunku za prąd, w sklepie z alkoholem', 'Akcyza i opłaty: płaci producent, Ty w cenie',
-    `Około <span class="amt">${zl(exc / 12)}</span> miesięcznie. Akcyzę (do budżetu państwa) oraz opłatę paliwową (do Krajowego Funduszu Drogowego i Funduszu Kolejowego) płaci producent lub importer, zanim towar trafi na półkę. Do tego dochodzi VAT naliczany także od akcyzy, czyli podatek od podatku.`));
-  if (local.length) items.push(tl('home', 'g-lokalne', 'W ratach, kilka razy w roku', 'Gmina i media publiczne',
+    `Około <span class="amt">${zl(exc / 12)}</span> miesięcznie. Akcyza to dodatkowy podatek na paliwo, prąd, alkohol i papierosy. Płaci go producent, a Ty w cenie. VAT liczy się nawet od akcyzy – to podatek od podatku.${more('Akcyza trafia do budżetu państwa, opłata paliwowa do Krajowego Funduszu Drogowego i Funduszu Kolejowego, opłata emisyjna do funduszu ochrony środowiska.')}`));
+  if (local.length) items.push(tl('home', 'g-lokalne', 'W ratach, kilka razy w roku', local.some((s) => s.id === 'rtv') ? 'Opłaty dla gminy i abonament RTV' : 'Opłaty dla gminy',
     local.map((s) => `${esc(s.label)}: <span class="amt">${zl(s.amount)}</span> rocznie`).join(' · ') + '. ' + (local.some((s) => s.id === 'property') ? (R.deadlines.find((d) => d.id === 'property')?.what ?? '') : 'Opłatę za śmieci płacisz gminie w terminach, które ustala rada gminy (zwykle co miesiąc lub co kwartał).')));
   items.push(tl('doc', 'g-pit', b2b ? 'Raz w roku: do 30 kwietnia' : 'Raz w roku: od 15 lutego do 30 kwietnia', b2b ? 'Roczne zeznanie (PIT-36 / PIT-36L / PIT-28)' : 'Roczny PIT-37: wyrównanie',
-    b2b ? `Rozliczasz cały rok: zaliczki zapłacone w ciągu roku porównujesz z należnym podatkiem i dopłacasz albo dostajesz zwrot. Twój PIT za rok: <span class="amt">${zl(pit)}</span>.`
-      : `Pracodawca pobierał w ciągu roku zaliczki. W zeznaniu (Twój e-PIT przygotowuje je automatycznie) liczony jest podatek należny za cały rok: <span class="amt">${zl(pit)}</span>${res.labor[0].childReliefUsed ? ', po uldze na dzieci' : ''}. Różnica to dopłata albo zwrot. Około 86% wpływów z PIT trafia do samorządów: gmin, powiatów i województw (plan na 2026 r.: 193,8 z 225,9 mld zł).`));
+    b2b ? `Rozliczasz cały rok i dopłacasz albo dostajesz zwrot. Twój podatek za rok: <span class="amt">${zl(pit)}</span>.`
+      : `Urząd sprawdza, czy pracodawca pobrał dobry podatek. Twój podatek za cały rok: <span class="amt">${zl(pit)}</span>${res.labor[0].childReliefUsed ? ' (po uldze na dzieci)' : ''}. Jeśli pobrano za dużo – dostajesz zwrot.${more('Zeznanie przygotowuje automatycznie usługa Twój e-PIT. Około 86% wpływów z PIT trafia do gmin, powiatów i województw (plan na 2026 r.: 193,8 z 225,9 mld zł).')}`));
   $('#timeline').innerHTML = items.join('');
 }
+const more = (t: string) => `<details class="tl-more"><summary>Szczegóły</summary><span>${t}</span></details>`;
 const tl = (icon: string, g: string, when: string, title: string, text: string) =>
-  `<li class="tl ${g}"><span class="tl-ico" aria-hidden="true">${ICONS[icon]}</span><div><p class="tl-when">${when}</p><h3>${title}</h3><p>${text}</p></div></li>`;
+  `<li class="tl ${g}"><span class="tl-ico" aria-hidden="true">${ICONS[icon]}</span><div><p class="tl-when">${when}</p><h3>${title}</h3><div class="tl-text">${text}</div></div></li>`;
 
 function renderCalendar(res: Result, groups: { key: string; amount: number }[], base: number) {
   const y = R.meta.year;
@@ -313,7 +329,7 @@ function renderCalendar(res: Result, groups: { key: string; amount: number }[], 
   const days = (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0 ? 366 : 365;
   const fdStr = fd.toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', timeZone: 'UTC' });
   $('#cal-title').textContent = `Twój dzień wolności podatkowej: ${fdStr}`;
-  $('#cal-lead').textContent = `Gdyby wszystko, co zarobisz od 1 stycznia, szło najpierw na daniny, Twoja praca pokryłaby je ${fdStr}. Każdy kwadracik to jeden dzień roku, a kolor pokazuje, którą daninę ten dzień „spłaca”.`;
+  $('#cal-lead').textContent = `Wyobraź sobie, że wszystko, co zarabiasz od 1 stycznia, idzie najpierw na podatki i składki. Wtedy dopiero od ${fdStr} pracowałbyś dla siebie. Każdy kwadracik to jeden dzień roku.`;
   // Przypisz dni do grup proporcjonalnie (kolejność jak na pasku płacowym).
   const seq: string[] = [];
   let acc = 0;
@@ -329,23 +345,23 @@ function renderCalendar(res: Result, groups: { key: string; amount: number }[], 
     rows.push(`<div class="cal-row"><b>${months[mo]}</b><div class="cal-days">${cells.join('')}</div></div>`);
   }
   const cal = $('#cal'); cal.innerHTML = rows.join('');
-  cal.setAttribute('aria-label', `Kalendarz ${y}: od 1 stycznia do ${fdStr} dni przypadają na daniny, potem dla Ciebie.`);
+  cal.setAttribute('aria-label', `Kalendarz ${y}: od 1 stycznia do ${fdStr} dni przypadają na podatki i składki, potem dla Ciebie.`);
   $('#cal-legend').innerHTML = [...groups.map((g) => g.key), 'you'].map((k) => {
     const n = seq.filter((s) => s === k).length;
-    return `<li><span class="dot ${cssGroup(k)}"></span><span><b>${GROUPS[k as keyof typeof GROUPS].label}</b></span><span class="num">${n} dni</span></li>`;
+    return `<li><span class="dot ${cssGroup(k)}"></span><span><b>${GROUPS[k as keyof typeof GROUPS].label}</b></span><span class="num">${n} ${n === 1 ? 'dzień' : 'dni'}</span></li>`;
   }).join('');
   const c = workClock(res.share);
-  $('#clock-title').textContent = `W 8-godzinnym dniu pracy: od 8:00 do ${c.h}:${String(c.m).padStart(2, '0')} pracujesz na daniny, potem dla siebie`;
+  $('#clock-title').textContent = `W 8-godzinnym dniu pracy: od 8:00 do ${c.h}:${String(c.m).padStart(2, '0')} pracujesz na podatki i składki, potem dla siebie`;
   const clock = $('#clock');
   clock.innerHTML = [...groups.map((g) => `<span class="${cssGroup(g.key)}" style="width:${(g.amount / base) * 100}%" title="${GROUPS[g.key as keyof typeof GROUPS].label}"></span>`), `<span class="g-you" style="flex:1"></span>`].join('');
-  clock.setAttribute('aria-label', `Dzień pracy: ${c.minutes} z 480 minut przypada na daniny.`);
+  clock.setAttribute('aria-label', `Dzień pracy: ${c.minutes} z 480 minut przypada na podatki i składki.`);
 }
 
 function renderWhere(res: Result) {
   const items = whereItGoes(res.taxes + (!state.zusAsTax ? res.pensionContrib : 0), R).sort((a, b) => b.amount - a.amount);
   const max = items[0]?.amount || 1;
   $('#where-title').textContent = `Twoje ${zl(per(res.taxes + (!state.zusAsTax ? res.pensionContrib : 0)))} ${perLabel()}: na co idą`;
-  $('#where').innerHTML = items.map((f) => `<li><span><b>${esc(f.label)}</b><small>${esc(f.plain)}</small></span><span class="num">${zl(per(f.amount))}<small> · ${zl(f.amount / 365, true)}/dzień</small></span><span class="bar"><span style="width:${(f.amount / max) * 100}%"></span></span></li>`).join('');
+  $('#where').innerHTML = items.map((f) => `<li><span><b>${esc(f.label)}</b><small>${esc(f.plain)}</small></span><span class="num">${zl(per(f.amount))}<small> ${perLabel()}</small></span><span class="bar"><span style="width:${(f.amount / max) * 100}%"></span></span></li>`).join('');
 }
 
 function renderReturns(res: Result) {
@@ -361,8 +377,8 @@ function renderReturns(res: Result) {
     <div class="ret"><span class="kicker">W tym zdrowie</span><span class="num">${zl(perCap * fn('health'))}</span><p>na osobę rocznie: szpitale, lekarze, leki refundowane</p></div>
     <div class="ret"><span class="kicker">W tym edukacja</span><span class="num">${zl(perCap * fn('education'))}</span><p>na osobę rocznie: szkoły, przedszkola, uczelnie</p></div>
     <div class="ret"><span class="kicker">W tym emerytury i renty</span><span class="num">${zl(perCap * fn('pensions'))}</span><p>na osobę rocznie: emerytury, renty z tytułu niezdolności do pracy, renty rodzinne</p></div>
-    <div class="ret wide"><p><strong>Twoje daniny w przeliczeniu na osobę w gospodarstwie: ${zl(cmp)} rocznie</strong>, czyli ${cmp >= perCap ? 'więcej' : 'mniej'} niż przeciętne wydatki państwa na jednego mieszkańca (${zl(perCap)}). Średnia obejmuje dzieci i emerytów, więc pracujący z reguły wpłacają więcej, niż wynosi średnia, a w innych okresach życia (nauka, emerytura, choroba) korzystają więcej, niż wpłacają. Państwo wydaje też więcej, niż zbiera: w ${c.deficitYear} r. deficyt sektora finansów publicznych wyniósł ${c.deficitPctGdp.toLocaleString('pl-PL')}% PKB, a różnicę pokrywa dług publiczny – jego odsetki (w 2024 r. ok. 4,9% wszystkich wydatków) finansowane są z kolejnych danin.</p></div>
-    <div class="ret wide"><p><strong>Dla porównania:</strong> wpływy z VAT w ${c.taxToGdpYear} r. to średnio ${zl(ctx.vatPerCapita)}, a z akcyzy ${zl(ctx.excisePerCapita)} na każdego mieszkańca rocznie. Nasz szacunek VAT i akcyzy w Twoich zakupach jest ostrożny: obejmuje tylko podatki wliczone w ceny towarów i usług kupowanych przez gospodarstwa domowe, a ludzie w badaniach GUS zwykle zaniżają wydatki na alkohol i papierosy. Rzeczywista kwota jest więc raczej wyższa. Wszystkie daniny w Polsce to ${c.taxToGdp.toLocaleString('pl-PL')}% PKB (średnia UE: ${c.euTaxToGdp.toLocaleString('pl-PL')}%).</p></div>`;
+    <div class="ret wide"><p class="ret-big">Państwo wydaje średnio <strong>${zl(perCap)}</strong> rocznie na każdego mieszkańca – na dzieci, uczniów, emerytów i chorych też. Ty dziś wpłacasz <strong>${zl(cmp)}</strong> rocznie${persons > 1 ? ' na osobę w gospodarstwie' : ''}.</p><p class="ret-big">Tak działa system: w wieku pracy wpłaca się więcej niż średnia, a jako dziecko, w czasie nauki, choroby i na emeryturze dostaje się więcej, niż się wpłaca.</p>
+    <details class="why"><summary>Deficyt i jak ostrożnie liczymy</summary><div><p>Państwo wydaje więcej, niż zbiera: w ${c.deficitYear} r. deficyt wyniósł ${c.deficitPctGdp.toLocaleString('pl-PL')}% PKB. Różnicę pokrywa dług publiczny, a jego odsetki (w 2024 r. ok. 4,9% wszystkich wydatków) płaci się z kolejnych podatków.</p><p>Dla porównania: wpływy z VAT w ${c.taxToGdpYear} r. to średnio ${zl(ctx.vatPerCapita)}, a z akcyzy ${zl(ctx.excisePerCapita)} na każdego mieszkańca rocznie. Nasz szacunek VAT i akcyzy w Twoich zakupach jest ostrożny: obejmuje tylko podatki wliczone w ceny towarów i usług kupowanych przez gospodarstwa domowe, a ludzie w badaniach GUS zwykle zaniżają wydatki na alkohol i papierosy. Rzeczywista kwota jest więc raczej wyższa. Wszystkie podatki i składki w Polsce to ${c.taxToGdp.toLocaleString('pl-PL')}% PKB (średnia UE: ${c.euTaxToGdp.toLocaleString('pl-PL')}%).</p></div></details></div>`;
 }
 
 function renderFitNote(res: Result) {
@@ -420,9 +436,10 @@ calc.addEventListener('submit', (e) => {
 });
 $<HTMLInputElement>('#amount').addEventListener('blur', (e) => { const t = e.target as HTMLInputElement; const n = parseNum(t.value); if (n != null) t.value = Math.round(n).toLocaleString('pl-PL'); });
 const guess = $<HTMLInputElement>('#guess');
-guess.addEventListener('input', () => { $('#guess-out').textContent = `${guess.value} zł`; });
-$('#guess-go').addEventListener('click', () => { state.guess = Number(guess.value); reveal(true); });
-$('#guess-skip').addEventListener('click', () => { state.guess = undefined; reveal(true); });
+let guessTouched = false;
+guess.addEventListener('input', () => { guessTouched = true; $('#guess-out').textContent = `${guess.value} zł`; });
+$('#guess-go').addEventListener('click', () => { state.guess = guessTouched ? Number(guess.value) : undefined; $('#zgadnij').hidden = true; reveal(true); });
+$('#guess-skip').addEventListener('click', () => { state.guess = undefined; $('#zgadnij').hidden = true; reveal(true); });
 fit.addEventListener('input', () => { readFit(); render(); });
 fit.addEventListener('change', () => { readFit(); render(); });
 fit.addEventListener('submit', (e) => e.preventDefault());
@@ -447,3 +464,13 @@ $('#share-link').addEventListener('click', async () => {
 readCalc(); readFit();
 if (readHash()) { readFit(); reveal(false); }
 void last;
+
+// Stopniowe odsłanianie: dalsze sekcje i więcej produktów po kliknięciu.
+$('#more-btn')?.addEventListener('click', (e) => {
+  const btn = e.currentTarget as HTMLButtonElement;
+  $('#more').hidden = false; btn.setAttribute('aria-expanded', 'true'); $('#more-gate').hidden = true;
+  $('#kiedy').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+});
+$('#prod-more')?.addEventListener('click', (e) => { $('#prod-list').classList.remove('collapsed'); (e.currentTarget as HTMLElement).hidden = true; });
+// „Dopasuj” na pasku: odsłoń resztę strony przed przewinięciem.
+$$('a[href="#dopasuj"]').forEach((a) => a.addEventListener('click', () => { $('#more').hidden = false; $('#more-gate').hidden = true; }));
