@@ -1,0 +1,1127 @@
+{
+  "_meta": {
+    "title": "Parametry opodatkowania pracy w Polsce – rok 2026",
+    "compiled": "2026-11-27",
+    "currency": "PLN",
+    "rates_as": "decimal fraction (0.12 = 12%) when unit == 'fraction'",
+    "verification_policy": "verified=true means the value was read directly from a primary source (ISAP/Dz.U., Monitor Polski, zus.pl, stat.gov.pl, gov.pl) during compilation. 'derived' values are arithmetic on verified inputs and say so in note.",
+    "consolidated_texts_used": {
+      "PIT": "ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592) – stan prawny 1.04.2026; nowelizacje opublikowane później (Dz.U. 2026 poz. 779, 1354, 1371, 1541) sprawdzone – nie zmieniają parametrów pracy na 2026",
+      "SUS": "ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474) – stan prawny 4.10.2026",
+      "ZDR": "ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "RYCZ": "ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "OP": "ustawa z dnia 29 sierpnia 1997 r. – Ordynacja podatkowa (t.j. Dz.U. 2026 poz. 622)",
+      "VAT": "ustawa z dnia 11 marca 2004 r. o podatku od towarów i usług (t.j. Dz.U. 2026 poz. 1263)",
+      "PPK": "ustawa z dnia 4 października 2018 r. o pracowniczych planach kapitałowych (t.j. Dz.U. 2026 poz. 192)"
+    }
+  },
+  "macro": {
+    "minimum_wage_monthly": {
+      "value": 4806,
+      "unit": "PLN/month",
+      "legal_basis": "§ 1 rozporządzenia Rady Ministrów z 11.09.2025 (Dz.U. 2025 poz. 1242)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250001242",
+      "verified": true,
+      "note": "Obowiązuje od 1.01.2026 do 31.12.2026."
+    },
+    "minimum_hourly_rate": {
+      "value": 31.4,
+      "unit": "PLN/hour",
+      "legal_basis": "§ 2 rozporządzenia RM z 11.09.2025 (Dz.U. 2025 poz. 1242)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250001242",
+      "verified": true,
+      "note": "Dotyczy umów zlecenia i umów o świadczenie usług (ustawa o minimalnym wynagrodzeniu za pracę); nie dotyczy umowy o dzieło."
+    },
+    "forecast_average_wage_2026": {
+      "value": 9420,
+      "unit": "PLN/month",
+      "legal_basis": "art. 24 ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62); obwieszczenie MRPiPS z 19.11.2025 (M.P. 2025 poz. 1206)",
+      "source_url": "https://eli.gov.pl/eli/MP/2025/1206/ogl",
+      "verified": true,
+      "note": "Prognozowane przeciętne wynagrodzenie – podstawa limitu 30-krotności i dużego ZUS."
+    },
+    "annual_pension_disability_base_cap_2026": {
+      "value": 282600,
+      "unit": "PLN/year",
+      "legal_basis": "art. 19 ust. 1 i 10 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474); obwieszczenie MRPiPS z 19.11.2025 (M.P. 2025 poz. 1206)",
+      "source_url": "https://eli.gov.pl/eli/MP/2025/1206/ogl",
+      "verified": true,
+      "note": "= 30 × 9420. Po przekroczeniu w danym roku nie nalicza się składek emerytalnej i rentowych (obie strony). Chorobowa, wypadkowa, zdrowotna, FP, FS i FGŚP – dalej od pełnej kwoty (FP/FS: art. 259 ust. 1 ustawy o rynku pracy – 'bez stosowania ograniczenia')."
+    },
+    "voluntary_sickness_monthly_base_cap_2026": {
+      "value": 23550.0,
+      "unit": "PLN/month",
+      "legal_basis": "art. 20 ust. 3 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474) (250% prognozowanego przeciętnego wynagrodzenia)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Limit miesięcznej podstawy dobrowolnego ubezpieczenia chorobowego (B2B)."
+    },
+    "avg_wage_enterprise_sector_Q4_2025_incl_profit": {
+      "value": 9228.64,
+      "unit": "PLN/month",
+      "legal_basis": "obwieszczenie Prezesa GUS z 22.01.2026 (M.P. 2026 poz. 117)",
+      "source_url": "https://eli.gov.pl/eli/MP/2026/117/ogl",
+      "verified": true,
+      "note": "Podstawa progów składki zdrowotnej na ryczałcie w 2026 r."
+    },
+    "avg_wage_national_economy_2025": {
+      "value": 8903.56,
+      "unit": "PLN/month",
+      "legal_basis": "komunikat Prezesa GUS z 9.02.2026",
+      "source_url": "https://stat.gov.pl/sygnalne/komunikaty-i-obwieszczenia/lista-komunikatow-i-obwieszczen/komunikat-w-sprawie-przecietnego-wynagrodzenia-w-gospodarce-narodowej-w-2025-r-,273,13.html",
+      "verified": true,
+      "note": "Cały rok 2025."
+    },
+    "avg_wage_Q3_2026": {
+      "value": 9317.01,
+      "unit": "PLN/month",
+      "legal_basis": "komunikat Prezesa GUS z 9.11.2026 (art. 20 pkt 2 ustawy o emeryturach i rentach z FUS)",
+      "source_url": "https://stat.gov.pl/sygnalne/komunikaty-i-obwieszczenia/lista-komunikatow-i-obwieszczen/komunikat-w-sprawie-przecietnego-wynagrodzenia-w-trzecim-kwartale-2026-r-,271,54.html",
+      "verified": true,
+      "note": "Najnowszy kwartał dostępny 27.11.2026."
+    },
+    "avg_wage_enterprise_sector_Oct_2026": {
+      "value": 9405.04,
+      "unit": "PLN/month",
+      "legal_basis": "komunikat Prezesa GUS z 23.11.2026 (bez wypłat nagród z zysku)",
+      "source_url": "https://stat.gov.pl/sygnalne/komunikaty-i-obwieszczenia/lista-komunikatow-i-obwieszczen/komunikat-w-sprawie-przecietnego-miesiecznego-wynagrodzenia-w-sektorze-przedsiebiorstw-bez-wyplat-nagrod-z-zysku-w-pazdzierniku-2026-r-,57,156.html",
+      "verified": true,
+      "note": "Najnowszy miesiąc dostępny 27.11.2026. Sektor przedsiębiorstw = podmioty >9 osób."
+    },
+    "median_wage_national_economy_Nov_2025": {
+      "value": 7432.0,
+      "unit": "PLN/month",
+      "legal_basis": "GUS, 'Rozkład wynagrodzeń w gospodarce narodowej w listopadzie 2025 r.' (publ. 6.05.2026)",
+      "source_url": "https://stat.gov.pl/obszary-tematyczne/rynek-pracy/pracujacy-zatrudnieni-wynagrodzenia-koszty-pracy/rozklad-wynagrodzen-w-gospodarce-narodowej-w-listopadzie-2025-r-,32,23.html",
+      "verified": true,
+      "note": "Najnowsza mediana GUS. Badanie nie jest roczne – brak mediany za 2026. Sektor prywatny: 6770,00; publiczny: 8687,21; firmy ≤9 osób: 4666,00."
+    }
+  },
+  "pit": {
+    "scale_rate_1": {
+      "value": 0.12,
+      "unit": "fraction",
+      "legal_basis": "art. 27 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Do 120 000 zł podstawy: 12% minus kwota zmniejszająca 3600 zł."
+    },
+    "scale_rate_2": {
+      "value": 0.32,
+      "unit": "fraction",
+      "legal_basis": "art. 27 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Nadwyżka ponad 120 000 zł; podatek = 10 800 zł + 32% nadwyżki."
+    },
+    "scale_threshold": {
+      "value": 120000,
+      "unit": "PLN/year",
+      "legal_basis": "art. 27 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "tax_at_threshold": {
+      "value": 10800,
+      "unit": "PLN",
+      "legal_basis": "art. 27 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Stała część podatku w II progu (14 400 − 3 600)."
+    },
+    "tax_reducing_amount_annual": {
+      "value": 3600,
+      "unit": "PLN/year",
+      "legal_basis": "art. 27 ust. 1 i 1c ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "tax_reducing_amount_monthly_payroll": {
+      "value": 300,
+      "unit": "PLN/month",
+      "legal_basis": "art. 31b ust. 1 i 3 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "1/12 kwoty zmniejszającej (PIT-2). Można też wskazać 1/24 (150 zł) lub 1/36 (100 zł) – maks. 3 płatników, łącznie ≤ 1/12."
+    },
+    "tax_free_amount_effective": {
+      "value": 30000,
+      "unit": "PLN/year",
+      "legal_basis": "wynika z art. 27 ust. 1 (3600 / 12%); kwota 30 000 zł wprost w art. 31c ust. 2 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "'Kwota wolna' nie jest odrębnie zdefiniowana – to efekt kwoty zmniejszającej."
+    },
+    "kup_employment_basic_monthly": {
+      "value": 250,
+      "unit": "PLN/month",
+      "legal_basis": "art. 22 ust. 2 pkt 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Jeden stosunek pracy; rocznie ≤ 3000 zł."
+    },
+    "kup_employment_basic_annual_max": {
+      "value": 3000,
+      "unit": "PLN/year",
+      "legal_basis": "art. 22 ust. 2 pkt 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "kup_employment_multi_annual_max": {
+      "value": 4500,
+      "unit": "PLN/year",
+      "legal_basis": "art. 22 ust. 2 pkt 2 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Kilka stosunków pracy jednocześnie."
+    },
+    "kup_employment_commuting_monthly": {
+      "value": 300,
+      "unit": "PLN/month",
+      "legal_basis": "art. 22 ust. 2 pkt 3 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Dojazd z innej miejscowości, bez dodatku za rozłąkę; rocznie ≤ 3600 zł."
+    },
+    "kup_employment_commuting_annual_max": {
+      "value": 3600,
+      "unit": "PLN/year",
+      "legal_basis": "art. 22 ust. 2 pkt 3 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "kup_employment_commuting_multi_annual_max": {
+      "value": 5400,
+      "unit": "PLN/year",
+      "legal_basis": "art. 22 ust. 2 pkt 4 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "kup_creative_50pct": {
+      "value": 0.5,
+      "unit": "fraction",
+      "legal_basis": "art. 22 ust. 9 pkt 1–3 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Prawa autorskie/pokrewne (katalog działalności w ust. 9b), wynalazki itp. Liczone od przychodu pomniejszonego o składki społeczne pracownika. Dotyczy też części wynagrodzenia z UoP za utwory."
+    },
+    "kup_creative_50pct_annual_cap": {
+      "value": 120000,
+      "unit": "PLN/year",
+      "legal_basis": "art. 22 ust. 9a (górna granica I przedziału skali) ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Przy korzystaniu z ulg zerowych (art. 21 ust. 1 pkt 148, 152–154) limit 120 000 obejmuje łącznie KUP 50% i przychody zwolnione z UoP – art. 22 ust. 9aa."
+    },
+    "kup_mandate_work_contract_20pct": {
+      "value": 0.2,
+      "unit": "fraction",
+      "legal_basis": "art. 22 ust. 9 pkt 4 i 6 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Umowa zlecenia (art. 13 pkt 8) i umowa o dzieło (art. 10 ust. 1 pkt 9 / art. 13 pkt 8) – od przychodu pomniejszonego o składki społeczne potrącone przez płatnika."
+    },
+    "kup_limited_when_exempt": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 22 ust. 3b ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Przy uldze dla młodych/powrót/4+/senior KUP z UoP i zlecenia stosuje się tylko do opodatkowanej części przychodu (przepis z 2022 r., nie nowy w 2026)."
+    },
+    "youth_relief_limit": {
+      "value": 85528,
+      "unit": "PLN/year",
+      "legal_basis": "art. 21 ust. 1 pkt 148 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Do ukończenia 26 lat: UoP, zlecenie, praktyki absolwenckie, staż uczniowski, zasiłek macierzyński. Nie obejmuje B2B ani dzieła."
+    },
+    "return_relief_limit": {
+      "value": 85528,
+      "unit": "PLN/year",
+      "legal_basis": "art. 21 ust. 1 pkt 152 i ust. 43 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "4 kolejne lata od przeniesienia rezydencji do PL; obejmuje też B2B na skali/liniowym/ryczałcie."
+    },
+    "family_4plus_relief_limit": {
+      "value": 85528,
+      "unit": "PLN/year",
+      "legal_basis": "art. 21 ust. 1 pkt 153 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Rodzic co najmniej czworga dzieci; obejmuje też B2B."
+    },
+    "working_senior_relief_limit": {
+      "value": 85528,
+      "unit": "PLN/year",
+      "legal_basis": "art. 21 ust. 1 pkt 154 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Kobiety 60+, mężczyźni 65+, którzy nie pobierają emerytury mimo uprawnień; muszą podlegać ubezpieczeniom społecznym."
+    },
+    "combined_zero_pit_limit": {
+      "value": 85528,
+      "unit": "PLN/year",
+      "legal_basis": "art. 21 ust. 44 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Suma przychodów zwolnionych z pkt 148 i 152–154 łącznie ≤ 85 528 zł."
+    },
+    "child_relief_1st_2nd_monthly": {
+      "value": 92.67,
+      "unit": "PLN/month/child",
+      "legal_basis": "art. 27f ust. 2 pkt 1–3 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Rocznie 1112,04 zł. Przy 1 dziecku limit dochodu: 112 000 zł (małżonkowie łącznie / samotny rodzic), 56 000 zł (osoba niebędąca w związku małżeńskim)."
+    },
+    "child_relief_3rd_monthly": {
+      "value": 166.67,
+      "unit": "PLN/month",
+      "legal_basis": "art. 27f ust. 2 pkt 3 lit. b ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Rocznie 2000,04 zł."
+    },
+    "child_relief_4th_plus_monthly": {
+      "value": 225.0,
+      "unit": "PLN/month/child",
+      "legal_basis": "art. 27f ust. 2 pkt 3 lit. c ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Rocznie 2700,00 zł."
+    },
+    "child_relief_1child_income_limit_married": {
+      "value": 112000,
+      "unit": "PLN/year",
+      "legal_basis": "art. 27f ust. 2 pkt 1 lit. a ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "child_relief_1child_income_limit_single": {
+      "value": 56000,
+      "unit": "PLN/year",
+      "legal_basis": "art. 27f ust. 2 pkt 1 lit. b ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "joint_filing_spouses": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 6 ust. 2 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Na wniosek: podatek = 2 × podatek od połowy łącznych dochodów (tylko skala). Samotny rodzic: art. 6 ust. 4."
+    },
+    "flat_tax_small_contracts_rate": {
+      "value": 0.12,
+      "unit": "fraction",
+      "legal_basis": "art. 30 ust. 1 pkt 5a ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Zlecenie/dzieło itp. (art. 13 pkt 2 i 5–9), jeśli kwota należności w umowie z osobą niebędącą pracownikiem płatnika ≤ 200 zł – ryczałt 12% od przychodu, bez KUP."
+    },
+    "flat_tax_small_contracts_threshold": {
+      "value": 200,
+      "unit": "PLN/contract",
+      "legal_basis": "art. 30 ust. 1 pkt 5a ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "solidarity_levy_rate": {
+      "value": 0.04,
+      "unit": "fraction",
+      "legal_basis": "art. 30h ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "solidarity_levy_threshold": {
+      "value": 1000000,
+      "unit": "PLN/year",
+      "legal_basis": "art. 30h ust. 2 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Suma dochodów ze skali, liniowego, art. 30b (kapitały), 30f, po odliczeniu składek społecznych i zdrowotnej odliczonej (liniowy)."
+    },
+    "payroll_advance_rule": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 32 ust. 2 i 4 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Zaliczka miesięczna = 12% × (przychód − KUP − składki społeczne pracownika) − 1/12 kwoty zmniejszającej (jeśli PIT-2); od miesiąca, w którym dochód narastająco u płatnika > 120 000 zł – 32% od nadwyżki."
+    },
+    "rounding_tax_base_and_tax": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 63 § 1 Ordynacji podatkowej (t.j. Dz.U. 2026 poz. 622)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000622",
+      "verified": true,
+      "note": "Podstawę i kwotę podatku zaokrągla się do pełnych złotych: <50 gr w dół, ≥50 gr w górę."
+    },
+    "employee_health_contribution_deductible": {
+      "value": false,
+      "unit": "bool",
+      "legal_basis": "art. 27b uchylony; art. 26 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Składka zdrowotna pracownika (9%) nie obniża podatku ani dochodu (od 2022)."
+    },
+    "employer_ppk_contribution_taxable": {
+      "value": true,
+      "unit": "bool",
+      "legal_basis": "art. 12 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592) (ogólna definicja przychodu ze stosunku pracy); art. 26 ust. 5 ustawy o PPK – nie wchodzi do podstawy ZUS",
+      "source_url": "https://www.mojeppk.pl/faq.html",
+      "verified": true,
+      "note": "Brak odrębnego przepisu wprost – wynika z art. 12 ust. 1. Potwierdza oficjalny portal PPK (PFR). Doliczana do przychodu do zaliczki PIT, ale nie do podstawy składek ZUS i zdrowotnej."
+    },
+    "linear_tax_rate": {
+      "value": 0.19,
+      "unit": "fraction",
+      "legal_basis": "art. 30c ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Bez kwoty wolnej, bez ulgi prorodzinnej, bez wspólnego rozliczenia."
+    }
+  },
+  "zus_employee_uop": {
+    "pension_total": {
+      "value": 0.1952,
+      "unit": "fraction",
+      "legal_basis": "art. 22 ust. 1 pkt 1 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": ""
+    },
+    "pension_employee": {
+      "value": 0.0976,
+      "unit": "fraction",
+      "legal_basis": "art. 16 ust. 1 pkt 1 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474) (równe części)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": ""
+    },
+    "pension_employer": {
+      "value": 0.0976,
+      "unit": "fraction",
+      "legal_basis": "art. 16 ust. 1 pkt 1 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": ""
+    },
+    "disability_total": {
+      "value": 0.08,
+      "unit": "fraction",
+      "legal_basis": "art. 22 ust. 1 pkt 2 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": ""
+    },
+    "disability_employee": {
+      "value": 0.015,
+      "unit": "fraction",
+      "legal_basis": "art. 16 ust. 1b ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": ""
+    },
+    "disability_employer": {
+      "value": 0.065,
+      "unit": "fraction",
+      "legal_basis": "art. 16 ust. 1b ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": ""
+    },
+    "sickness_employee": {
+      "value": 0.0245,
+      "unit": "fraction",
+      "legal_basis": "art. 22 ust. 1 pkt 3, art. 16 ust. 2 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": "W całości pracownik. Bez limitu rocznego (limit 30× dotyczy tylko emerytalnej i rentowych)."
+    },
+    "accident_employer_default_le9": {
+      "value": 0.0167,
+      "unit": "fraction",
+      "legal_basis": "art. 28 ust. 1 ustawy z 30.10.2002 o ubezpieczeniu społecznym z tytułu wypadków przy pracy i chorób zawodowych (numer artykułu wg odesłań w poradniku ZUS); ZUS, poradnik 'Ustalanie stopy procentowej składki na ubezpieczenie wypadkowe' (stan prawny 1.01.2026)",
+      "source_url": "https://www.zus.pl/documents/10182/167567/poradnik_wypadkowe.pdf/15281e1b-c3f3-472a-81b3-7d10e1a434c8",
+      "verified": true,
+      "note": "Stała od 1.04.2018 (50% najwyższej stopy grup działalności 3,33%). Bez zmian w roku składkowym 1.04.2026–31.03.2027 – potwierdzone w poradniku ZUS i tabeli składek ZUS 2026. Dotyczy płatników w REGON zgłaszających ≤ 9 ubezpieczonych oraz płatników spoza REGON. Płatnicy ≥ 10 ubezpieczonych: stopa indywidualna; ustawowy zakres 0,40–8,12% (art. 22 ust. 1 pkt 4 SUS). Od 2027 r. grupy działalności według PKD 2025 (poradnik ZUS)."
+    },
+    "labour_fund_FP_plus_FS": {
+      "value": 0.0245,
+      "unit": "fraction",
+      "legal_basis": "art. 25 i 26 ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62) (FP 1,00% + FS 1,45%); art. 259 ustawy o rynku pracy (Dz.U. 2025 poz. 620)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000062",
+      "verified": true,
+      "note": "Płaci pracodawca. Tylko gdy podstawa w przeliczeniu na miesiąc ≥ minimalne wynagrodzenie (4806 zł); liczona bez limitu 30×. Nie płaci się za kobiety 55+ i mężczyzn 60+ (ZUS)."
+    },
+    "labour_fund_FP_component": {
+      "value": 0.01,
+      "unit": "fraction",
+      "legal_basis": "art. 25 ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000062",
+      "verified": true,
+      "note": ""
+    },
+    "solidarity_fund_FS_component": {
+      "value": 0.0145,
+      "unit": "fraction",
+      "legal_basis": "art. 26 ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000062",
+      "verified": true,
+      "note": ""
+    },
+    "FGSP": {
+      "value": 0.001,
+      "unit": "fraction",
+      "legal_basis": "art. 27 ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000062",
+      "verified": true,
+      "note": "Płaci pracodawca."
+    },
+    "FEP": {
+      "value": 0.015,
+      "unit": "fraction",
+      "legal_basis": "art. 35–36 ustawy o emeryturach pomostowych (t.j. Dz.U. 2024 poz. 1696)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20240001696",
+      "verified": true,
+      "note": "Tylko za pracowników w szczególnych warunkach/o szczególnym charakterze, urodzonych po 1948. W modelu 'typowy pracownik' = 0."
+    },
+    "health_employee": {
+      "value": 0.09,
+      "unit": "fraction",
+      "legal_basis": "art. 79 ust. 1, art. 81 ust. 1 i 6 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250001461",
+      "verified": true,
+      "note": "Podstawa = przychód − składki społeczne pracownika (9,76+1,5+2,45). Niepodlegająca odliczeniu od PIT."
+    },
+    "ppk_employee_basic": {
+      "value": 0.02,
+      "unit": "fraction",
+      "legal_basis": "art. 27 ust. 1 ustawy o PPK (t.j. Dz.U. 2026 poz. 192)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000192",
+      "verified": true,
+      "note": "Może być obniżona do 0,5–2% jeśli wynagrodzenie ze wszystkich źródeł ≤ 1,2 × min. wynagrodzenia (art. 27 ust. 2) = 5767,20 zł w 2026 (wyliczone)."
+    },
+    "ppk_employee_additional_max": {
+      "value": 0.02,
+      "unit": "fraction",
+      "legal_basis": "art. 27 ust. 3 ustawy o PPK",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000192",
+      "verified": true,
+      "note": ""
+    },
+    "ppk_employer_basic": {
+      "value": 0.015,
+      "unit": "fraction",
+      "legal_basis": "art. 26 ust. 1 ustawy o PPK",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000192",
+      "verified": true,
+      "note": "Przychód pracownika do PIT (patrz pit.employer_ppk_contribution_taxable); nie wchodzi do podstawy ZUS (art. 26 ust. 5)."
+    },
+    "ppk_employer_additional_max": {
+      "value": 0.025,
+      "unit": "fraction",
+      "legal_basis": "art. 26 ust. 2 ustawy o PPK",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000192",
+      "verified": true,
+      "note": ""
+    },
+    "ppk_low_income_threshold_2026": {
+      "value": 5767.2,
+      "unit": "PLN/month",
+      "legal_basis": "art. 27 ust. 2 ustawy o PPK (1,2 × 4806)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000192",
+      "verified": true,
+      "note": "Wartość wyliczona."
+    }
+  },
+  "health_b2b_2026": {
+    "scale_rate": {
+      "value": 0.09,
+      "unit": "fraction",
+      "legal_basis": "art. 79 ust. 1, art. 81 ust. 2 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Od dochodu z poprzedniego miesiąca. Nie odliczana od podatku."
+    },
+    "minimum_base_feb2026_jan2027": {
+      "value": 4806,
+      "unit": "PLN/month",
+      "legal_basis": "art. 81 ust. 2 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "100% minimalnego wynagrodzenia z 1. dnia roku składkowego (1.02.2026–31.01.2027). Obniżka do 75% obowiązywała WYŁĄCZNIE w roku składkowym 1.02.2025–31.01.2026 (art. 4 ustawy nowelizującej, przytoczony w t.j. 2025 poz. 1461). Szersza reforma składki na 2026 r. została zawetowana – brak obniżki w 2026."
+    },
+    "minimum_contribution_feb2026_jan2027": {
+      "value": 432.54,
+      "unit": "PLN/month",
+      "legal_basis": "art. 79 ust. 1, art. 81 ust. 2 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Skala, liniowy, IP Box, karta podatkowa."
+    },
+    "minimum_contribution_jan2026": {
+      "value": 314.96,
+      "unit": "PLN/month",
+      "legal_basis": "art. 4 ustawy z 2024 r. (75% min. wynagrodzenia z 1.02.2025 = 3499,50 zł)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Składka za styczeń 2026 (ostatni miesiąc roku składkowego 2025/26)."
+    },
+    "linear_rate": {
+      "value": 0.049,
+      "unit": "fraction",
+      "legal_basis": "art. 79a ust. 1 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Minimum 432,54 zł (9% × 4806). 4,9% przewyższa minimum dopiero przy dochodzie > ok. 8827,35 zł/mies. (wyliczone)."
+    },
+    "linear_health_deduction_cap_2026": {
+      "value": 14100,
+      "unit": "PLN/year",
+      "legal_basis": "art. 30c ust. 2 pkt 2 i ust. 2b–2c ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592); obwieszczenie MFiG z 12.12.2025 (M.P. 2025 poz. 1274)",
+      "source_url": "https://eli.gov.pl/eli/MP/2025/1274/ogl",
+      "verified": true,
+      "note": "Zapłacona składka zdrowotna na liniowym – do kosztów lub odliczenia od dochodu, łącznie maks. 14 100 zł w 2026 (12 900 zł w 2025)."
+    },
+    "lump_sum_base_le60k": {
+      "value": 5537.18,
+      "unit": "PLN/month",
+      "legal_basis": "art. 81 ust. 2f pkt 1 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.) (60% × 9228,64)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "lump_sum_contribution_le60k": {
+      "value": 498.35,
+      "unit": "PLN/month",
+      "legal_basis": "art. 79 ust. 1 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Przychód od początku roku ≤ 60 000 zł. Rocznie 5980,20 zł."
+    },
+    "lump_sum_base_60k_300k": {
+      "value": 9228.64,
+      "unit": "PLN/month",
+      "legal_basis": "art. 81 ust. 2f pkt 2 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "lump_sum_contribution_60k_300k": {
+      "value": 830.58,
+      "unit": "PLN/month",
+      "legal_basis": "art. 79 ust. 1 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Rocznie 9966,96 zł."
+    },
+    "lump_sum_base_gt300k": {
+      "value": 16611.55,
+      "unit": "PLN/month",
+      "legal_basis": "art. 81 ust. 2f pkt 3 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.) (180%)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "lump_sum_contribution_gt300k": {
+      "value": 1495.04,
+      "unit": "PLN/month",
+      "legal_basis": "art. 79 ust. 1 ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Rocznie 17 940,48 zł."
+    },
+    "lump_sum_threshold_1": {
+      "value": 60000,
+      "unit": "PLN/year revenue",
+      "legal_basis": "art. 81 ust. 2f ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "lump_sum_threshold_2": {
+      "value": 300000,
+      "unit": "PLN/year revenue",
+      "legal_basis": "art. 81 ust. 2f ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "lump_sum_health_deduction_share": {
+      "value": 0.5,
+      "unit": "fraction",
+      "legal_basis": "art. 11 ust. 1a ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Przychód na ryczałcie można pomniejszyć o 50% zapłaconych składek zdrowotnych."
+    },
+    "scale_health_deductible": {
+      "value": false,
+      "unit": "bool",
+      "legal_basis": "art. 26 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Na skali składka zdrowotna przedsiębiorcy nie jest odliczana."
+    },
+    "collaborator_contribution": {
+      "value": 622.93,
+      "unit": "PLN/month",
+      "legal_basis": "art. 81 ust. 2ya ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.) wg przypisu ZUS (75% × 9228,64 = 6921,48)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Osoba współpracująca."
+    }
+  },
+  "zus_b2b_2026": {
+    "full_base": {
+      "value": 5652.0,
+      "unit": "PLN/month",
+      "legal_basis": "art. 18 ust. 8 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474) (60% × 9420)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "full_pension": {
+      "value": 1103.27,
+      "unit": "PLN/month",
+      "legal_basis": "art. 22 ust. 1 pkt 1 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474) (19,52%)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "full_disability": {
+      "value": 452.16,
+      "unit": "PLN/month",
+      "legal_basis": "art. 22 ust. 1 pkt 2 (8%)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "full_sickness_voluntary": {
+      "value": 138.47,
+      "unit": "PLN/month",
+      "legal_basis": "art. 22 ust. 1 pkt 3 (2,45%); art. 11 ust. 2 SUS – dobrowolne",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "full_accident": {
+      "value": 94.39,
+      "unit": "PLN/month",
+      "legal_basis": "1,67% – ZUS tabela 2026",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Przy innej stopie wypadkowej – odpowiednio."
+    },
+    "full_FP_FS": {
+      "value": 138.47,
+      "unit": "PLN/month",
+      "legal_basis": "2,45% (FP 1,00% + FS 1,45%) – art. 25–26 ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Nie płacą kobiety 55+ / mężczyźni 60+."
+    },
+    "full_total_with_sickness": {
+      "value": 1926.76,
+      "unit": "PLN/month",
+      "legal_basis": "ZUS – informacja o wysokości składek w 2026 r.",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Bez składki zdrowotnej."
+    },
+    "full_total_without_sickness": {
+      "value": 1788.29,
+      "unit": "PLN/month",
+      "legal_basis": "ZUS",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "pref_base": {
+      "value": 1441.8,
+      "unit": "PLN/month",
+      "legal_basis": "art. 18a ust. 1 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474) (30% × 4806)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Pierwsze 24 miesiące kalendarzowe działalności (po uldze na start)."
+    },
+    "pref_pension": {
+      "value": 281.44,
+      "unit": "PLN/month",
+      "legal_basis": "19,52%",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "pref_disability": {
+      "value": 115.34,
+      "unit": "PLN/month",
+      "legal_basis": "8%",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "pref_accident": {
+      "value": 24.08,
+      "unit": "PLN/month",
+      "legal_basis": "1,67%",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "pref_sickness_voluntary": {
+      "value": 35.32,
+      "unit": "PLN/month",
+      "legal_basis": "2,45%",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "pref_total_with_sickness": {
+      "value": 456.18,
+      "unit": "PLN/month",
+      "legal_basis": "ZUS",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Bez FP (podstawa < min. wynagrodzenia) i bez zdrowotnej."
+    },
+    "pref_total_without_sickness": {
+      "value": 420.86,
+      "unit": "PLN/month",
+      "legal_basis": "ZUS",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "start_relief_months": {
+      "value": 6,
+      "unit": "months",
+      "legal_basis": "art. 18 ust. 1 ustawy – Prawo przedsiębiorców (t.j. Dz.U. 2026 poz. 1484)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001484",
+      "verified": true,
+      "note": "Zwalnia tylko ze składek społecznych; składka zdrowotna płacona normalnie."
+    },
+    "small_zus_plus_revenue_limit": {
+      "value": 120000,
+      "unit": "PLN/year (prev. year revenue)",
+      "legal_basis": "art. 18c ust. 1 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": ""
+    },
+    "small_zus_plus_base_rule": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 18c ust. 2–3 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": "Podstawa = 0,5 × przeciętny miesięczny dochód z poprzedniego roku; min. 1441,80 zł, maks. 5652,00 zł; łącznie maks. 36 mies. w ciągu 60 mies."
+    },
+    "contribution_holiday": {
+      "value": 1,
+      "unit": "month/year",
+      "legal_basis": "art. 17a ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": "'Wakacje składkowe': zwolnienie z emerytalnej, rentowych i wypadkowej za 1 wybrany miesiąc w roku (warunki: ≤ 10 ubezpieczonych, limit przychodu)."
+    }
+  },
+  "civil_contracts": {
+    "mandate_contract_zus": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 6 ust. 1 pkt 4, art. 16 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": "Zlecenie: emerytalna i rentowe obowiązkowe (jak UoP: 9,76/9,76 i 1,5/6,5), chorobowa dobrowolna 2,45%, wypadkowa obowiązkowa (płatnik), zdrowotna 9%, FP/FS jeśli podstawa ≥ 4806 zł, FGŚP 0,10%. Zbieg tytułów (np. z UoP) może zwalniać."
+    },
+    "mandate_student_under26_exempt": {
+      "value": true,
+      "unit": "bool",
+      "legal_basis": "art. 6 ust. 4 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474); art. 66 ust. 1 pkt 1 lit. e ustawa z dnia 27 sierpnia 2004 r. o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": "Uczeń/student do 26 lat na zleceniu: brak składek emerytalnej i rentowych, więc też brak składki zdrowotnej (obowiązek zdrowotny wymaga spełnienia warunków objęcia ubezpieczeniami społecznymi). PIT: zwolnienie do 85 528 zł (ulga dla młodych)."
+    },
+    "mandate_kup": {
+      "value": 0.2,
+      "unit": "fraction",
+      "legal_basis": "art. 22 ust. 9 pkt 4 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "mandate_advance_rate": {
+      "value": 0.12,
+      "unit": "fraction",
+      "legal_basis": "art. 41 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Zaliczka 12% od (przychód − KUP − składki społeczne); kwota zmniejszająca tylko po złożeniu PIT-2 (art. 31b)."
+    },
+    "work_contract_zus": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 6 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474) (umowa o dzieło nie jest tytułem do ubezpieczeń)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+      "verified": true,
+      "note": "Dzieło: brak ZUS i zdrowotnej, chyba że zawarte z własnym pracodawcą (wtedy jak UoP – art. 8 ust. 2a SUS)."
+    },
+    "work_contract_kup": {
+      "value": 0.2,
+      "unit": "fraction",
+      "legal_basis": "art. 22 ust. 9 pkt 4 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Lub 50% dla przeniesienia praw autorskich (ust. 9 pkt 3, limit 120 000 zł)."
+    }
+  },
+  "b2b_income_tax": {
+    "linear_rate": {
+      "value": 0.19,
+      "unit": "fraction",
+      "legal_basis": "art. 30c ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": ""
+    },
+    "lump_sum_17": {
+      "value": 0.17,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 1 ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Wolne zawody."
+    },
+    "lump_sum_15": {
+      "value": 0.15,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 2 ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Wybrane usługi (m.in. doradztwo, reklama, usługi biznesowe)."
+    },
+    "lump_sum_14": {
+      "value": 0.14,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 2a ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Opieka zdrowotna (PKWiU 86), architektura i inżynieria (71), specjalistyczne projektowanie (74.1)."
+    },
+    "lump_sum_12": {
+      "value": 0.12,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 2b ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "IT: oprogramowanie (62.01.1, 62.01.2), doradztwo IT (62.02), zarządzanie sieciami (62.03.1), wydawanie oprogramowania."
+    },
+    "lump_sum_10": {
+      "value": 0.1,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 3 ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Kupno/sprzedaż nieruchomości na własny rachunek."
+    },
+    "lump_sum_8_5": {
+      "value": 0.085,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 4–5 ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Pozostałe usługi; najem: 8,5% do 100 000 zł i 12,5% od nadwyżki."
+    },
+    "lump_sum_5_5": {
+      "value": 0.055,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 6 ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Działalność wytwórcza, roboty budowlane."
+    },
+    "lump_sum_3": {
+      "value": 0.03,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 7 ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Handel, gastronomia (bez alkoholu > 1,5%)."
+    },
+    "lump_sum_2": {
+      "value": 0.02,
+      "unit": "fraction",
+      "legal_basis": "art. 12 ust. 1 pkt 8 ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+      "verified": true,
+      "note": "Sprzedaż produktów rolnych przetworzonych (art. 6 ust. 1d)."
+    }
+  },
+  "timing": {
+    "zus_deadline_legal_persons": {
+      "value": 15,
+      "unit": "day of following month",
+      "legal_basis": "art. 47 ust. 1 pkt 3 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/terminy-rozliczania-i-oplacania-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Spółki z o.o., S.A., spółdzielnie, fundacje itd. (płatnicy z osobowością prawną). Obejmuje też składkę zdrowotną pracowników (jedna deklaracja DRA)."
+    },
+    "zus_deadline_others": {
+      "value": 20,
+      "unit": "day of following month",
+      "legal_basis": "art. 47 ust. 1 pkt 4 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/terminy-rozliczania-i-oplacania-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Osoby fizyczne (JDG, także zatrudniające pracowników), spółki osobowe, B2B za siebie (ZUS + zdrowotna)."
+    },
+    "zus_deadline_budget_units": {
+      "value": 5,
+      "unit": "day of following month",
+      "legal_basis": "art. 47 ust. 1 pkt 2 ustawa z dnia 13 października 1998 r. o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/terminy-rozliczania-i-oplacania-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": ""
+    },
+    "pit_payroll_advance_deadline": {
+      "value": 20,
+      "unit": "day of following month",
+      "legal_basis": "art. 38 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Płatnik przekazuje pobrane zaliczki do 20. dnia miesiąca po miesiącu poboru."
+    },
+    "pit_4r_deadline": {
+      "value": "2027-02-01",
+      "unit": "date",
+      "legal_basis": "art. 38 ust. 1a ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592); art. 12 § 5 Ordynacji podatkowej",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Ustawowo: do końca stycznia 2027; 31.01.2027 to niedziela, więc termin przesuwa się na poniedziałek 1.02.2027."
+    },
+    "b2b_pit_advance_deadline": {
+      "value": 20,
+      "unit": "day of following month",
+      "legal_basis": "art. 44 ust. 6 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592); art. 21 ust. 1 ustawa z dnia 20 listopada 1998 r. o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843 ze zm.)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Skala/liniowy: zaliczka miesięczna lub kwartalna do 20.; ryczałt do 20. Za grudzień – do 20 stycznia."
+    },
+    "annual_pit_return_window": {
+      "value": {
+        "from": "2027-02-15",
+        "to": "2027-04-30"
+      },
+      "unit": "date range",
+      "legal_basis": "art. 45 ust. 1 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "Zeznanie za 2026 (PIT-37/36/36L/28). 30.04.2027 to piątek."
+    },
+    "solidarity_levy_deadline": {
+      "value": "2027-04-30",
+      "unit": "date",
+      "legal_basis": "art. 30h ust. 4 ustawa z dnia 26 lipca 1991 r. o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+      "verified": true,
+      "note": "DSF-1 + wpłata."
+    },
+    "vat_monthly_deadline": {
+      "value": 25,
+      "unit": "day of following month",
+      "legal_basis": "art. 99 ust. 1 i art. 103 ust. 1 ustawy o VAT (t.j. Dz.U. 2026 poz. 1263)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+      "verified": true,
+      "note": "JPK_V7M; kwartalnie (mali podatnicy) – do 25. po kwartale (art. 99 ust. 2–3)."
+    },
+    "weekend_holiday_shift": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 12 § 5 Ordynacji podatkowej; ZUS – komunikat o terminach",
+      "source_url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/terminy-rozliczania-i-oplacania-skladek-na-ubezpieczenia-spoleczne",
+      "verified": true,
+      "note": "Termin w sobotę/niedzielę/święto przesuwa się na najbliższy dzień roboczy."
+    }
+  },
+  "enacted_2027_footnotes": {
+    "minimum_wage_2027": {
+      "value": 4950,
+      "unit": "PLN/month",
+      "legal_basis": "§ 1 rozporządzenia RM z 14.09.2026 (Dz.U. 2026 poz. 1213)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001213",
+      "verified": true,
+      "note": ""
+    },
+    "minimum_hourly_2027": {
+      "value": 32.3,
+      "unit": "PLN/hour",
+      "legal_basis": "§ 2 rozporządzenia RM z 14.09.2026 (Dz.U. 2026 poz. 1213)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001213",
+      "verified": true,
+      "note": ""
+    },
+    "forecast_average_wage_2027": {
+      "value": 10033,
+      "unit": "PLN/month",
+      "legal_basis": "obwieszczenie MRPiPS z 3.11.2026 (M.P. 2026 poz. 1098)",
+      "source_url": "https://eli.gov.pl/eli/MP/2026/1098/ogl",
+      "verified": true,
+      "note": ""
+    },
+    "annual_pension_disability_base_cap_2027": {
+      "value": 300990,
+      "unit": "PLN/year",
+      "legal_basis": "obwieszczenie MRPiPS z 3.11.2026 (M.P. 2026 poz. 1098)",
+      "source_url": "https://eli.gov.pl/eli/MP/2026/1098/ogl",
+      "verified": true,
+      "note": ""
+    },
+    "full_zus_base_2027_derived": {
+      "value": 6019.8,
+      "unit": "PLN/month",
+      "legal_basis": "art. 18 ust. 8 SUS (60% × 10 033)",
+      "source_url": "https://eli.gov.pl/eli/MP/2026/1098/ogl",
+      "verified": false,
+      "note": "Wyliczone – ZUS jeszcze nie opublikował tabeli 2027."
+    },
+    "pref_zus_base_2027_derived": {
+      "value": 1485.0,
+      "unit": "PLN/month",
+      "legal_basis": "art. 18a SUS (30% × 4950)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001213",
+      "verified": false,
+      "note": "Wyliczone."
+    },
+    "health_min_feb2027_derived": {
+      "value": 445.5,
+      "unit": "PLN/month",
+      "legal_basis": "art. 81 ust. 2 ustawy o świadczeniach (9% × 4950), o ile przepisy się nie zmienią",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001213",
+      "verified": false,
+      "note": "Wyliczone; roku składkowego 1.02.2027–31.01.2028 dotyczy."
+    },
+    "internet_relief_repealed_2027": {
+      "value": null,
+      "unit": "rule",
+      "legal_basis": "art. 1 pkt 1 lit. a ustawy z 22.10.2026 (Dz.U. 2026 poz. 1541)",
+      "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001541",
+      "verified": true,
+      "note": "Od 1.01.2027 uchylona ulga internetowa (art. 26 ust. 1 pkt 6a PIT); podwyższone odliczenie dla krwiodawców. Skala, kwota wolna, KUP, ulga dla młodych – bez zmian w tej ustawie."
+    }
+  }
+}

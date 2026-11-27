@@ -1,0 +1,889 @@
+{
+ "meta": {
+  "year": 2026,
+  "asOf": "2026-11-27",
+  "version": "2026.11.27-3"
+ },
+ "sources": {
+  "pit_act": {
+   "title": "Ustawa o podatku dochodowym od osób fizycznych (t.j. Dz.U. 2026 poz. 592)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000592",
+   "basis": "art. 21 ust. 1 pkt 148, art. 22, art. 26, art. 27, art. 27f, art. 30a, art. 30c, art. 30h, art. 31b, art. 32"
+  },
+  "sus_act": {
+   "title": "Ustawa o systemie ubezpieczeń społecznych (t.j. Dz.U. 2026 poz. 1474)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001474",
+   "basis": "art. 16, art. 18, art. 18a, art. 19, art. 22, art. 47; art. 47 ust. 1: terminy opłacania składek (5., 15. lub 20. dzień miesiąca)"
+  },
+  "health_act": {
+   "title": "Ustawa o świadczeniach opieki zdrowotnej finansowanych ze środków publicznych (t.j. Dz.U. 2025 poz. 1461)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250001461",
+   "basis": "art. 79, art. 79a, art. 81"
+  },
+  "zus_2026": {
+   "title": "ZUS: Wysokość składek na ubezpieczenia społeczne i zdrowotne w 2026 r.",
+   "url": "https://www.zus.pl/baza-wiedzy/skladki-wskazniki-odsetki/skladki/wysokosc-skladek-na-ubezpieczenia-spoleczne",
+   "basis": "podstawy i kwoty składek przedsiębiorców, składka zdrowotna minimalna i ryczałtowa"
+  },
+  "mp_forecast": {
+   "title": "Obwieszczenie MRPiPS o kwocie ograniczenia rocznej podstawy składek i prognozowanym przeciętnym wynagrodzeniu na 2026 r. (M.P. 2025 poz. 1206)",
+   "url": "https://monitorpolski.gov.pl/M2025000120601.pdf",
+   "basis": "30-krotność = 282 600 zł; prognozowane przeciętne wynagrodzenie 9 420 zł"
+  },
+  "budget_2026": {
+   "title": "Ustawa budżetowa na rok 2026 (Dz.U. 2026 poz. 62)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000062",
+   "basis": "art. 25–27: Fundusz Pracy 1%, Fundusz Solidarnościowy 1,45%, FGŚP 0,10% – od podstawy składek emerytalno-rentowych"
+  },
+  "min_wage": {
+   "title": "Rozporządzenie Rady Ministrów w sprawie minimalnego wynagrodzenia za pracę w 2026 r. (Dz.U. 2025 poz. 1242)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250001242",
+   "basis": "4 806 zł miesięcznie"
+  },
+  "wyp_zus": {
+   "title": "ZUS: Poradnik – ubezpieczenie wypadkowe (stawka dla płatników do 9 ubezpieczonych)",
+   "url": "https://www.zus.pl/documents/10182/167567/poradnik_wypadkowe.pdf",
+   "basis": "art. 28 ust. 1 ustawy o ubezpieczeniu społecznym z tytułu wypadków przy pracy i chorób zawodowych: 1,67%"
+  },
+  "mp_linear": {
+   "title": "Obwieszczenie MF o limicie odliczenia składki zdrowotnej przy podatku liniowym na 2026 r. (M.P. 2025 poz. 1274)",
+   "url": "https://monitorpolski.gov.pl/M2025000127401.pdf",
+   "basis": "14 100 zł"
+  },
+  "ryczalt_act": {
+   "title": "Ustawa o zryczałtowanym podatku dochodowym (t.j. Dz.U. 2025 poz. 843)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000843",
+   "basis": "art. 11 ust. 1a, art. 12"
+  },
+  "gus_wage_q3": {
+   "title": "GUS: Komunikat w sprawie przeciętnego wynagrodzenia w III kwartale 2026 r.",
+   "url": "https://stat.gov.pl/sygnalne/komunikaty-i-obwieszczenia/lista-komunikatow-i-obwieszczen/komunikat-w-sprawie-przecietnego-wynagrodzenia-w-trzecim-kwartale-2026-r-,271,54.html",
+   "basis": "9 317,01 zł"
+  },
+  "gus_median": {
+   "title": "GUS: Rozkład wynagrodzeń w gospodarce narodowej w listopadzie 2025 r.",
+   "url": "https://stat.gov.pl/obszary-tematyczne/rynek-pracy/pracujacy-zatrudnieni-wynagrodzenia-koszty-pracy/rozklad-wynagrodzen-w-gospodarce-narodowej-w-listopadzie-2025-r-,32,23.html",
+   "basis": "mediana 7 432 zł"
+  },
+  "vat_act": {
+   "title": "Ustawa o podatku od towarów i usług (t.j. Dz.U. 2026 poz. 1263)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+   "basis": "art. 41, art. 43, art. 146ef, załączniki nr 3 i 10"
+  },
+  "excise_act": {
+   "title": "Ustawa o podatku akcyzowym (t.j. Dz.U. 2026 poz. 412)",
+   "url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+   "basis": "art. 89 (paliwa, energia), art. 99 (papierosy), art. 105 (samochody), art. 165a (stawki 2026 na alkohol i wyroby tytoniowe)"
+  },
+  "fuel_excise_cut": {
+   "title": "Rozporządzenie MF w sprawie obniżenia stawek akcyzy na paliwa silnikowe (Dz.U. 2026 poz. 1289)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001289",
+   "basis": "benzyna 1 239 zł, olej napędowy 880 zł za 1000 l, od 3.10 do 31.12.2026"
+  },
+  "fuel_vat_cut": {
+   "title": "Rozporządzenie MF zmieniające rozporządzenie w sprawie obniżonych stawek VAT (Dz.U. 2026 poz. 1288)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001288",
+   "basis": "§ 11c: VAT 8% na benzynę i olej napędowy od 3.10 do 31.12.2026"
+  },
+  "fuel_max_price": {
+   "title": "Obwieszczenie w sprawie ceny maksymalnej paliw na 27.11.2026 (M.P. 2026 poz. 1179)",
+   "url": "https://monitorpolski.gov.pl/M2026000117901.pdf",
+   "basis": "Pb95 5,81 zł/l, olej napędowy 7,12 zł/l"
+  },
+  "fuel_fee": {
+   "title": "Obwieszczenie Ministra Infrastruktury o stawkach opłaty paliwowej na 2026 r. (M.P. 2025 poz. 1238)",
+   "url": "https://monitorpolski.gov.pl/M2025000123801.pdf",
+   "basis": "benzyna 210,29 zł, olej napędowy 453,52 zł za 1000 l"
+  },
+  "emission_fee": {
+   "title": "Ustawa – Prawo ochrony środowiska (t.j. Dz.U. 2026 poz. 1453)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001453",
+   "basis": "art. 321a, 321f: opłata emisyjna 80 zł/1000 l"
+  },
+  "cig_avg_price": {
+   "title": "Obwieszczenie MFiG o średniej ważonej detalicznej cenie sprzedaży papierosów za 2025 r. (M.P. 2026 poz. 205)",
+   "url": "https://api.sejm.gov.pl/eli/acts/MP/2026/205/text.pdf",
+   "basis": "średnia ważona cena w 2025 r.: 1 037,72 zł/1000 szt. = 20,75 zł za paczkę. Cena 2026 = cena 2025 po przeniesieniu podwyżki akcyzy (345 → 414 zł/1000 szt.) przy niezmienionej marży w zł: 23.56 zł"
+  },
+  "sugar_fee": {
+   "title": "Ustawa o zdrowiu publicznym (t.j. Dz.U. 2026 poz. 149)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000149",
+   "basis": "art. 12a–12f: opłata cukrowa 0,50 zł/l + 0,05 zł/g + 0,10 zł/l, maks. 1,20 zł/l"
+  },
+  "small_bottles": {
+   "title": "Ustawa o wychowaniu w trzeźwości i przeciwdziałaniu alkoholizmowi (Dz.U. 2023 poz. 2151)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20230002151",
+   "basis": "art. 9² ust. 11: 25 zł za litr 100% alkoholu w opakowaniach do 300 ml"
+  },
+  "ure_capacity": {
+   "title": "Informacja Prezesa URE nr 58/2025 o stawkach opłaty mocowej na 2026 r.",
+   "url": "https://bip.ure.gov.pl/download/3/20137/informacja582025PUREstawki2026.pdf",
+   "basis": "4,29 / 10,31 / 17,18 / 24,05 zł miesięcznie netto"
+  },
+  "ure_oze": {
+   "title": "Informacja Prezesa URE nr 61/2025 o stawce opłaty OZE na 2026 r.",
+   "url": "https://www.ure.gov.pl/download/9/15811/InformacjaPUREwysokosstawkioplatyOZE271025.pdf",
+   "basis": "7,30 zł/MWh"
+  },
+  "cogen": {
+   "title": "Rozporządzenie Ministra Energii w sprawie stawki opłaty kogeneracyjnej na 2026 r. (Dz.U. 2025 poz. 1664)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250001664",
+   "basis": "3,00 zł/MWh"
+  },
+  "rtv": {
+   "title": "Rozporządzenie KRRiT w sprawie wysokości opłat abonamentowych w 2026 r. (Dz.U. 2025 poz. 885)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20250000885",
+   "basis": "radio 9,50 zł, telewizor (lub telewizor i radio) 30,50 zł miesięcznie"
+  },
+  "property": {
+   "title": "Obwieszczenie MFiG o górnych granicach stawek kwotowych podatków i opłat lokalnych w 2026 r. (M.P. 2025 poz. 726)",
+   "url": "https://monitorpolski.gov.pl/M2025000072601.pdf",
+   "basis": "budynki mieszkalne: maks. 1,25 zł/m² powierzchni użytkowej rocznie"
+  },
+  "pcc": {
+   "title": "Ustawa o podatku od czynności cywilnoprawnych (t.j. Dz.U. 2026 poz. 191)",
+   "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260000191",
+   "basis": "art. 7 ust. 1 pkt 1 lit. a: 2%"
+  },
+  "gus_hbs": {
+   "title": "GUS: Budżety gospodarstw domowych w 2025 r. (publikacja z 29.09.2026)",
+   "url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "basis": "tabl. 2, 19, 30 (kwintyle), 37a (podkategorie COICOP 2018)"
+  },
+  "eurostat_saving": {
+   "title": "Eurostat: stopa oszczędności gospodarstw domowych (nasa_10_ki), Polska 2025",
+   "url": "https://ec.europa.eu/eurostat/databrowser/view/nasa_10_ki/default/table",
+   "basis": "9,04%"
+  },
+  "eurostat_cofog": {
+   "title": "Eurostat: wydatki sektora instytucji rządowych i samorządowych według funkcji (gov_10a_exp), Polska 2024",
+   "url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "basis": "COFOG, Polska 2024: suma wydatków 1 806 510 mln zł"
+  },
+  "eurostat_main": {
+   "title": "Eurostat: główne agregaty sektora instytucji rządowych i samorządowych (gov_10a_main), Polska 2025",
+   "url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main/default/table",
+   "basis": "wydatki 1 991 233 mln zł, deficyt 283 615 mln zł"
+  },
+  "eurostat_gdp": {
+   "title": "Eurostat: PKB w cenach bieżących (nama_10_gdp), Polska 2025",
+   "url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10_gdp/default/table",
+   "basis": "3 915 394 mln zł"
+  },
+  "eurostat_tax": {
+   "title": "Eurostat: podatki i składki według rodzaju (gov_10a_taxag), 2025",
+   "url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "basis": "Polska 37,6% PKB, UE-27 40,7% PKB"
+  },
+  "gus_population": {
+   "title": "GUS: Ludność. Stan i struktura w przekroju terytorialnym w 2025 r. (stan w dniu 31 grudnia)",
+   "url": "https://stat.gov.pl/obszary-tematyczne/ludnosc/ludnosc/ludnosc-stan-i-struktura-oraz-ruch-naturalny-w-przekroju-terytorialnym-w-2025-r-stan-w-dniu-31-grudnia,6,40.html",
+   "basis": "37 332 510 osób"
+  },
+  "cas_dwp": {
+   "title": "Centrum im. Adama Smitha: Dzień Wolności Podatkowej 2026",
+   "url": "https://smith.pl/dzien-wolnosci-podatkowej-2026/",
+   "basis": "9 lipca 2026"
+  },
+  "oecd_tw": {
+   "title": "OECD: Taxing Wages 2026",
+   "url": "https://www.oecd.org/en/publications/taxing-wages-2026_3a5169ef-en.html",
+   "basis": "klin podatkowy dla osoby samotnej z przeciętną płacą (2025): Polska 35,03%, średnia OECD 35,08%"
+  },
+  "alcohol_market": {
+   "title": "Założenie projektu: struktura wydatków na alkohol (mocne alkohole 47%, piwo 44%, wino 9%)",
+   "url": "https://pro.rp.pl/raporty-ekonomiczne/art43488311-miliardy-na-procenty-mocne-alkohole-wyprzedzily-w-polsce-piwo",
+   "basis": "szacunek na podstawie doniesień prasowych o strukturze rynku (m.in. Rzeczpospolita, dostęp płatny); brak publicznego źródła pierwotnego – wpływa tylko na domyślny szacunek akcyzy od alkoholu"
+  },
+  "prices_estimate": {
+   "title": "Ceny detaliczne – szacunek projektu (przedziały z serwisów cenowych, listopad 2026)",
+   "url": "https://dbw.stat.gov.pl/",
+   "basis": "wódka 0,5 l: 30–35 zł, piwo 0,5 l: 3,50–4,50 zł, wino 0,75 l: 20–40 zł, prąd: 1,05–1,30 zł/kWh – przedziały cen rynkowych; w przykładach podajemy wynik dla całego przedziału"
+  },
+  "bread_price": {
+   "title": "GUS: przeciętne ceny detaliczne – chleb pszenno-żytni 0,5 kg, październik 2026 (za finwire.pl)",
+   "url": "https://dbw.stat.gov.pl/",
+   "basis": "5,57 zł"
+  },
+  "budget_rev": {
+   "title": "Uzasadnienie projektu ustawy budżetowej na 2026 r. (druk sejmowy nr 1749) – dochody z PIT ogółem i udziały samorządów",
+   "url": "https://api.sejm.gov.pl/sejm/term10/prints/1749/1749-uzasadnienie.pdf",
+   "basis": "PIT łącznie 225,9 mld zł, w tym udziały samorządów 193,8 mld zł (ok. 86%)"
+  },
+  "excise_cig_map": {
+   "title": "Ustawa zmieniająca ustawę o podatku akcyzowym – mapa akcyzowa wyrobów tytoniowych 2025–2027 (Dz.U. 2024 poz. 1681)",
+   "url": "https://dziennikustaw.gov.pl/D2024000168101.pdf",
+   "basis": "art. 165a ust. 2: papierosy 414 zł/1000 szt. + 32,05% w 2026 r."
+  },
+  "cig_avg_price_2026": {
+   "title": "Obwieszczenie MFiG w sprawie średniej ważonej detalicznej ceny sprzedaży papierosów na rok 2026 (M.P. 2025 poz. 1273)",
+   "url": "https://api.sejm.gov.pl/eli/acts/MP/2025/1273/text.pdf",
+   "basis": "1 031,46 zł/1000 szt. – podstawa akcyzy minimalnej w 2026 r. (art. 99d ust. 1): 105% × (414 + 32,05% × 1 031,46) = 781,81 zł/1000 szt."
+  }
+ },
+ "refs": {
+  "pit.rate1": "pit_act",
+  "pit.rate2": "pit_act",
+  "pit.threshold": "pit_act",
+  "pit.taxFree": "pit_act",
+  "pit.reducingAnnual": "pit_act",
+  "pit.reducingMonthly": "pit_act",
+  "pit.kupMonthly": "pit_act",
+  "pit.kupMonthlyElevated": "pit_act",
+  "pit.kupAnnual": "pit_act",
+  "pit.kupAnnualElevated": "pit_act",
+  "pit.kupZlecenie": "pit_act",
+  "pit.youngLimit": "pit_act",
+  "pit.linearRate": "pit_act",
+  "pit.solidarityRate": "pit_act",
+  "pit.solidarityThreshold": "pit_act",
+  "pit.childRelief": "pit_act",
+  "pit.childReliefOneChildIncomeLimitSingle": "pit_act",
+  "local.belka": "pit_act",
+  "zus.emerEmp": "sus_act",
+  "zus.emerEr": "sus_act",
+  "zus.rentEmp": "sus_act",
+  "zus.rentEr": "sus_act",
+  "zus.chor": "sus_act",
+  "zus.wyp": "wyp_zus",
+  "zus.fp": "budget_2026",
+  "zus.fgsp": "budget_2026",
+  "zus.annualCap": "mp_forecast",
+  "wages.forecastAverage": "mp_forecast",
+  "b2b.duzyBase": "mp_forecast",
+  "health.rate": "health_act",
+  "health.linearRate": "health_act",
+  "health.minMonthly": "zus_2026",
+  "health.minMonthlyJanuary": "zus_2026",
+  "health.ryczaltBands": "zus_2026",
+  "health.ryczaltMonthly": "zus_2026",
+  "b2b.prefBase": "zus_2026",
+  "health.linearDeductLimit": "mp_linear",
+  "b2b.ryczaltRates": "ryczalt_act",
+  "wages.minimum": "min_wage",
+  "wages.average": "gus_wage_q3",
+  "wages.median": "gus_median",
+  "fuel.petrolExcise": "fuel_excise_cut",
+  "fuel.dieselExcise": "fuel_excise_cut",
+  "fuel.petrolExciseStandard": "excise_act",
+  "fuel.dieselExciseStandard": "excise_act",
+  "tobacco.perThousand": "excise_cig_map",
+  "tobacco.adValorem": "excise_cig_map",
+  "alcohol.spiritsPerHl": "excise_act",
+  "alcohol.beerPerHlPlato": "excise_act",
+  "alcohol.winePerHl": "excise_act",
+  "electricity.exciseMwh": "excise_act",
+  "fuel.vatRate": "fuel_vat_cut",
+  "fuel.standardVatRate": "vat_act",
+  "fuel.petrolPrice": "fuel_max_price",
+  "fuel.dieselPrice": "fuel_max_price",
+  "fuel.petrolFuelFee": "fuel_fee",
+  "fuel.dieselFuelFee": "fuel_fee",
+  "fuel.emissionFee": "emission_fee",
+  "tobacco.minimumPerThousand": "cig_avg_price_2026",
+  "tobacco.packPrice": "cig_avg_price",
+  "alcohol.vodkaPrice": "prices_estimate",
+  "alcohol.beerPrice": "prices_estimate",
+  "alcohol.winePrice": "prices_estimate",
+  "electricity.pricePerKwh": "prices_estimate",
+  "alcohol.smallBottleFeePerL": "small_bottles",
+  "sugar": "sugar_fee",
+  "electricity.capacityBandsKwhYear": "ure_capacity",
+  "electricity.capacityFees": "ure_capacity",
+  "electricity.ozePerKwh": "ure_oze",
+  "electricity.cogenPerKwh": "cogen",
+  "local.rtvMonthly": "rtv",
+  "local.wastePerPerson": "gus_hbs",
+  "local.propertyPerM2": "property",
+  "local.pccRate": "pcc",
+  "context.population": "gus_population",
+  "context.govSpendingTotal": "eurostat_main",
+  "context.deficitPctGdp": "eurostat_main",
+  "context.taxToGdp": "eurostat_tax",
+  "context.casFreedomDay": "cas_dwp",
+  "context.oecdWedgePl": "oecd_tw",
+  "basket": "gus_hbs",
+  "basket.savingsRate": "eurostat_saving",
+  "cofog": "eurostat_cofog",
+  "alcohol.mix": "alcohol_market",
+  "products.bread": "bread_price",
+  "health.ryczaltMonthlyJanuary": "zus_2026",
+  "pit.childReliefOneChildIncomeLimit": "pit_act"
+ },
+ "pit": {
+  "rate1": 0.12,
+  "rate2": 0.32,
+  "threshold": 120000,
+  "taxFree": 30000,
+  "reducingAnnual": 3600,
+  "reducingMonthly": 300,
+  "kupMonthly": 250,
+  "kupMonthlyElevated": 300,
+  "kupAnnual": 3000,
+  "kupAnnualElevated": 3600,
+  "kupZlecenie": 0.2,
+  "youngLimit": 85528,
+  "linearRate": 0.19,
+  "solidarityRate": 0.04,
+  "solidarityThreshold": 1000000,
+  "childRelief": [
+   1112.04,
+   1112.04,
+   2000.04,
+   2700.0
+  ],
+  "childReliefOneChildIncomeLimit": 112000,
+  "childReliefOneChildIncomeLimitSingle": 56000
+ },
+ "zus": {
+  "emerEmp": 0.0976,
+  "emerEr": 0.0976,
+  "rentEmp": 0.015,
+  "rentEr": 0.065,
+  "chor": 0.0245,
+  "wyp": 0.0167,
+  "fp": 0.0245,
+  "fgsp": 0.001,
+  "annualCap": 282600
+ },
+ "health": {
+  "rate": 0.09,
+  "linearRate": 0.049,
+  "minMonthly": 432.54,
+  "minMonthlyJanuary": 314.96,
+  "linearDeductLimit": 14100,
+  "ryczaltBands": [
+   60000,
+   300000
+  ],
+  "ryczaltMonthly": [
+   498.35,
+   830.58,
+   1495.04
+  ],
+  "ryczaltMonthlyJanuary": [
+   461.66,
+   769.43,
+   1384.97
+  ]
+ },
+ "b2b": {
+  "duzyBase": 5652.0,
+  "prefBase": 1441.8,
+  "ryczaltRates": [
+   0.02,
+   0.03,
+   0.055,
+   0.085,
+   0.1,
+   0.12,
+   0.14,
+   0.15,
+   0.17
+  ]
+ },
+ "wages": {
+  "minimum": 4806,
+  "forecastAverage": 9420,
+  "average": 9317.01,
+  "averageLabel": "GUS, III kwartał 2026",
+  "median": 7432,
+  "medianLabel": "GUS, listopad 2025"
+ },
+ "fuel": {
+  "petrolPrice": 5.81,
+  "dieselPrice": 7.12,
+  "vatRate": 0.08,
+  "petrolExcise": 1239,
+  "dieselExcise": 880,
+  "standardVatRate": 0.23,
+  "petrolExciseStandard": 1529,
+  "dieselExciseStandard": 1160,
+  "petrolFuelFee": 210.29,
+  "dieselFuelFee": 453.52,
+  "emissionFee": 80,
+  "reliefUntil": "2026-12-31",
+  "priceNote": "Paliwa: ceny maksymalne na 27 listopada 2026 r. (M.P. 2026 poz. 1179)."
+ },
+ "tobacco": {
+  "packPrice": 23.56,
+  "perThousand": 414.0,
+  "adValorem": 0.3205,
+  "minimumPerThousand": 781.81,
+  "priceNote": "Papierosy: cena wyliczona ze średniej ceny MF za 2025 r. (20,75 zł) po przeniesieniu podwyżki akcyzy na cenę."
+ },
+ "alcohol": {
+  "spiritsPerHl": 8391,
+  "beerPerHlPlato": 11.47,
+  "winePerHl": 233,
+  "vodkaPrice": 32.0,
+  "beerPrice": 4.0,
+  "winePrice": 30.0,
+  "smallBottleFeePerL": 25,
+  "priceNote": "Alkohol: typowe ceny sklepowe (szacunek; wynik podajemy też dla przedziału cen).",
+  "vodkaRange": [
+   30,
+   35
+  ],
+  "beerRange": [
+   3.5,
+   4.5
+  ],
+  "wineRange": [
+   20,
+   40
+  ]
+ },
+ "sugar": [
+  0.5,
+  0.05,
+  0.1,
+  1.2
+ ],
+ "electricity": {
+  "exciseMwh": 5,
+  "pricePerKwh": 1.05,
+  "capacityBandsKwhYear": [
+   500,
+   1200,
+   2800
+  ],
+  "capacityFees": [
+   4.29,
+   10.31,
+   17.18,
+   24.05
+  ],
+  "ozePerKwh": 0.0073,
+  "cogenPerKwh": 0.003,
+  "avgKwhMonthly": 175,
+  "priceNote": "Prąd: szacunek 1,05 zł/kWh brutto (taryfa G11 z dystrybucją) plus opłata mocowa.",
+  "priceRange": [
+   1.05,
+   1.3
+  ]
+ },
+ "local": {
+  "rtvMonthly": 30.5,
+  "wastePerPerson": 29.49,
+  "propertyPerM2": 1.25,
+  "belka": 0.19,
+  "pccRate": 0.02
+ },
+ "basket": {
+  "categories": [
+   {
+    "id": "food",
+    "label": "Żywność i napoje",
+    "plain": "Jedzenie, napoje bez alkoholu",
+    "shares": [
+     0.3164,
+     0.32158,
+     0.29582,
+     0.27313,
+     0.20577
+    ],
+    "vatShare": 0.0649,
+    "exciseShare": 0.00251,
+    "note": "Stawki 5% (podstawowa żywność), 8% (np. cukier, przyprawy) i 23% (kawa, herbata, słodycze z kakao, woda butelkowana, napoje słodzone). Akcyza: opłata cukrowa w napojach słodzonych."
+   },
+   {
+    "id": "alcohol",
+    "label": "Alkohol",
+    "plain": "Piwo, wódka, wino",
+    "shares": [
+     0.01458,
+     0.01491,
+     0.01423,
+     0.01465,
+     0.01181
+    ],
+    "vatShare": 0.18699,
+    "exciseShare": 0.32743,
+    "note": "VAT 23% oraz akcyza; przyjęta struktura wydatków: 47% mocne alkohole, 44% piwo, 9% wino (założenie projektu); ceny: wódka 32 zł, piwo 4 zł, wino 30 zł."
+   },
+   {
+    "id": "tobacco",
+    "label": "Papierosy i tytoń",
+    "plain": "Wyroby tytoniowe",
+    "shares": [
+     0.01309,
+     0.01338,
+     0.01277,
+     0.01315,
+     0.0106
+    ],
+    "vatShare": 0.18699,
+    "exciseShare": 0.67194,
+    "note": "VAT 23% oraz akcyza liczona dla paczki papierosów po 23,56 zł (cena wyliczona ze średniej ceny MF)."
+   },
+   {
+    "id": "clothing",
+    "label": "Ubrania i buty",
+    "plain": "Odzież, obuwie",
+    "shares": [
+     0.03602,
+     0.03571,
+     0.03799,
+     0.03773,
+     0.04186
+    ],
+    "vatShare": 0.18699,
+    "exciseShare": 0,
+    "note": "Stawka 23%."
+   },
+   {
+    "id": "electricity",
+    "label": "Prąd",
+    "plain": "Energia elektryczna",
+    "shares": [
+     0.04552,
+     0.04861,
+     0.04594,
+     0.04502,
+     0.04176
+    ],
+    "vatShare": 0.18699,
+    "exciseShare": 0.09693,
+    "note": "VAT 23%; akcyza 5 zł/MWh oraz opłaty mocowa, OZE i kogeneracyjna."
+   },
+   {
+    "id": "heat",
+    "label": "Ogrzewanie i gaz",
+    "plain": "Gaz, ciepło, węgiel, drewno",
+    "shares": [
+     0.07271,
+     0.07763,
+     0.07338,
+     0.0719,
+     0.06669
+    ],
+    "vatShare": 0.18694,
+    "exciseShare": 0,
+    "note": "VAT 23% (gaz, ciepło systemowe, opał); akcyza na gaz i węgiel dla gospodarstw domowych jest zwolniona."
+   },
+   {
+    "id": "housing",
+    "label": "Mieszkanie: czynsz, woda, remonty",
+    "plain": "Czynsz, woda, ścieki, naprawy",
+    "shares": [
+     0.07731,
+     0.08255,
+     0.07803,
+     0.07646,
+     0.07092
+    ],
+    "vatShare": 0.04881,
+    "exciseShare": 0,
+    "note": "Najem mieszkań i opłaty wspólnot zwolnione z VAT; woda i ścieki 8%; materiały remontowe 23%. Opłata śmieciowa liczona osobno."
+   },
+   {
+    "id": "furnishings",
+    "label": "Wyposażenie domu",
+    "plain": "Meble, AGD, środki czystości",
+    "shares": [
+     0.05183,
+     0.04947,
+     0.04905,
+     0.05292,
+     0.05795
+    ],
+    "vatShare": 0.18699,
+    "exciseShare": 0,
+    "note": "Stawka 23%."
+   },
+   {
+    "id": "health",
+    "label": "Zdrowie",
+    "plain": "Leki, prywatne wizyty",
+    "shares": [
+     0.05728,
+     0.06335,
+     0.06504,
+     0.06523,
+     0.06549
+    ],
+    "vatShare": 0.0431,
+    "exciseShare": 0,
+    "note": "Leki i wyroby medyczne 8%; usługi medyczne zwolnione."
+   },
+   {
+    "id": "fuel",
+    "label": "Paliwo do auta",
+    "plain": "Benzyna, olej napędowy, LPG",
+    "shares": [
+     0.04374,
+     0.04448,
+     0.05029,
+     0.05367,
+     0.06588
+    ],
+    "vatShare": 0.07407,
+    "exciseShare": 0.26322,
+    "note": "VAT (obecnie obniżony do 8%), akcyza, opłata paliwowa i emisyjna – liczone dla benzyny 95 po cenie maksymalnej z 27.11.2026."
+   },
+   {
+    "id": "transport",
+    "label": "Auto i transport",
+    "plain": "Zakup i naprawy auta, bilety",
+    "shares": [
+     0.04074,
+     0.04143,
+     0.04683,
+     0.04998,
+     0.06135
+    ],
+    "vatShare": 0.1377,
+    "exciseShare": 0.01293,
+    "note": "Pojazdy i części 23% (część aut używanych bez VAT), bilety 8%; akcyza od samochodów w cenie zakupu."
+   },
+   {
+    "id": "communication",
+    "label": "Telefon i internet",
+    "plain": "Abonamenty, sprzęt",
+    "shares": [
+     0.04518,
+     0.04446,
+     0.04234,
+     0.04035,
+     0.03546
+    ],
+    "vatShare": 0.187,
+    "exciseShare": 0,
+    "note": "Stawka 23%."
+   },
+   {
+    "id": "recreation",
+    "label": "Rekreacja i kultura",
+    "plain": "Hobby, wycieczki, książki",
+    "shares": [
+     0.0705,
+     0.05831,
+     0.07067,
+     0.07268,
+     0.09633
+    ],
+    "vatShare": 0.0898,
+    "exciseShare": 0,
+    "note": "Mieszanka stawek: książki 5%, bilety i usługi 8%, sprzęt 23%, wycieczki zorganizowane w procedurze marży."
+   },
+   {
+    "id": "education",
+    "label": "Edukacja",
+    "plain": "Szkoły, kursy",
+    "shares": [
+     0.0113,
+     0.01166,
+     0.01023,
+     0.00948,
+     0.01042
+    ],
+    "vatShare": 0,
+    "exciseShare": 0,
+    "note": "Usługi edukacyjne zwolnione z VAT."
+   },
+   {
+    "id": "restaurants",
+    "label": "Restauracje i hotele",
+    "plain": "Jedzenie na mieście, noclegi",
+    "shares": [
+     0.04658,
+     0.03559,
+     0.04483,
+     0.05524,
+     0.08074
+    ],
+    "vatShare": 0.0845,
+    "exciseShare": 0,
+    "note": "Gastronomia i noclegi 8%, napoje alkoholowe i kawa 23%."
+   },
+   {
+    "id": "other",
+    "label": "Pozostałe",
+    "plain": "Kosmetyki, fryzjer, ubezpieczenia",
+    "shares": [
+     0.05722,
+     0.05688,
+     0.06256,
+     0.06841,
+     0.07697
+    ],
+    "vatShare": 0.0996,
+    "exciseShare": 0,
+    "note": "Kosmetyki 23%, fryzjer 8%, ubezpieczenia i usługi finansowe zwolnione."
+   }
+  ],
+  "savingsRate": [
+   0.0904,
+   0.0904,
+   0.0904,
+   0.0904,
+   0.0904
+  ],
+  "quintileIncome": [
+   1192.11,
+   2416.61,
+   3088.78,
+   3939.2,
+   6910.12
+  ],
+  "year": 2025,
+  "avgHouseholdSize": 2.39
+ },
+ "products": [
+  {
+   "id": "bread",
+   "label": "Chleb",
+   "unit": "bochenek 0,5 kg",
+   "price": 5.57,
+   "priceNote": "GUS, październik 2026",
+   "vatRate": 0.05,
+   "excise": 0,
+   "levies": 0,
+   "note": "Podstawowa żywność ma najniższą stawkę VAT: 5%."
+  },
+  {
+   "id": "cola",
+   "label": "Napój typu cola",
+   "unit": "butelka 1 l",
+   "price": 6.0,
+   "priceNote": "szacunek",
+   "vatRate": 0.23,
+   "excise": 0,
+   "levies": 0.9,
+   "leviesLabel": "opłata cukrowa",
+   "note": "Opłata cukrowa: 0,50 zł + 0,05 zł za każdy gram cukru ponad 5 g/100 ml + 0,10 zł za kofeinę. Przy ok. 10,6 g cukru: 0,90 zł."
+  }
+ ],
+ "cofog": {
+  "year": 2024,
+  "functions": [
+   {
+    "id": "pensions",
+    "label": "Emerytury i renty",
+    "plain": "Emerytury, renty z tytułu niezdolności do pracy i renty rodzinne",
+    "share": 0.29128
+   },
+   {
+    "id": "health",
+    "label": "Zdrowie",
+    "plain": "Szpitale, przychodnie, leki refundowane",
+    "share": 0.12417
+   },
+   {
+    "id": "economy",
+    "label": "Transport i gospodarka",
+    "plain": "Drogi, kolej, rolnictwo, energetyka, wsparcie firm",
+    "share": 0.12431
+   },
+   {
+    "id": "education",
+    "label": "Edukacja",
+    "plain": "Przedszkola, szkoły, uczelnie",
+    "share": 0.11347
+   },
+   {
+    "id": "family",
+    "label": "Rodzina i dzieci",
+    "plain": "Świadczenia na dzieci (m.in. 800+), urlopy rodzicielskie",
+    "share": 0.0619
+   },
+   {
+    "id": "defence",
+    "label": "Obronność",
+    "plain": "Wojsko i sprzęt wojskowy",
+    "share": 0.05947
+   },
+   {
+    "id": "admin",
+    "label": "Administracja i sprawy ogólne",
+    "plain": "Urzędy, parlament, sprawy zagraniczne, statystyka",
+    "share": 0.05605
+   },
+   {
+    "id": "debt",
+    "label": "Odsetki od długu publicznego",
+    "plain": "Koszt obsługi wcześniejszych pożyczek państwa",
+    "share": 0.04862
+   },
+   {
+    "id": "order",
+    "label": "Policja, sądy, straż",
+    "plain": "Bezpieczeństwo publiczne i wymiar sprawiedliwości",
+    "share": 0.0485
+   },
+   {
+    "id": "culture",
+    "label": "Kultura, sport, religia",
+    "plain": "Muzea, teatry, media publiczne, obiekty sportowe",
+    "share": 0.02846
+   },
+   {
+    "id": "communal",
+    "label": "Środowisko i gospodarka komunalna",
+    "plain": "Odpady, ścieki, ochrona przyrody, mieszkalnictwo",
+    "share": 0.0267
+   },
+   {
+    "id": "social",
+    "label": "Pozostała pomoc społeczna",
+    "plain": "Zasiłki dla bezrobotnych, pomoc społeczna, mieszkaniowa",
+    "share": 0.01707
+   }
+  ]
+ },
+ "deadlines": [
+  {
+   "id": "zus",
+   "when": "do 15. dnia (płatnicy z osobowością prawną, np. sp. z o.o.) lub 20. dnia następnego miesiąca (pozostali)",
+   "what": "Pracodawca przelewa składki ZUS i zdrowotną.",
+   "who": "pracodawca"
+  },
+  {
+   "id": "pit_advance",
+   "when": "do 20. dnia następnego miesiąca",
+   "what": "Pracodawca przelewa zaliczkę na PIT.",
+   "who": "pracodawca"
+  },
+  {
+   "id": "vat",
+   "when": "do 25. dnia następnego miesiąca",
+   "what": "Sprzedawca rozlicza VAT.",
+   "who": "sprzedawca"
+  },
+  {
+   "id": "property",
+   "when": "15 marca, 15 maja, 15 września, 15 listopada",
+   "what": "Podatek od nieruchomości płaci się w czterech ratach: 15 marca, 15 maja, 15 września i 15 listopada (do 100 zł – jednorazowo do 15 marca).",
+   "who": "właściciel"
+  },
+  {
+   "id": "pit_annual",
+   "when": "15 lutego – 30 kwietnia 2027",
+   "what": "Roczne zeznanie PIT za 2026 r.",
+   "who": "podatnik"
+  }
+ ],
+ "context": {
+  "population": 37332510,
+  "populationYear": 2025,
+  "pensioners": 0,
+  "govSpendingTotal": 1991233000000,
+  "govSpendingYear": 2025,
+  "deficitPctGdp": 7.2,
+  "deficitYear": 2025,
+  "taxToGdp": 37.6,
+  "taxToGdpYear": 2025,
+  "euTaxToGdp": 40.7,
+  "casFreedomDay": "2026-07-09",
+  "oecdWedgePl": 35.03,
+  "oecdWedgeAvg": 35.08,
+  "oecdYear": 2025,
+  "vatPerCapita": 8833,
+  "excisePerCapita": 2911
+ },
+ "checks": {
+  "minWageNet": 3605.85,
+  "minWageEmployerCost": 5790.28
+ }
+}

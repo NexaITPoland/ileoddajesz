@@ -1,0 +1,208 @@
+---
+/* Metodologia: wszystkie tabele powstają z tego samego pliku, z którego liczy kalkulator. */
+import Base from '../layouts/Base.astro';
+import rates from '../data/rates-2026.json';
+import { computeLabor, januaryPayslip, fuelUnit, packUnit, alcoholUnit, type Rates } from '../lib/engine';
+const R = rates as unknown as Rates & { refs: Record<string, string> };
+const get = (path: string): unknown => path.split('.').reduce<any>((o, k) => (o == null ? o : o[k]), R);
+type Fmt = 'pct' | 'zl' | 'zl2' | 'num' | 'text';
+const f = (v: unknown, fmt: Fmt): string => {
+  if (typeof v !== 'number') return Array.isArray(v) ? v.map((x) => f(x, fmt)).join(' / ') : String(v ?? '—');
+  if (fmt === 'pct') return `${(v * 100).toLocaleString('pl-PL', { maximumFractionDigits: 3 })}%`;
+  if (fmt === 'zl') return `${v.toLocaleString('pl-PL', { maximumFractionDigits: 2 })} zł`;
+  if (fmt === 'zl2') return `${v.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} zł`;
+  return v.toLocaleString('pl-PL', { maximumFractionDigits: 4 });
+};
+type Row = [label: string, path: string, fmt: Fmt, unit?: string];
+const sections: { id: string; title: string; intro: string; rows: Row[] }[] = [
+  { id: 'pit', title: 'Podatek dochodowy (PIT)', intro: 'Roczny podatek liczymy tak jak w zeznaniu PIT-37 (umowa o pracę, zlecenie) albo PIT-36 / PIT-36L / PIT-28 (działalność).', rows: [
+    ['Stawka 1. progu skali', 'pit.rate1', 'pct'], ['Stawka 2. progu skali', 'pit.rate2', 'pct'], ['Próg podatkowy (dochód roczny)', 'pit.threshold', 'zl'],
+    ['Kwota wolna od podatku', 'pit.taxFree', 'zl'], ['Kwota zmniejszająca podatek – rocznie', 'pit.reducingAnnual', 'zl'], ['Kwota zmniejszająca – w miesięcznej zaliczce', 'pit.reducingMonthly', 'zl'],
+    ['Koszty uzyskania przychodu (UoP) – miesięcznie', 'pit.kupMonthly', 'zl'], ['Podwyższone koszty (UoP) – miesięcznie', 'pit.kupMonthlyElevated', 'zl'], ['Koszty uzyskania (UoP) – rocznie, jeden stosunek pracy', 'pit.kupAnnual', 'zl'], ['Podwyższone koszty – rocznie', 'pit.kupAnnualElevated', 'zl'],
+    ['Koszty uzyskania przy zleceniu', 'pit.kupZlecenie', 'pct'], ['Limit ulgi dla młodych (przychód roczny)', 'pit.youngLimit', 'zl'], ['Podatek liniowy (działalność)', 'pit.linearRate', 'pct'],
+    ['Danina solidarnościowa', 'pit.solidarityRate', 'pct'], ['Próg daniny solidarnościowej (dochód)', 'pit.solidarityThreshold', 'zl'],
+    ['Ulga prorodzinna: 1. / 2. / 3. / 4. i kolejne dziecko (rocznie)', 'pit.childRelief', 'zl2'], ['Limit dochodu przy jednym dziecku: małżonkowie (łącznie) lub samotny rodzic', 'pit.childReliefOneChildIncomeLimit', 'zl'], ['Limit dochodu przy jednym dziecku: osoba niebędąca w małżeństwie (nie modelujemy)', 'pit.childReliefOneChildIncomeLimitSingle', 'zl'],
+  ] },
+  { id: 'zus', title: 'Składki na ubezpieczenia społeczne i fundusze', intro: 'Procent podstawy (pensji brutto). Składki emerytalna i rentowa oraz FP, FS i FGŚP przestają być naliczane po przekroczeniu rocznego limitu; chorobowa i wypadkowa – nie.', rows: [
+    ['Emerytalna – pracownik', 'zus.emerEmp', 'pct'], ['Emerytalna – pracodawca', 'zus.emerEr', 'pct'], ['Rentowa – pracownik', 'zus.rentEmp', 'pct'], ['Rentowa – pracodawca', 'zus.rentEr', 'pct'],
+    ['Chorobowa (pracownik)', 'zus.chor', 'pct'], ['Wypadkowa (pracodawca; stawka dla firm do 9 osób)', 'zus.wyp', 'pct'], ['Fundusz Pracy', 'zus.fp', 'pct'], ['Fundusz Gwarantowanych Świadczeń Pracowniczych', 'zus.fgsp', 'pct'],
+    ['Roczny limit podstawy emerytalnej i rentowej (30-krotność)', 'zus.annualCap', 'zl'],
+  ] },
+  { id: 'zdrowotna', title: 'Składka zdrowotna', intro: 'Pracownik: 9% podstawy (pensja brutto minus składki społeczne). Przedsiębiorca: zależnie od formy opodatkowania.', rows: [
+    ['Stawka (pracownik, skala podatkowa)', 'health.rate', 'pct'], ['Stawka – podatek liniowy', 'health.linearRate', 'pct'], ['Minimalna składka miesięczna od lutego (skala, liniowy)', 'health.minMonthly', 'zl2'], ['Minimalna składka za styczeń', 'health.minMonthlyJanuary', 'zl2'],
+    ['Limit odliczenia składki przy podatku liniowym (rocznie)', 'health.linearDeductLimit', 'zl'], ['Ryczałt: progi przychodu rocznego', 'health.ryczaltBands', 'zl'], ['Ryczałt: składka miesięczna w przedziałach (od lutego)', 'health.ryczaltMonthly', 'zl2'], ['Ryczałt: składka za styczeń 2026 (rok składkowy 2025)', 'health.ryczaltMonthlyJanuary', 'zl2'],
+  ] },
+  { id: 'b2b', title: 'Działalność gospodarcza (B2B)', intro: 'Przedsiębiorca płaci składki od zadeklarowanej podstawy, nie od dochodu.', rows: [
+    ['Podstawa „dużego” ZUS (60% prognozowanego wynagrodzenia)', 'b2b.duzyBase', 'zl2'], ['Podstawa preferencyjnego ZUS (30% płacy minimalnej)', 'b2b.prefBase', 'zl2'], ['Dostępne stawki ryczałtu', 'b2b.ryczaltRates', 'pct'],
+  ] },
+  { id: 'place', title: 'Płace', intro: 'Dane do podpowiedzi i progów.', rows: [
+    ['Płaca minimalna', 'wages.minimum', 'zl'], ['Prognozowane przeciętne wynagrodzenie', 'wages.forecastAverage', 'zl'], ['Przeciętne wynagrodzenie (podpowiedź w kalkulatorze)', 'wages.average', 'zl2'], ['Mediana wynagrodzeń', 'wages.median', 'zl'],
+  ] },
+  { id: 'akcyza', title: 'Akcyza, opłaty i ceny w przykładach', intro: 'Stawki ustawowe oraz typowe ceny detaliczne z końca roku, użyte w przykładach „Ile podatku jest w…” i przy liczeniu Twojego zużycia.', rows: [
+    ['Akcyza – benzyna, obniżona do 31.12.2026 (zł/1000 l)', 'fuel.petrolExcise', 'zl'], ['Akcyza – olej napędowy, obniżona do 31.12.2026 (zł/1000 l)', 'fuel.dieselExcise', 'zl'], ['Akcyza – benzyna, stawka ustawowa (zł/1000 l)', 'fuel.petrolExciseStandard', 'zl'], ['Akcyza – olej napędowy, stawka ustawowa (zł/1000 l)', 'fuel.dieselExciseStandard', 'zl'],
+    ['VAT na benzynę i olej napędowy – obniżony do 31.12.2026', 'fuel.vatRate', 'pct'], ['VAT na paliwa – stawka standardowa', 'fuel.standardVatRate', 'pct'], ['Opłata paliwowa – benzyna (zł/1000 l)', 'fuel.petrolFuelFee', 'zl2'], ['Opłata paliwowa – olej napędowy (zł/1000 l)', 'fuel.dieselFuelFee', 'zl2'], ['Opłata emisyjna (zł/1000 l)', 'fuel.emissionFee', 'zl'],
+    ['Cena maksymalna benzyny 95 na 27.11.2026 (zł/l)', 'fuel.petrolPrice', 'zl2'], ['Cena maksymalna oleju napędowego na 27.11.2026 (zł/l)', 'fuel.dieselPrice', 'zl2'],
+    ['Papierosy – stawka kwotowa (zł/1000 szt.)', 'tobacco.perThousand', 'zl2'], ['Papierosy – stawka procentowa (od ceny detalicznej)', 'tobacco.adValorem', 'pct'], ['Papierosy – akcyza minimalna (zł/1000 szt.)', 'tobacco.minimumPerThousand', 'zl2'], ['Cena paczki 20 szt.', 'tobacco.packPrice', 'zl2'],
+    ['Alkohol etylowy (zł/hl 100% alk.)', 'alcohol.spiritsPerHl', 'zl'], ['Piwo (zł/hl za 1° Plato)', 'alcohol.beerPerHlPlato', 'zl2'], ['Wino (zł/hl)', 'alcohol.winePerHl', 'zl'], ['Opłata od „małpek” (zł/l 100% alk.)', 'alcohol.smallBottleFeePerL', 'zl'], ['Opłata cukrowa – stała / za gram cukru ponad 5 g / kofeina / maksimum (zł/l)', 'sugar', 'zl2'],
+    ['Cena wódki 0,5 l', 'alcohol.vodkaPrice', 'zl2'], ['Cena piwa 0,5 l', 'alcohol.beerPrice', 'zl2'], ['Cena wina 0,75 l', 'alcohol.winePrice', 'zl2'],
+    ['Akcyza na energię elektryczną (zł/MWh)', 'electricity.exciseMwh', 'zl'], ['Cena prądu za kWh (brutto, ze zmienną dystrybucją)', 'electricity.pricePerKwh', 'zl2'], ['Opłata mocowa – progi rocznego zużycia (kWh)', 'electricity.capacityBandsKwhYear', 'num'], ['Opłata mocowa – miesięcznie w przedziałach (netto)', 'electricity.capacityFees', 'zl2'], ['Opłata OZE (zł/kWh)', 'electricity.ozePerKwh', 'num'], ['Opłata kogeneracyjna (zł/kWh)', 'electricity.cogenPerKwh', 'num'],
+  ] },
+  { id: 'lokalne', title: 'Opłaty lokalne i inne', intro: 'Stawki maksymalne lub typowe; gminy ustalają własne.', rows: [
+    ['Abonament RTV (radio i TV) – miesięcznie', 'local.rtvMonthly', 'zl2'], ['Opłata śmieciowa – przyjęta kwota na osobę miesięcznie', 'local.wastePerPerson', 'zl2'], ['Podatek od nieruchomości – lokal mieszkalny (max, zł/m² rocznie)', 'local.propertyPerM2', 'zl2'],
+    ['Podatek od zysków kapitałowych („Belka”)', 'local.belka', 'pct'], ['Podatek od czynności cywilnoprawnych (np. zakup używanego auta)', 'local.pccRate', 'pct'],
+  ] },
+];
+const src = (path: string) => { const id = R.refs[path] ?? R.refs[path.split('.')[0]]; return id ? R.sources[id] : undefined; };
+// Przykład wzorcowy: przeciętne wynagrodzenie, umowa o pracę.
+const ex = computeLabor({ contract: 'uop', monthly: R.wages.minimum, under26: false }, R);
+const jan = januaryPayslip(R.wages.minimum, R);
+const zl2 = (n: number) => f(n, 'zl2');
+const pb = fuelUnit(R, 'petrol'), pack = packUnit(R), vodka = alcoholUnit(R, 'vodka');
+const usedSources = Object.entries(R.sources);
+---
+<Base title="Metodologia i źródła" path="/metodologia/" description="Wszystkie stawki, wzory, założenia i źródła kalkulatora Ile oddajesz?: ustawy, rozporządzenia, obwieszczenia, dane GUS i Eurostatu. Stan prawny na listopad 2026.">
+  <section class="sec">
+    <div class="wrap">
+      <div class="head">
+        <p class="kicker">Metodologia</p>
+        <h1 class="h1">Jak liczymy i skąd mamy dane</h1>
+        <p class="lead">Stan prawny i dane na {new Date(R.meta.asOf).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' })}, rok podatkowy {R.meta.year}. Wszystkie liczby na tej stronie pochodzą z tego samego pliku danych (wersja {R.meta.version}), z którego liczy kalkulator.</p>
+      </div>
+      <nav class="toc card" aria-label="Spis treści">
+        <ol>
+          <li><a href="#zasady">Zasady obliczeń</a></li>
+          {sections.map((s) => <li><a href={`#${s.id}`}>{s.title}</a></li>)}
+          <li><a href="#koszyk">Koszyk zakupów (VAT i akcyza)</a></li>
+          <li><a href="#cofog">Na co idą pieniądze</a></li>
+          <li><a href="#przyklad">Przykład wzorcowy</a></li>
+          <li><a href="#uproszczenia">Uproszczenia</a></li>
+          <li><a href="#zrodla">Lista źródeł</a></li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section class="sec" id="zasady">
+    <div class="wrap prose">
+      <h2>Zasady obliczeń</h2>
+      <ol>
+        <li><strong>Punkt wyjścia to pełny koszt pracy</strong> („brutto-brutto”): pensja brutto plus składki płacone przez pracodawcę (emerytalna, rentowa, wypadkowa, Fundusz Pracy, FGŚP). Przy B2B: przychód minus koszty firmy. Tak samo liczy OECD w raporcie „Taxing Wages”.</li>
+        <li><strong>Składki i PIT</strong> liczymy dla całego roku, tak jak w rocznym zeznaniu, z uwzględnieniem progu podatkowego, kwoty wolnej, kosztów uzyskania przychodu, rocznego limitu składek emerytalno-rentowych i wybranych ulg (dla młodych, prorodzinna). „Na rękę” to średnia miesięczna z całego roku.</li>
+        <li><strong>VAT i akcyzę</strong> szacujemy z wydatków: dochód netto minus oszczędności rozkładamy na kategorie według struktury wydatków gospodarstw domowych o podobnym dochodzie (GUS), a w każdej kategorii liczymy, jaka część ceny to VAT i akcyza. Jeśli podasz własne zużycie paliwa, prądu, papierosów lub alkoholu, liczymy je dokładnie ze stawek, a resztę koszyka proporcjonalnie zmniejszamy.</li>
+        <li><strong>Udział danin</strong> = suma danin ÷ pełny koszt pracy (plus ewentualne zyski kapitałowe). Przełącznik pozwala wyłączyć z danin składki emerytalne i rentowe, które zwiększają Twoją przyszłą emeryturę.</li>
+        <li><strong>Dzień wolności podatkowej</strong> = udział danin × liczba dni w roku, licząc od 1 stycznia. <strong>Zegar</strong> = udział danin × 8 godzin, od 8:00.</li>
+        <li><strong>Na co idą pieniądze</strong>: Twoje daniny dzielimy proporcjonalnie do struktury wydatków sektora instytucji rządowych i samorządowych według funkcji (COFOG, Eurostat).</li>
+      </ol>
+    </div>
+  </section>
+
+  {sections.map((s) => (
+    <section class="sec" id={s.id}>
+      <div class="wrap">
+        <div class="head"><h2 class="h2">{s.title}</h2><p class="lead">{s.intro}</p></div>
+        <div class="tbl-wrap" tabindex="0" role="region" aria-label="Tabela (przewijana poziomo)">
+          <table>
+            <thead><tr><th>Parametr</th><th class="r">Wartość {R.meta.year}</th><th>Źródło i podstawa prawna</th></tr></thead>
+            <tbody>
+              {s.rows.map(([label, path, fmt]) => { const so = src(path); return (
+                <tr><td>{label}</td><td class="r">{f(get(path), fmt)}</td><td>{so ? <><a href={so.url} rel="noopener">{so.title}</a>{so.basis && <><br /><small>{so.basis}</small></>}</> : '—'}</td></tr>
+              ); })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="sec" id="koszyk">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2">Koszyk zakupów: ile VAT i akcyzy jest w każdej kategorii</h2>
+        <p class="lead">Struktura wydatków: GUS, „Budżety gospodarstw domowych w {R.basket.year} r.”, osobno dla pięciu grup dochodowych (kwintyli). Udział VAT i akcyzy w cenie każdej kategorii wynika ze stawek ustawowych i proporcji produktów w kategorii (opis w kolumnie „Jak policzone”).</p>
+      </div>
+      <div class="tbl-wrap" tabindex="0" role="region" aria-label="Tabela (przewijana poziomo)">
+        <table>
+          <thead><tr><th>Kategoria</th><th class="r">Udział w wydatkach: kwintyl 1 / 3 / 5</th><th class="r">VAT w cenie</th><th class="r">Akcyza i opłaty w cenie</th><th>Jak policzone</th></tr></thead>
+          <tbody>
+            {R.basket.categories.map((c) => <tr><td><strong>{c.label}</strong><br /><small>{c.plain}</small></td><td class="r">{[0, 2, 4].map((i) => `${(c.shares[i] * 100).toLocaleString('pl-PL', { maximumFractionDigits: 1 })}%`).join(' / ')}</td><td class="r">{(c.vatShare * 100).toLocaleString('pl-PL', { maximumFractionDigits: 1 })}%</td><td class="r">{(c.exciseShare * 100).toLocaleString('pl-PL', { maximumFractionDigits: 1 })}%</td><td><small>{c.note}</small></td></tr>)}
+          </tbody>
+        </table>
+      </div>
+      <div class="tbl-wrap" tabindex="0" role="region" aria-label="Tabela (przewijana poziomo)" style="margin-top:16px">
+        <table>
+          <thead><tr><th>Kwintyl (grupa dochodowa)</th>{[1, 2, 3, 4, 5].map((q) => <th class="r">{q}</th>)}</tr></thead>
+          <tbody>
+            <tr><td>Średni dochód rozporządzalny na osobę (zł/mies.)</td>{R.basket.quintileIncome.map((v) => <td class="r">{f(v, 'zl')}</td>)}</tr>
+            <tr><td>Przyjęta stopa oszczędzania</td>{R.basket.savingsRate.map((v) => <td class="r">{f(v, 'pct')}</td>)}</tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cofog">
+    <div class="wrap">
+      <div class="head"><h2 class="h2">Na co idą pieniądze</h2><p class="lead">Struktura wydatków sektora instytucji rządowych i samorządowych w {R.cofog.year} r. według funkcji (COFOG).</p></div>
+      <div class="tbl-wrap" tabindex="0" role="region" aria-label="Tabela (przewijana poziomo)">
+        <table>
+          <thead><tr><th>Funkcja</th><th>Co obejmuje</th><th class="r">Udział</th></tr></thead>
+          <tbody>{R.cofog.functions.map((x) => <tr><td><strong>{x.label}</strong></td><td>{x.plain}</td><td class="r">{f(x.share, 'pct')}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="przyklad">
+    <div class="wrap prose">
+      <h2>Przykład wzorcowy: płaca minimalna, umowa o pracę</h2>
+      <p>Pensja {zl2(R.wages.minimum)} brutto miesięcznie, osoba powyżej 26 lat, standardowe koszty uzyskania, bez PPK. Wyliczenia pierwszej wypłaty w roku (jak na pasku płacowym):</p>
+      <ul>
+        <li>Składka emerytalna 9,76%: {zl2(jan.emer)}; rentowa 1,5%: {zl2(jan.rent)}; chorobowa 2,45%: {zl2(jan.chor)}. Razem {zl2(jan.social)}.</li>
+        <li>Składka zdrowotna 9% × ({zl2(R.wages.minimum)} − {zl2(jan.social)}) = {zl2(jan.health)}.</li>
+        <li>Podstawa opodatkowania: {zl2(R.wages.minimum)} − {zl2(jan.social)} − {zl2(R.pit.kupMonthly)} = {jan.base.toLocaleString('pl-PL')} zł (po zaokrągleniu).</li>
+        <li>Zaliczka PIT: {jan.base.toLocaleString('pl-PL')} zł × 12% − {zl2(R.pit.reducingMonthly)} = {zl2(jan.advance)} (po zaokrągleniu).</li>
+        <li><strong>Na rękę: {zl2(jan.net)}</strong>.</li>
+      </ul>
+      <p>W skali roku pracodawca wydaje {zl2(ex.laborCost)}, z czego na konto pracownika trafia {zl2(ex.net)}. Roczny PIT: {zl2(ex.employee.find((i) => i.id === 'pit')!.amount)}.</p>
+      <h3>Przykłady produktów</h3>
+      <ul>
+        <li>Litr benzyny {zl2(pb.price)}: akcyza {zl2(pb.excise)} + opłaty paliwowa i emisyjna {zl2(pb.fees)} + VAT {zl2(pb.price)} × {Math.round(R.fuel.vatRate * 100)}/{100 + Math.round(R.fuel.vatRate * 100)} = {zl2(pb.vat)} (stawka obniżona do {new Date(R.fuel.reliefUntil).toLocaleDateString('pl-PL')}). Razem {zl2(pb.total)} ({Math.round(pb.total / pb.price * 100)}% ceny).</li>
+        <li>Paczka papierosów {zl2(pack.price)}: akcyza {zl2(R.tobacco.perThousand)}/1000 szt. × 20 + {f(R.tobacco.adValorem, 'pct')} ceny = {zl2(pack.excise)}; VAT {zl2(pack.vat)}. Razem {zl2(pack.total)} ({Math.round(pack.total / pack.price * 100)}% ceny).</li>
+        <li>Wódka 0,5 l 40% za {zl2(vodka.price)}: akcyza {zl2(R.alcohol.spiritsPerHl)}/hl × 0,005 hl × 40% = {zl2(vodka.excise)}; VAT {zl2(vodka.vat)}. Razem {zl2(vodka.total)} ({Math.round(vodka.total / vodka.price * 100)}% ceny).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="uproszczenia">
+    <div class="wrap prose">
+      <h2>Uproszczenia, o których warto wiedzieć</h2>
+      <ul>
+        <li>Pensja jest taka sama przez cały rok; nie uwzględniamy premii, nadgodzin ani zmian w trakcie roku.</li>
+        <li>Nie liczymy PPK (to Twoje oszczędności, nie danina), ulgi dla rodzin 4+, ulgi na powrót ani dla pracujących seniorów, wspólnego rozliczenia z małżonkiem (poza dodaniem drugiej osoby jako osobnego podatnika), ulg odliczanych od dochodu (np. internetowej, rehabilitacyjnej, IKZE).</li>
+        <li>Stawka składki wypadkowej zależy od firmy; przyjmujemy stawkę dla płatników zgłaszających do 9 ubezpieczonych.</li>
+        <li>Przy B2B pomijamy VAT pobierany od klientów (to pieniądze klientów, nie Twój koszt) oraz dobrowolne składki inne niż chorobowa. Składkę zdrowotną liczymy w skali roku, z minimum miesięcznym.</li>
+        <li>VAT i akcyzę w zakupach szacujemy ze średnich GUS; Twoja struktura wydatków może być inna. Pomijamy podatki płacone przez firmy (CIT, podatek od nieruchomości firm, akcyzę w kosztach produkcji), które częściowo również przenoszą się na ceny – rzeczywiste obciążenie jest więc raczej wyższe niż pokazane.</li>
+        <li>Rachunek za prąd liczymy z ceny za kWh i opłaty mocowej; pomijamy stałe opłaty sieciowe i handlowe.</li>
+        <li>Paliwa liczymy według stawek obowiązujących w dniu aktualizacji danych: do 31 grudnia 2026 r. obowiązuje czasowo obniżony VAT (8%) i niższa akcyza. W części 2026 r. (m.in. styczeń–marzec, lipiec–sierpień, wrzesień) obowiązywały stawki standardowe, więc roczna kwota podatków w paliwie była w praktyce wyższa niż pokazana.</li>
+        <li>Ceny papierosów, alkoholu, wina, napojów i prądu w przykładach to szacunki z przedziałów cen rynkowych; stawki podatków są dokładne.</li>
+        <li>Wynik nie jest wprost porównywalny z „klinem podatkowym” OECD ({R.context.oecdWedgePl.toLocaleString('pl-PL')}% dla Polski w {R.context.oecdYear} r.). OECD liczy go tylko dla podatków i składek od pracy (bez VAT i akcyzy), dla własnej definicji przeciętnego wynagrodzenia i według własnej klasyfikacji danin.</li>
+        <li>„Na co idą pieniądze” to podział proporcjonalny do całości wydatków publicznych, a nie śledzenie konkretnej złotówki.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="zrodla">
+    <div class="wrap">
+      <div class="head"><h2 class="h2">Lista źródeł</h2><p class="lead">Wszystkie dokumenty sprawdzone {new Date(R.meta.asOf).toLocaleDateString('pl-PL')}.</p></div>
+      <ol class="srcs">
+        {usedSources.map(([id, s]) => <li id={`src-${id}`}><a href={s.url} rel="noopener">{s.title}</a>{s.basis && <> – <span>{s.basis}</span></>}</li>)}
+      </ol>
+    </div>
+  </section>
+</Base>
+<style>
+  .toc ol { list-style: decimal; padding-left: 1.3em; columns: 2 260px; gap: 32px; }
+  .toc li { margin-bottom: 6px; break-inside: avoid; }
+  .srcs { list-style: decimal; padding-left: 1.4em; display: grid; gap: 8px; color: var(--muted); font-size: 15px; }
+  td small { color: var(--faint); }
+</style>

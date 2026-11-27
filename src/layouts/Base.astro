@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import rates from '../data/rates-2026.json';
+interface Props { title: string; description: string; path: string }
+const { title, description, path } = Astro.props;
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const full = path === '/' ? 'Ile oddajesz? Kalkulator wszystkich podatków i składek' : `${title} · Ile oddajesz?`;
+const nav = [
+  { href: '/', label: 'Kalkulator', main: true },
+  { href: '/jak-dziala-system/', label: 'Jak działa system' },
+  { href: '/metodologia/', label: 'Metodologia' },
+  { href: '/o-projekcie/', label: 'O projekcie' },
+];
+const asOf = new Date(rates.meta.asOf).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{full}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={`${site}${path}`} />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#121216" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:title" content={full} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={`${site}${path}`} />
+  <meta property="og:image" content={`${site}/og.png`} />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+  <a class="skip" href="#main">Przejdź do treści</a>
+  <header class="hdr">
+    <div class="wrap hdr-in">
+      <a class="logo" href="/" aria-label="Ile oddajesz? Strona główna"><i aria-hidden="true"></i>ile oddajesz?</a>
+      <nav class="nav" aria-label="Główna nawigacja">
+        {nav.map((n) => <a href={n.href} class:list={{ 'nav-main': n.main }} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a>)}
+      </nav>
+    </div>
+  </header>
+  <main id="main"><slot /></main>
+  <footer class="ftr">
+    <div class="wrap">
+      <div class="ftr-in">
+        <div>
+          <h2>Ile oddajesz?</h2>
+          <p>Niezależne, bezpłatne narzędzie edukacyjne. Pokazuje, jak działa system podatkowy w Polsce, na podstawie ustaw i danych publicznych.</p>
+        </div>
+        <div>
+          <h2>Narzędzie</h2>
+          <ul>
+            <li><a href="/">Kalkulator</a></li>
+            <li><a href="/jak-dziala-system/">Jak działa system</a></li>
+            <li><a href="/metodologia/">Metodologia i źródła</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Projekt</h2>
+          <ul>
+            <li><a href="/o-projekcie/">O projekcie i neutralność</a></li>
+            <li><a href="/o-projekcie/#bledy">Zgłoś błąd</a></li>
+            <li><a href="/prywatnosc/">Prywatność i zasady</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="ftr-legal">Stan prawny i dane na dzień {asOf} (rok podatkowy {rates.meta.year}). Wyniki to szacunki edukacyjne, a nie porada podatkowa ani wyliczenie urzędowe. Projekt nie jest związany z żadną instytucją publiczną, partią ani organizacją polityczną. Obliczenia wykonuje Twoja przeglądarka; nie zbieramy wpisanych kwot.</p>
+    </div>
+  </footer>
+</body>
+</html>

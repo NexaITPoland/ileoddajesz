@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import rates from '../data/rates-2026.json';
+import { REPO_URL } from '../lib/site';
+---
+<Base title="O projekcie" path="/o-projekcie/" description="Po co powstało narzędzie Ile oddajesz?, jak dbamy o neutralność i dokładność oraz jak zgłosić błąd.">
+  <section class="sec">
+    <div class="wrap prose">
+      <p class="kicker">O projekcie</p>
+      <h1 class="h1">Po co to narzędzie</h1>
+      <p class="lead">Większość danin w Polsce jest niewidoczna: płaci je pracodawca, sklep albo producent. Chcemy, żeby każdy mógł w minutę zobaczyć, ile kosztuje go państwo, kiedy i gdzie płaci oraz na co idą te pieniądze.</p>
+
+      <h2>Neutralność</h2>
+      <p>Narzędzie nie ocenia, czy podatki są za wysokie, czy za niskie. To pytanie polityczne, na które każdy odpowiada sam. My pokazujemy fakty, i to obie strony rachunku: ile płacisz i co państwo za to finansuje.</p>
+      <ul>
+        <li>Nie wymieniamy polityków ani partii i nie przypisujemy nikomu zasług ani winy.</li>
+        <li>Nie przyjmujemy pieniędzy od partii, komitetów wyborczych ani organizacji politycznych.</li>
+        <li>Pokazujemy dwie interpretacje składek emerytalnych (przełącznik w kalkulatorze), bo w tej sprawie ekonomiści się różnią. Domyślnie liczymy je jako daninę, tak jak OECD w raporcie „Taxing Wages”, który wlicza obowiązkowe składki do klinu podatkowego.</li>
+        <li>„Dzień wolności podatkowej” Centrum im. Adama Smitha przywołujemy jako jedną z metod porównawczych i opisujemy, czym różni się od naszej.</li>
+        <li>Kategorie wydatków bierzemy z oficjalnej klasyfikacji COFOG, a nie z własnego podziału.</li>
+      </ul>
+
+      <h2>Dokładność</h2>
+      <p>Każda stawka ma podane źródło: ustawę, rozporządzenie, obwieszczenie lub publikację GUS i Eurostatu. Wszystkie liczby siedzą w jednym pliku danych, z którego liczy kalkulator i z którego powstaje strona <a href="/metodologia/">Metodologia</a>, więc nie mogą się rozjechać. Silnik obliczeń ma testy automatyczne porównujące wyniki z wzorcowymi wyliczeniami.</p>
+      <p>Część wyniku jest szacunkiem: VAT i akcyzę w Twoich zakupach liczymy z typowej struktury wydatków gospodarstw domowych (GUS), chyba że podasz swoje zużycie. Uproszczenia opisujemy wprost, przy każdej liczbie.</p>
+      <p>Stan prawny i dane: {new Date(rates.meta.asOf).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' })}. Wersja danych: {rates.meta.version}.</p>
+
+      <h2 id="bledy">Znalazłeś błąd?</h2>
+      {REPO_URL
+        ? <p>Zgłoś go w <a href={`${REPO_URL}/issues`}>publicznym rejestrze zgłoszeń</a>. Podaj, jaką kwotę wpisałeś, co wyszło i co Twoim zdaniem powinno wyjść (najlepiej ze źródłem). Każde zgłoszenie i każda poprawka są publicznie widoczne.</p>
+        : <p>Zgłoszenia przyjmujemy w publicznym rejestrze w repozytorium projektu. Podaj, jaką kwotę wpisałeś, co wyszło i co Twoim zdaniem powinno wyjść, najlepiej ze źródłem.</p>}
+
+      <h2>Otwarty kod</h2>
+      <p>Kod jest otwarty na licencji MIT, a metodologia i teksty na licencji CC BY 4.0. Każdy może sprawdzić wzory, uruchomić narzędzie u siebie albo wykorzystać je w szkole czy w artykule, z podaniem źródła.{REPO_URL && <> Repozytorium: <a href={REPO_URL}>{REPO_URL.replace(/^https?:\/\//, '')}</a>.</>}</p>
+
+      <h2>Czym narzędzie nie jest</h2>
+      <p>To nie jest porada podatkowa ani kalkulator do rozliczenia z urzędem. Nie uwzględniamy wszystkich ulg i sytuacji szczególnych. Do rozliczeń używaj usługi Twój e-PIT, programów do rozliczeń albo pomocy doradcy podatkowego.</p>
+    </div>
+  </section>
+</Base>

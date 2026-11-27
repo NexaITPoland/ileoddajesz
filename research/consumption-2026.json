@@ -1,0 +1,1371 @@
+{
+  "_meta": {
+    "as_of": "2026-11-27",
+    "generated": "2026-11-27",
+    "currency": "PLN",
+    "verified_semantics": "true = value read in primary legal/official text; false = secondary source or estimate (see note)",
+    "companion": "consumption-2026.md"
+  },
+  "vat": {
+    "rate_standard": {
+      "value": 23,
+      "unit": "%",
+      "legal_basis": "art. 41 ust. 1 w zw. z art. 146ef Ustawa z 11.03.2004 o VAT (t.j. Dz.U. 2026 poz. 1263)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+      "verified": true,
+      "note": "23/8 apply while defence spending >3% GDP (art. 146ef)"
+    },
+    "rate_reduced_8": {
+      "value": 8,
+      "unit": "%",
+      "legal_basis": "art. 41 ust. 2, zał. nr 3, art. 146ef Ustawa z 11.03.2004 o VAT (t.j. Dz.U. 2026 poz. 1263)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "rate_reduced_5": {
+      "value": 5,
+      "unit": "%",
+      "legal_basis": "art. 41 ust. 2a, zał. nr 10 Ustawa z 11.03.2004 o VAT (t.j. Dz.U. 2026 poz. 1263)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "share_of_gross_23": {
+      "value": 18.7,
+      "unit": "% of gross price",
+      "legal_basis": "art. 146eg pkt 1 Ustawa z 11.03.2004 o VAT (t.j. Dz.U. 2026 poz. 1263)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "share_of_gross_8": {
+      "value": 7.41,
+      "unit": "% of gross price",
+      "legal_basis": "art. 146eg pkt 2 Ustawa z 11.03.2004 o VAT (t.j. Dz.U. 2026 poz. 1263)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "share_of_gross_5": {
+      "value": 4.76,
+      "unit": "% of gross price",
+      "legal_basis": "5/105",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+      "verified": true,
+      "note": "derived"
+    },
+    "subjective_exemption_limit": {
+      "value": 240000,
+      "unit": "zł/yr",
+      "legal_basis": "art. 113 ust. 1 (Dz.U. 2025 poz. 896, from 2026-01-01)",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000089601.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "categories": {
+      "basic_food_meat_fish_dairy_eggs_veg_fruit_cereals_bread_cakes_juices": {
+        "value": 5,
+        "unit": "%",
+        "legal_basis": "zał. 10 poz. 1-16",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": "juices CN 2009 within ex 20; lobster/octopus excluded"
+      },
+      "dairy_drinks_juice_drinks_min20pct_plant_milks": {
+        "value": 5,
+        "unit": "%",
+        "legal_basis": "zał. 10 poz. 17",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "books_printed_and_ebooks": {
+        "value": 5,
+        "unit": "%",
+        "legal_basis": "zał. 10 poz. 19, 24",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "national_newspapers_periodicals": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 17, 72",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": "regional/local press 5%"
+      },
+      "diapers_sanitary_car_seats": {
+        "value": 5,
+        "unit": "%",
+        "legal_basis": "zał. 10 poz. 18a, 21-23",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "sugar_spices_sauces_other_food_preparations": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 1-6",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": "CN 1704 sweets without cocoa excluded -> 23%"
+      },
+      "coffee_tea_chocolate_cocoa_sweets": {
+        "value": 23,
+        "unit": "%",
+        "legal_basis": "not listed in zał. 3/10",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "sweetened_soft_drinks": {
+        "value": 23,
+        "unit": "%",
+        "legal_basis": "ex 2202 not in zał. 10 unless >=20% juice or milk-based",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "bottled_water": {
+        "value": 23,
+        "unit": "%",
+        "legal_basis": "ex 2201 in zał. 3 poz. 16 only for network/cistern water",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": false,
+        "note": "inferred from annex wording; confirm with WIS"
+      },
+      "alcohol_tobacco": {
+        "value": 23,
+        "unit": "%",
+        "legal_basis": "not listed",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "restaurants_catering_PKWiU56": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "art. 41 ust. 12f",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": "excl. drinks not in annexes (coffee, tea, alcohol, sweet drinks) -> 23%"
+      },
+      "medicines_and_medical_devices": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 13-14",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "medical_services": {
+        "value": "exempt",
+        "unit": "",
+        "legal_basis": "art. 43 ust. 1 pkt 18-19",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "residential_rent": {
+        "value": "exempt",
+        "unit": "",
+        "legal_basis": "art. 43 ust. 1 pkt 36",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "education_insurance_finance": {
+        "value": "exempt",
+        "unit": "",
+        "legal_basis": "art. 43 ust. 1 pkt 26, 37-41",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "water_supply_sewage": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 16, 24-26",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "waste_collection_services": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 27-35",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": "municipal opłata śmieciowa itself is not VAT-able"
+      },
+      "public_transport_taxi_rail_air": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 38-46",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "hotels_accommodation": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 47",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "hairdresser": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 59-61",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "culture_sport_entry_tickets": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 64-68",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "pay_tv": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "zał. 3 poz. 48",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "housing_construction_social_programme": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "art. 41 ust. 12-12c",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": "flats <=150 m2, houses <=300 m2, pro-rata above"
+      },
+      "electricity_gas_heat": {
+        "value": 23,
+        "unit": "%",
+        "legal_basis": "not listed",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "children_clothing_shoes": {
+        "value": 23,
+        "unit": "%",
+        "legal_basis": "not listed",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      },
+      "petrol_diesel_on_2026_11_27": {
+        "value": 8,
+        "unit": "%",
+        "legal_basis": "§ 11c rozp. MF z 9.12.2023 (Dz.U. 2023 poz. 2670) dodany Dz.U. 2026 poz. 1288",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000128801.pdf",
+        "verified": true,
+        "note": "temporary 3.10-31.12.2026; also 31.03-30.06 and 17.08-31.08.2026; 23% otherwise"
+      },
+      "lpg": {
+        "value": 23,
+        "unit": "%",
+        "legal_basis": "not covered by fuel VAT cut",
+        "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+        "verified": true,
+        "note": ""
+      }
+    },
+    "fuel_vat_8pct_periods_2026": {
+      "value": [
+        [
+          "2026-03-31",
+          "2026-06-30"
+        ],
+        [
+          "2026-08-17",
+          "2026-08-31"
+        ],
+        [
+          "2026-10-03",
+          "2026-12-31"
+        ]
+      ],
+      "unit": "date ranges",
+      "legal_basis": "Dz.U. 2026 poz. 417, 573, 642, 699, 771, 1095, 1288",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000128801.pdf",
+      "verified": true,
+      "note": ""
+    }
+  },
+  "excise": {
+    "petrol_statutory": {
+      "value": 1529,
+      "unit": "zł/1000 l",
+      "legal_basis": "art. 89 ust. 1 pkt 2 Ustawa z 6.12.2008 o podatku akcyzowym (t.j. Dz.U. 2026 poz. 412)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "petrol_in_force_2026_11_27": {
+      "value": 1239,
+      "unit": "zł/1000 l",
+      "legal_basis": "Rozp. MFiG z 2.10.2026, Dz.U. 2026 poz. 1289",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000128901.pdf",
+      "verified": true,
+      "note": "3.10-31.12.2026; also 30.03-15.06.2026 (Dz.U. 2026 poz. 416 + 506,572,641,698)"
+    },
+    "diesel_statutory": {
+      "value": 1160,
+      "unit": "zł/1000 l",
+      "legal_basis": "art. 89 ust. 1 pkt 6 Ustawa z 6.12.2008 o podatku akcyzowym (t.j. Dz.U. 2026 poz. 412)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "diesel_in_force_2026_11_27": {
+      "value": 880,
+      "unit": "zł/1000 l",
+      "legal_basis": "Dz.U. 2026 poz. 1289",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000128901.pdf",
+      "verified": true,
+      "note": "same periods as petrol"
+    },
+    "fuel_excise_reduced_periods_2026": {
+      "value": [
+        [
+          "2026-03-30",
+          "2026-06-15"
+        ],
+        [
+          "2026-10-03",
+          "2026-12-31"
+        ]
+      ],
+      "unit": "date ranges",
+      "legal_basis": "Dz.U. 2026 poz. 416, 506, 572, 641, 698, 1289; delegation art. 164c (poz. 414) and art. 11 ustawy poz. 1287",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000128901.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "lpg": {
+      "value": 659,
+      "unit": "zł/1000 kg",
+      "legal_basis": "art. 89 ust. 1 pkt 12 lit. a Ustawa z 6.12.2008 o podatku akcyzowym (t.j. Dz.U. 2026 poz. 412)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "cng_biogas_motor": {
+      "value": 0,
+      "unit": "zł",
+      "legal_basis": "art. 89 ust. 1 pkt 12 lit. aa",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "heating_oil_light": {
+      "value": 232,
+      "unit": "zł/1000 l",
+      "legal_basis": "art. 89",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "coal_coke_heating": {
+      "value": 1.38,
+      "unit": "zł/GJ",
+      "legal_basis": "art. 89 ust. 1 pkt 1",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "natural_gas_heating": {
+      "value": 1.38,
+      "unit": "zł/GJ",
+      "legal_basis": "art. 89 ust. 1 pkt 13",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "households exempt: art. 31b ust. 2 pkt 1"
+    },
+    "natural_gas_households": {
+      "value": "exempt",
+      "unit": "",
+      "legal_basis": "art. 31b ust. 2 pkt 1 Ustawa z 6.12.2008 o podatku akcyzowym (t.j. Dz.U. 2026 poz. 412)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "electricity": {
+      "value": 5.0,
+      "unit": "zł/MWh",
+      "legal_basis": "art. 89 ust. 3 Ustawa z 6.12.2008 o podatku akcyzowym (t.j. Dz.U. 2026 poz. 412)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "no household exemption"
+    },
+    "ethyl_alcohol": {
+      "value": 8391,
+      "unit": "zł/hl 100% vol",
+      "legal_basis": "art. 165a ust. 1 pkt 1 lit. e Ustawa z 6.12.2008 o podatku akcyzowym (t.j. Dz.U. 2026 poz. 412)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "+5% vs 2025; 2027: 10109 (Dz.U. 2026 poz. 1540)"
+    },
+    "beer": {
+      "value": 11.47,
+      "unit": "zł/hl/°Plato",
+      "legal_basis": "art. 165a ust. 1 pkt 2 lit. e",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "2027: 13,82; small breweries reduced (art. 94 ust. 6) not modelled"
+    },
+    "wine": {
+      "value": 233,
+      "unit": "zł/hl",
+      "legal_basis": "art. 165a ust. 1 pkt 3 lit. e",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "2027: 280,83"
+    },
+    "fermented_beverages": {
+      "value": 233,
+      "unit": "zł/hl",
+      "legal_basis": "art. 165a ust. 1 pkt 4 lit. e",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "2027: 280,83"
+    },
+    "cider_perry_max5pct": {
+      "value": 97,
+      "unit": "zł/hl",
+      "legal_basis": "art. 96 ust. 4 pkt 1",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "per MF table 2026; 2027: 116,40"
+    },
+    "intermediate_products": {
+      "value": 467,
+      "unit": "zł/hl",
+      "legal_basis": "art. 165a ust. 1 pkt 5 lit. e",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "2027: 562,93"
+    },
+    "cigarettes_specific": {
+      "value": 414.0,
+      "unit": "zł/1000 szt.",
+      "legal_basis": "art. 165a ust. 2 pkt 1 lit. e (Dz.U. 2024 poz. 1681)",
+      "source_url": "https://dziennikustaw.gov.pl/D2024000168101.pdf",
+      "verified": true,
+      "note": "2027: 476,10 (art. 99 ust. 2 pkt 1)"
+    },
+    "cigarettes_ad_valorem": {
+      "value": 32.05,
+      "unit": "% of maximum retail price",
+      "legal_basis": "art. 165a ust. 2 pkt 1 lit. e",
+      "source_url": "https://dziennikustaw.gov.pl/D2024000168101.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "cigarettes_minimum": {
+      "value": 105,
+      "unit": "% of total excise at weighted average retail price",
+      "legal_basis": "art. 99 ust. 4 Ustawa z 6.12.2008 o podatku akcyzowym (t.j. Dz.U. 2026 poz. 412)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "≈15,68 zł/pack using WAP 2025=1037,72 zł/1000 (approximate; art. 99 ust. 5d uses Jan-Oct data)"
+    },
+    "cigarettes_weighted_avg_price_2025": {
+      "value": 1037.72,
+      "unit": "zł/1000 szt.",
+      "legal_basis": "Obwieszczenie MFiG z 5.02.2026, M.P. 2026 poz. 205",
+      "source_url": "https://monitorpolski.gov.pl/M2026000020501.pdf",
+      "verified": true,
+      "note": "=20,75 zł per 20-pack"
+    },
+    "fine_cut_tobacco": {
+      "value": "338,18 zł/kg + 32,05% MRP",
+      "unit": "",
+      "legal_basis": "art. 165a ust. 2 pkt 2 lit. e",
+      "source_url": "https://dziennikustaw.gov.pl/D2024000168101.pdf",
+      "verified": true,
+      "note": "minimum 100% of excise at WAP (838,51 zł/kg for 2025, M.P. 2026 poz. 205); 2027: 412,58"
+    },
+    "cigars_cigarillos": {
+      "value": 786.0,
+      "unit": "zł/kg",
+      "legal_basis": "art. 165a ust. 2 pkt 3 lit. e",
+      "source_url": "https://dziennikustaw.gov.pl/D2024000168101.pdf",
+      "verified": true,
+      "note": "2027: 903,90"
+    },
+    "dried_tobacco": {
+      "value": 547.59,
+      "unit": "zł/kg",
+      "legal_basis": "art. 165a ust. 4 pkt 5",
+      "source_url": "https://dziennikustaw.gov.pl/D2024000168101.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "heated_tobacco_novel": {
+      "value": "678,62 zł/kg + 32,05% of WAP of fine-cut tobacco",
+      "unit": "",
+      "legal_basis": "art. 165a ust. 6 pkt 5",
+      "source_url": "https://dziennikustaw.gov.pl/D2024000168101.pdf",
+      "verified": true,
+      "note": "which WAP year applies not confirmed; 2027: 780,41"
+    },
+    "e_liquid": {
+      "value": 1.44,
+      "unit": "zł/ml",
+      "legal_basis": "art. 165a ust. 8 pkt 2",
+      "source_url": "https://dziennikustaw.gov.pl/D2024000168101.pdf",
+      "verified": true,
+      "note": "2027: 2,20 (Dz.U. 2026 poz. 1398)"
+    },
+    "disposable_ecig_surcharge": {
+      "value": 40.0,
+      "unit": "zł/szt. (+1,44 zł/ml)",
+      "legal_basis": "art. 99b ust. 4a (Dz.U. 2025 poz. 340)",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000034001.pdf",
+      "verified": true,
+      "note": "50 zł ~3 months after 7.11.2026 (Dz.U. 2026 poz. 1398 art. 2)"
+    },
+    "vaping_devices": {
+      "value": 40.0,
+      "unit": "zł/szt.",
+      "legal_basis": "art. 99ca ust. 3",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000034001.pdf",
+      "verified": true,
+      "note": "50 zł from ~02.2027"
+    },
+    "vaping_part_kits": {
+      "value": 40.0,
+      "unit": "zł/zestaw",
+      "legal_basis": "art. 99cb ust. 2",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000034001.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "nicotine_pouches": {
+      "value": 200.0,
+      "unit": "zł/kg",
+      "legal_basis": "art. 165b pkt 2 (Dz.U. 2025 poz. 340)",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000034001.pdf",
+      "verified": true,
+      "note": "2025: 150; 2027: 250 (art. 99cc ust. 4)"
+    },
+    "other_nicotine_products": {
+      "value": 200.0,
+      "unit": "zł/kg",
+      "legal_basis": "art. 165c pkt 2",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000034001.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "cars_engine_le_2000": {
+      "value": 3.1,
+      "unit": "% of tax base",
+      "legal_basis": "art. 105 pkt 2",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "cars_engine_gt_2000": {
+      "value": 18.6,
+      "unit": "% of tax base",
+      "legal_basis": "art. 105 pkt 1",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "cars_hybrid_le_2000": {
+      "value": 1.55,
+      "unit": "% of tax base",
+      "legal_basis": "art. 105 pkt 1b",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": "non-plug-in HEV"
+    },
+    "cars_hybrid_phev_2000_3500": {
+      "value": 9.3,
+      "unit": "% of tax base",
+      "legal_basis": "art. 105 pkt 1a",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "cars_phev_le_2000": {
+      "value": "exempt",
+      "unit": "until 2029-12-31",
+      "legal_basis": "art. 163a",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "cars_electric_hydrogen": {
+      "value": "exempt",
+      "unit": "",
+      "legal_basis": "art. 109a",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    }
+  },
+  "fuel_levies": {
+    "oplata_paliwowa_petrol_2026": {
+      "value": 210.29,
+      "unit": "zł/1000 l",
+      "legal_basis": "Obwieszczenie MI z 4.12.2025, M.P. 2025 poz. 1238 (art. 37m ust. 4 ustawy o autostradach płatnych i KFD)",
+      "source_url": "https://monitorpolski.gov.pl/M2025000123801.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_paliwowa_diesel_2026": {
+      "value": 453.52,
+      "unit": "zł/1000 l",
+      "legal_basis": "M.P. 2025 poz. 1238",
+      "source_url": "https://monitorpolski.gov.pl/M2025000123801.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_paliwowa_lpg_2026": {
+      "value": 256.75,
+      "unit": "zł/1000 kg",
+      "legal_basis": "M.P. 2025 poz. 1238",
+      "source_url": "https://monitorpolski.gov.pl/M2025000123801.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_paliwowa_2027": {
+      "value": {
+        "petrol": 216.39,
+        "diesel": 466.68,
+        "lpg_per_1000kg": 264.2
+      },
+      "unit": "zł/1000 l (LPG /1000 kg)",
+      "legal_basis": "M.P. 2026 poz. 1132",
+      "source_url": "https://monitorpolski.gov.pl/M2026000113201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_emisyjna_petrol": {
+      "value": 80,
+      "unit": "zł/1000 l",
+      "legal_basis": "art. 321f pkt 1 POŚ (Dz.U. 2025 poz. 647)",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000064701.pdf",
+      "verified": true,
+      "note": "not indexed; LPG not covered"
+    },
+    "oplata_emisyjna_diesel": {
+      "value": 80,
+      "unit": "zł/1000 l",
+      "legal_basis": "art. 321f pkt 2 POŚ",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000064701.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "max_price_mechanism": {
+      "value": "avg wholesale incl. excise & fuel fee + 0,30 zł/l, + VAT",
+      "unit": "",
+      "legal_basis": "art. 34a ustawy o zapasach ropy (dodany Dz.U. 2026 poz. 415)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041501.pdf",
+      "verified": true,
+      "note": "applies only while reduced fuel VAT applies"
+    }
+  },
+  "sugar_and_alcohol_fees": {
+    "sugar_fixed": {
+      "value": 0.5,
+      "unit": "zł/l",
+      "legal_basis": "art. 12f ust. 1 pkt 1 ustawy o zdrowiu publicznym (t.j. Dz.U. 2026 poz. 149)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000014901.pdf",
+      "verified": true,
+      "note": "also for any sweetener"
+    },
+    "sugar_variable": {
+      "value": 0.05,
+      "unit": "zł per g sugar >5 g/100 ml, per l",
+      "legal_basis": "art. 12f ust. 1 pkt 2, ust. 5 (round up)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000014901.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "caffeine_taurine": {
+      "value": 0.1,
+      "unit": "zł/l",
+      "legal_basis": "art. 12f ust. 3",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000014901.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "cap": {
+      "value": 1.2,
+      "unit": "zł/l",
+      "legal_basis": "art. 12f ust. 6",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000014901.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "pending_2027_bill": {
+      "value": {
+        "fixed": 0.7,
+        "variable": 0.1,
+        "caffeine": 1.0,
+        "cap": 1.8
+      },
+      "unit": "zł/l",
+      "legal_basis": "nowelizacja ustawy o zdrowiu publicznym (Sejm 5.11.2026)",
+      "source_url": "https://www.rynekzdrowia.pl/Prawo/Oplata-cukrowa-w-gore-Sejm-odrzucil-poprawki-Senatu-ustawa-trafi-do-prezydenta,290942,2.html",
+      "verified": false,
+      "note": "awaiting President; Dec 2025 version vetoed; NOT in force"
+    },
+    "malpki_fee": {
+      "value": 25,
+      "unit": "zł per full litre 100% alcohol in packages <=300 ml",
+      "legal_basis": "art. 9² ust. 11 ustawy o wychowaniu w trzeźwości (t.j. Dz.U. 2023 poz. 2151)",
+      "source_url": "https://dziennikustaw.gov.pl/D2023000215101.pdf",
+      "verified": true,
+      "note": "also podatki.gov.pl (15.12.2025); 100 zł proposal not enacted"
+    }
+  },
+  "electricity_household_levies": {
+    "oplata_mocowa_lt500": {
+      "value": 4.29,
+      "unit": "zł/month net",
+      "legal_basis": "Informacja Prezesa URE nr 58/2025",
+      "source_url": "https://bip.ure.gov.pl/download/3/20137/informacja582025PUREstawki2026.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_mocowa_500_1200": {
+      "value": 10.31,
+      "unit": "zł/month net",
+      "legal_basis": "Informacja Prezesa URE nr 58/2025",
+      "source_url": "https://bip.ure.gov.pl/download/3/20137/informacja582025PUREstawki2026.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_mocowa_1200_2800": {
+      "value": 17.18,
+      "unit": "zł/month net",
+      "legal_basis": "Informacja Prezesa URE nr 58/2025",
+      "source_url": "https://bip.ure.gov.pl/download/3/20137/informacja582025PUREstawki2026.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_mocowa_gt2800": {
+      "value": 24.05,
+      "unit": "zł/month net",
+      "legal_basis": "Informacja Prezesa URE nr 58/2025",
+      "source_url": "https://bip.ure.gov.pl/download/3/20137/informacja582025PUREstawki2026.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_oze": {
+      "value": 7.3,
+      "unit": "zł/MWh net",
+      "legal_basis": "Informacja Prezesa URE nr 61/2025 (art. 98 ust. 2 ustawy o OZE)",
+      "source_url": "https://www.ure.gov.pl/download/9/15811/InformacjaPUREwysokosstawkioplatyOZE271025.pdf",
+      "verified": true,
+      "note": "2025: 3,50"
+    },
+    "oplata_kogeneracyjna": {
+      "value": 3.0,
+      "unit": "zł/MWh net",
+      "legal_basis": "Rozp. Ministra Energii z 28.11.2025, Dz.U. 2025 poz. 1664",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000166401.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "oplata_przejsciowa": {
+      "value": 0,
+      "unit": "zł",
+      "legal_basis": "ustawa o rozwiązaniu KDT (obligation reportedly expired 2026)",
+      "source_url": "https://www.gramwzielone.pl/trendy/20343066/oplata-przejsciowa-zniknie-z-rachunkow-nie-bedzie-podwyzki-oplaty-kogeneracyjnej",
+      "verified": false,
+      "note": "secondary only; verify in OSD tariffs"
+    },
+    "stawka_jakosciowa": {
+      "value": 33.1,
+      "unit": "zł/MWh net",
+      "legal_basis": "URE komunikat 17.12.2025",
+      "source_url": "https://www.ure.gov.pl/pl/urzad/informacje-ogolne/aktualnosci/13002,Prezes-Urzedu-Regulacji-Energetyki-zatwierdzil-taryfy-na-sprzedaz-i-dystrybucje-.html",
+      "verified": true,
+      "note": "system fee, not a tax"
+    },
+    "avg_tariff_energy_price_households": {
+      "value": 495.16,
+      "unit": "zł/MWh net",
+      "legal_basis": "URE komunikat 17.12.2025",
+      "source_url": "https://www.ure.gov.pl/pl/urzad/informacje-ogolne/aktualnosci/13002,Prezes-Urzedu-Regulacji-Energetyki-zatwierdzil-taryfy-na-sprzedaz-i-dystrybucje-.html",
+      "verified": true,
+      "note": "freeze ended; excl. VAT/excise"
+    },
+    "vat_electricity": {
+      "value": 23,
+      "unit": "%",
+      "legal_basis": "art. 41 ust. 1 / 146ef",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "gas_excise_households": {
+      "value": "exempt",
+      "unit": "",
+      "legal_basis": "art. 31b ust. 2 pkt 1",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000041201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "vat_gas": {
+      "value": 23,
+      "unit": "%",
+      "legal_basis": "",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000126301.pdf",
+      "verified": true,
+      "note": ""
+    }
+  },
+  "other": {
+    "abonament_radio_2026": {
+      "value": 9.5,
+      "unit": "zł/month",
+      "legal_basis": "Rozp. KRRiT z 27.06.2025, Dz.U. 2025 poz. 885 § 1 pkt 1",
+      "source_url": "https://www.gov.pl/attachment/82d15188-0419-450d-8fa4-876713ddc5ad",
+      "verified": true,
+      "note": "annual prepaid 102,60; 2027: 10,80 (Dz.U. 2026 poz. 664)"
+    },
+    "abonament_tv_radio_2026": {
+      "value": 30.5,
+      "unit": "zł/month",
+      "legal_basis": "Dz.U. 2025 poz. 885 § 1 pkt 2",
+      "source_url": "https://www.gov.pl/attachment/82d15188-0419-450d-8fa4-876713ddc5ad",
+      "verified": true,
+      "note": "annual prepaid 329,40; 2027: 34,50"
+    },
+    "gus_disposable_income_2025": {
+      "value": 3500.21,
+      "unit": "zł/month/person",
+      "legal_basis": "Obwieszczenie Prezesa GUS z 30.03.2026, M.P. 2026 poz. 346",
+      "source_url": "https://monitorpolski.gov.pl/M2026000034601.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "waste_fee_cap_per_person": {
+      "value": 70.0,
+      "unit": "zł/person/month",
+      "legal_basis": "art. 6k ust. 2a pkt 1 ucpg (Dz.U. 2025 poz. 733): 2% × 3500,21",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000073301.pdf",
+      "verified": true,
+      "note": "from 31.03.2026; before: 63,34"
+    },
+    "waste_fee_cap_per_m3_water": {
+      "value": 24.5,
+      "unit": "zł/m3",
+      "legal_basis": "art. 6k ust. 2a pkt 2 (0,7%)",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000073301.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "waste_fee_cap_per_m2": {
+      "value": 2.8,
+      "unit": "zł/m2",
+      "legal_basis": "art. 6k ust. 2a pkt 3 (0,08%)",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000073301.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "waste_fee_cap_per_household": {
+      "value": 196.01,
+      "unit": "zł/month",
+      "legal_basis": "art. 6k ust. 2a pkt 4 (5,6%)",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000073301.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "waste_fee_warszawa": {
+      "value": {
+        "multi_family_household": 85,
+        "single_family_household": 107
+      },
+      "unit": "zł/month",
+      "legal_basis": "uchwała Rady m.st. Warszawy; from 2026-04-01",
+      "source_url": "https://warszawa19115.pl/-/nowe-stawki-za-odpady",
+      "verified": true,
+      "note": "official city portal; 2027 increase planned"
+    },
+    "waste_fee_krakow": {
+      "value": 35,
+      "unit": "zł/person/month",
+      "legal_basis": "uchwała Rady Miasta Krakowa (from 2025-09-01)",
+      "source_url": "https://www.rmf24.pl/regiony/krakow/news-krakow-od-poniedzialku-znaczny-wzrost-oplaty,nId,8015955",
+      "verified": false,
+      "note": "secondary; 70 zł if unsorted; 2026 resolution not read"
+    },
+    "waste_fee_mosina": {
+      "value": 42,
+      "unit": "zł/person/month",
+      "legal_basis": "uchwała Rady Miejskiej w Mosinie, from 2026-01-01",
+      "source_url": "https://www.mosina.pl/komunikaty/nowe-stawki-oplat-za-gospodarowanie-odpadami-komunalnymi-od-1-stycznia-2026-r",
+      "verified": true,
+      "note": "small town example; 14 zł/m3 for 8+ flat buildings"
+    },
+    "property_tax_residential_max": {
+      "value": 1.25,
+      "unit": "zł/m2/yr",
+      "legal_basis": "art. 5 ust. 1 pkt 2 lit. a upol; Obwieszczenie MFiG z 1.08.2025, M.P. 2025 poz. 726",
+      "source_url": "https://monitorpolski.gov.pl/M2025000072601.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "property_tax_land_other_max": {
+      "value": 0.77,
+      "unit": "zł/m2/yr",
+      "legal_basis": "art. 5 ust. 1 pkt 1 lit. c; M.P. 2025 poz. 726",
+      "source_url": "https://monitorpolski.gov.pl/M2025000072601.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "property_tax_business_building_max": {
+      "value": 35.53,
+      "unit": "zł/m2/yr",
+      "legal_basis": "art. 5 ust. 1 pkt 2 lit. b",
+      "source_url": "https://monitorpolski.gov.pl/M2025000072601.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "dog_fee_max": {
+      "value": 186.29,
+      "unit": "zł/yr",
+      "legal_basis": "art. 19 pkt 1 lit. f upol; M.P. 2025 poz. 726",
+      "source_url": "https://monitorpolski.gov.pl/M2025000072601.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "tourist_fee_max": {
+      "value": 3.46,
+      "unit": "zł/day",
+      "legal_basis": "art. 19 pkt 1 lit. b",
+      "source_url": "https://monitorpolski.gov.pl/M2025000072601.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "pcc_sale_real_estate_movables": {
+      "value": 2,
+      "unit": "%",
+      "legal_basis": "art. 7 ust. 1 pkt 1 lit. a ustawy o PCC (t.j. Dz.U. 2026 poz. 191)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000019101.pdf",
+      "verified": true,
+      "note": "used cars, secondary-market flats"
+    },
+    "pcc_first_home_exemption": {
+      "value": "exempt",
+      "unit": "",
+      "legal_basis": "art. 9 pkt 17 ustawy o PCC",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000019101.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "pcc_movables_le_1000": {
+      "value": "exempt",
+      "unit": "",
+      "legal_basis": "art. 9 pkt 6",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000019101.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "capital_gains_belka": {
+      "value": 19,
+      "unit": "%",
+      "legal_basis": "art. 30a ust. 1 PIT (t.j. Dz.U. 2026 poz. 592)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000059201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "winnings_tax": {
+      "value": 10,
+      "unit": "%",
+      "legal_basis": "art. 30 ust. 1 pkt 2 PIT",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000059201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "winnings_exemption_threshold": {
+      "value": 2280,
+      "unit": "zł per single win",
+      "legal_basis": "art. 21 ust. 1 pkt 6a lit. a PIT",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000059201.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "gambling_tax_number_games": {
+      "value": 20,
+      "unit": "% of stakes",
+      "legal_basis": "art. 74 pkt 3 ustawy o grach hazardowych (t.j. Dz.U. 2025 poz. 595)",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000059501.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "gambling_tax_betting": {
+      "value": 12,
+      "unit": "% of stakes",
+      "legal_basis": "art. 74 pkt 7",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000059501.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "gambling_tax_slots_casino": {
+      "value": 50,
+      "unit": "% of GGR",
+      "legal_basis": "art. 74 pkt 5",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000059501.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "gambling_tax_cash_lottery": {
+      "value": 15,
+      "unit": "%",
+      "legal_basis": "art. 74 pkt 2",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000059501.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "lottery_doplata_number_games": {
+      "value": 25,
+      "unit": "% of stake",
+      "legal_basis": "art. 80 ust. 1 pkt 1",
+      "source_url": "https://dziennikustaw.gov.pl/D2025000059501.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "plastic_bag_fee": {
+      "value": 0.2,
+      "unit": "zł/bag (15-50 µm)",
+      "legal_basis": "Rozp. Ministra Środowiska, Dz.U. 2019 poz. 1639",
+      "source_url": "https://eli.gov.pl/eli/DU/2019/1639/ogl",
+      "verified": false,
+      "note": "regulation not re-read; MF: +23% VAT on top"
+    },
+    "stamp_duty_power_of_attorney": {
+      "value": 17,
+      "unit": "zł",
+      "legal_basis": "załącznik cz. IV ustawy o opłacie skarbowej (t.j. Dz.U. 2026 poz. 1395)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000139501.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "stamp_duty_other_certificate": {
+      "value": 17,
+      "unit": "zł",
+      "legal_basis": "załącznik cz. II poz. 21",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000139501.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "stamp_duty_marriage_certificate": {
+      "value": 84,
+      "unit": "zł",
+      "legal_basis": "załącznik cz. I",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000139501.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "inheritance_zero_group": {
+      "value": "exempt (report within 6 months)",
+      "unit": "",
+      "legal_basis": "art. 4a ustawy o podatku od spadków i darowizn (t.j. Dz.U. 2026 poz. 478)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000047801.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "inheritance_thresholds": {
+      "value": {
+        "I": 36120,
+        "II": 27090,
+        "III": 5733
+      },
+      "unit": "zł",
+      "legal_basis": "art. 9 ust. 1",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000047801.pdf",
+      "verified": true,
+      "note": ""
+    },
+    "inheritance_rates": {
+      "value": {
+        "I": "3-7%",
+        "II": "7-12%",
+        "III": "12-20%"
+      },
+      "unit": "",
+      "legal_basis": "art. 15 ust. 1 (bands 10 278 / 20 556 zł)",
+      "source_url": "https://dziennikustaw.gov.pl/D2026000047801.pdf",
+      "verified": true,
+      "note": ""
+    }
+  },
+  "prices_snapshot": {
+    "pb95_max_2026_11_27": {
+      "value": 5.81,
+      "unit": "zł/l gross",
+      "legal_basis": "Obwieszczenie Ministra Energii z 26.11.2026, M.P. 2026 poz. 1179",
+      "source_url": "https://monitorpolski.gov.pl/M2026000117901.pdf",
+      "verified": true,
+      "note": "net 5,38"
+    },
+    "diesel_max_2026_11_27": {
+      "value": 7.12,
+      "unit": "zł/l gross",
+      "legal_basis": "M.P. 2026 poz. 1179",
+      "source_url": "https://monitorpolski.gov.pl/M2026000117901.pdf",
+      "verified": true,
+      "note": "net 6,59"
+    },
+    "pb95_avg_2026_11_25": {
+      "value": 5.84,
+      "unit": "zł/l",
+      "legal_basis": "e-petrol.pl notowanie",
+      "source_url": "https://www.e-petrol.pl/",
+      "verified": false,
+      "note": "secondary market data"
+    },
+    "diesel_avg_2026_11_25": {
+      "value": 7.22,
+      "unit": "zł/l",
+      "legal_basis": "e-petrol.pl",
+      "source_url": "https://www.e-petrol.pl/",
+      "verified": false,
+      "note": ""
+    },
+    "lpg_avg_2026_11_25": {
+      "value": 3.96,
+      "unit": "zł/l",
+      "legal_basis": "e-petrol.pl",
+      "source_url": "https://www.e-petrol.pl/",
+      "verified": false,
+      "note": ""
+    },
+    "cigarettes_pack20": {
+      "value": {
+        "low": 22.0,
+        "high": 25.0,
+        "example": 24.0
+      },
+      "unit": "zł",
+      "legal_basis": "estimate; WAP 2025 = 20,75 zł (M.P. 2026 poz. 205)",
+      "source_url": "https://monitorpolski.gov.pl/M2026000020501.pdf",
+      "verified": false,
+      "note": "MF forecast 2026 ~23,85 zł (secondary)"
+    },
+    "vodka_05l_40": {
+      "value": {
+        "low": 30.0,
+        "high": 35.0,
+        "example": 32.0
+      },
+      "unit": "zł",
+      "legal_basis": "estimate",
+      "source_url": "",
+      "verified": false,
+      "note": "no primary price source"
+    },
+    "beer_05l_12plato": {
+      "value": {
+        "low": 3.5,
+        "high": 4.5,
+        "example": 4.0
+      },
+      "unit": "zł",
+      "legal_basis": "estimate",
+      "source_url": "",
+      "verified": false,
+      "note": ""
+    },
+    "cola_1l": {
+      "value": {
+        "low": 5.5,
+        "high": 6.5,
+        "example": 6.0
+      },
+      "unit": "zł",
+      "legal_basis": "estimate",
+      "source_url": "",
+      "verified": false,
+      "note": ""
+    },
+    "bread_wheat_rye_05kg": {
+      "value": 5.57,
+      "unit": "zł",
+      "legal_basis": "GUS avg price Oct 2026 (quoted)",
+      "source_url": "https://finwire.pl/artykuly/ceny-w-sklepach-pazdziernik-2026-gus",
+      "verified": false,
+      "note": "secondary; verify dbw.stat.gov.pl"
+    },
+    "electricity_g11_all_in": {
+      "value": {
+        "low": 1.05,
+        "high": 1.3
+      },
+      "unit": "zł/kWh gross",
+      "legal_basis": "comparison portals",
+      "source_url": "https://pvkalkulator.pl/ceny-pradu",
+      "verified": false,
+      "note": ""
+    }
+  },
+  "worked_examples": {
+    "pb95_1l_reduced": {
+      "value": {
+        "price": 5.81,
+        "vat": 0.43,
+        "excise": 1.239,
+        "fuel_fee": 0.21,
+        "emission_fee": 0.08,
+        "total_tax": 1.96,
+        "share": 0.337
+      },
+      "unit": "zł",
+      "legal_basis": "formula: P*8/108 + 1.239 + 0.21029 + 0.08",
+      "source_url": "",
+      "verified": false,
+      "note": "computed; standard regime equivalent: price 6.97, tax 3.12, share 0.448"
+    },
+    "diesel_1l_reduced": {
+      "value": {
+        "price": 7.12,
+        "vat": 0.527,
+        "excise": 0.88,
+        "fuel_fee": 0.454,
+        "emission_fee": 0.08,
+        "total_tax": 1.941,
+        "share": 0.273
+      },
+      "unit": "zł",
+      "legal_basis": "P*8/108 + 0.88 + 0.45352 + 0.08",
+      "source_url": "",
+      "verified": false,
+      "note": "standard regime equivalent: price 8.45, tax 3.27, share 0.387"
+    },
+    "lpg_1l": {
+      "value": {
+        "price": 3.96,
+        "vat": 0.741,
+        "excise": 0.356,
+        "fuel_fee": 0.139,
+        "total_tax": 1.235,
+        "share": 0.312
+      },
+      "unit": "zł",
+      "legal_basis": "density 0.54 kg/l assumed",
+      "source_url": "",
+      "verified": false,
+      "note": ""
+    },
+    "cigarettes_pack20": {
+      "value": {
+        "price": 24.0,
+        "excise": 15.97,
+        "vat": 4.49,
+        "total_tax": 20.46,
+        "share": 0.852
+      },
+      "unit": "zł",
+      "legal_basis": "max(8.28+0.3205P, ~15.68) + P*23/123",
+      "source_url": "",
+      "verified": false,
+      "note": "at 22 zł: 90.0% (minimum binding)"
+    },
+    "vodka_05l_40": {
+      "value": {
+        "price": 32.0,
+        "excise": 16.78,
+        "vat": 5.98,
+        "total_tax": 22.77,
+        "share": 0.711
+      },
+      "unit": "zł",
+      "legal_basis": "83.91*0.2 + P*23/123",
+      "source_url": "",
+      "verified": false,
+      "note": ""
+    },
+    "beer_05l_12plato": {
+      "value": {
+        "price": 4.0,
+        "excise": 0.688,
+        "vat": 0.748,
+        "total_tax": 1.436,
+        "share": 0.359
+      },
+      "unit": "zł",
+      "legal_basis": "11.47*12*0.005 + P*23/123",
+      "source_url": "",
+      "verified": false,
+      "note": ""
+    },
+    "cola_1l": {
+      "value": {
+        "price": 6.0,
+        "sugar_fee": 0.9,
+        "vat": 1.122,
+        "total_tax": 2.022,
+        "share": 0.337
+      },
+      "unit": "zł",
+      "legal_basis": "0.50+0.05*6+0.10 + P*23/123 (11 g/100 ml rounded)",
+      "source_url": "",
+      "verified": false,
+      "note": ""
+    },
+    "grocery_basket_100_at_5pct": {
+      "value": {
+        "price": 100,
+        "vat": 4.76,
+        "share": 0.0476
+      },
+      "unit": "zł",
+      "legal_basis": "100*5/105",
+      "source_url": "",
+      "verified": true,
+      "note": ""
+    },
+    "electricity_bill_200": {
+      "value": {
+        "price": 200,
+        "kwh_assumed": 175,
+        "vat": 37.4,
+        "excise": 0.88,
+        "oplata_mocowa": 17.18,
+        "oplata_oze": 1.28,
+        "oplata_kogeneracyjna": 0.53,
+        "narrow_tax": 38.27,
+        "narrow_share": 0.191,
+        "broad_with_levies": 57.26,
+        "broad_share": 0.286
+      },
+      "unit": "zł",
+      "legal_basis": "VAT 23/123; excise 5 zł/MWh; levies net",
+      "source_url": "",
+      "verified": false,
+      "note": "kWh assumption [E]"
+    },
+    "bread_05kg": {
+      "value": {
+        "price": 5.57,
+        "vat": 0.27,
+        "share": 0.0476
+      },
+      "unit": "zł",
+      "legal_basis": "P*5/105",
+      "source_url": "",
+      "verified": false,
+      "note": ""
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "ileoddajesz",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": { "node": ">=22.18.0" },
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build && node scripts/headers.mjs && node scripts/gates.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "preview": "node scripts/serve-dist.mjs 4400"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.12",
+    "astro": "7.4.7",
+    "typescript": "6.0.3"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.0",
+    "@types/node": "24.19.2",
+    "node-html-parser": "9.0.6",
+    "vitest": "5.1.0",
+    "wrangler": "4.158.0"
+  }
+}

@@ -1,0 +1,2616 @@
+{
+ "1_gus_budzety_gospodarstw_domowych_2025": {
+  "dochod_rozporzadzalny_na_osobe": {
+   "value": {
+    "ogolem": 3500.21,
+    "Q1": 1192.11,
+    "Q2": 2416.61,
+    "Q3": 3088.78,
+    "Q4": 3939.2,
+    "Q5": 6910.12
+   },
+   "unit": "PLN/osobę/miesiąc",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 19 'Przeciętne miesięczne przychody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": "Kwintyle wg dochodu rozporządzalnego na osobę. Górne granice: Q1 2150, Q2 2850, Q3 3550, Q4 4706,67 zł."
+  },
+  "dochod_do_dyspozycji_na_osobe": {
+   "value": {
+    "ogolem": 3428.5,
+    "Q1": 1153.47,
+    "Q2": 2374.45,
+    "Q3": 3037.26,
+    "Q4": 3861.05,
+    "Q5": 6760.99
+   },
+   "unit": "PLN/osobę/miesiąc",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 19 'Przeciętne miesięczne przychody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": ""
+  },
+  "dochod_z_pracy_najemnej_na_osobe": {
+   "value": {
+    "ogolem": 1871.05,
+    "Q1": 539.95,
+    "Q2": 1195.21,
+    "Q3": 1612.89,
+    "Q4": 2197.63,
+    "Q5": 3835.93
+   },
+   "unit": "PLN/osobę/miesiąc",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 19 'Przeciętne miesięczne przychody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": "Netto, po PIT i składkach."
+  },
+  "mediana_dochodu_rozporzadzalnego": {
+   "value": 3064,
+   "unit": "PLN/osobę/miesiąc",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r., publikacja PDF (rozdz. o rozkładzie dochodów)",
+   "source_url": "https://stat.gov.pl/download/gfx/portalinformacyjny/pl/defaultaktualnosci/5486/9/24/1/budzety_gospodarstw_domowych_w_2025_r.pdf",
+   "verified": true,
+   "note": "2024: 2824 zł. Mediana wydatków 2025: 1657 zł/osobę/miesiąc."
+  },
+  "wydatki_na_osobe": {
+   "value": {
+    "ogolem": 2015.42,
+    "Q1": 1405.03,
+    "Q2": 1503.32,
+    "Q3": 1789.41,
+    "Q4": 2181.55,
+    "Q5": 3213.8
+   },
+   "unit": "PLN/osobę/miesiąc",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": "Wydatki = towary i usługi konsumpcyjne + pozostałe wydatki."
+  },
+  "wydatki_konsumpcyjne_na_osobe": {
+   "value": {
+    "ogolem": 1943.71,
+    "Q1": 1366.38,
+    "Q2": 1461.17,
+    "Q3": 1737.89,
+    "Q4": 2103.39,
+    "Q5": 3064.67
+   },
+   "unit": "PLN/osobę/miesiąc",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": ""
+  },
+  "wydatki_wg_coicop1999_kwintyle": {
+   "01_zywnosc_napoje_bezalk": {
+    "value": {
+     "ogolem": 506.78,
+     "Q1": 421.18,
+     "Q2": 453.91,
+     "Q3": 495.11,
+     "Q4": 550.68,
+     "Q5": 614.47
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "02_alkohol_tyton": {
+    "value": {
+     "ogolem": 48.95,
+     "Q1": 36.84,
+     "Q2": 39.93,
+     "Q3": 45.2,
+     "Q4": 56.05,
+     "Q5": 66.94
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "03_odziez_obuwie": {
+    "value": {
+     "ogolem": 72.46,
+     "Q1": 47.95,
+     "Q2": 50.4,
+     "Q3": 63.58,
+     "Q4": 76.07,
+     "Q5": 125.0
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "04_mieszkanie_energia": {
+    "value": {
+     "ogolem": 391.04,
+     "Q1": 281.41,
+     "Q2": 318.61,
+     "Q3": 357.08,
+     "Q4": 421.51,
+     "Q5": 579.09
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "05_wyposazenie": {
+    "value": {
+     "ogolem": 99.94,
+     "Q1": 69.0,
+     "Q2": 69.83,
+     "Q3": 82.1,
+     "Q4": 106.69,
+     "Q5": 173.04
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "06_zdrowie": {
+    "value": {
+     "ogolem": 120.12,
+     "Q1": 76.25,
+     "Q2": 89.42,
+     "Q3": 108.85,
+     "Q4": 131.51,
+     "Q5": 195.57
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "07_transport": {
+    "value": {
+     "ogolem": 196.55,
+     "Q1": 112.46,
+     "Q2": 121.26,
+     "Q3": 162.55,
+     "Q4": 208.97,
+     "Q5": 379.96
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "08_lacznosc": {
+    "value": {
+     "ogolem": 76.12,
+     "Q1": 60.14,
+     "Q2": 62.76,
+     "Q3": 70.86,
+     "Q4": 81.36,
+     "Q5": 105.9
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "09_rekreacja_kultura": {
+    "value": {
+     "ogolem": 145.35,
+     "Q1": 93.85,
+     "Q2": 82.31,
+     "Q3": 118.28,
+     "Q4": 146.54,
+     "Q5": 287.66
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "10_edukacja": {
+    "value": {
+     "ogolem": 19.74,
+     "Q1": 15.04,
+     "Q2": 16.46,
+     "Q3": 17.13,
+     "Q4": 19.12,
+     "Q5": 31.11
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "11_restauracje_hotele": {
+    "value": {
+     "ogolem": 107.6,
+     "Q1": 62.0,
+     "Q2": 50.24,
+     "Q3": 75.03,
+     "Q4": 111.37,
+     "Q5": 241.12
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "12_pozostale": {
+    "value": {
+     "ogolem": 125.51,
+     "Q1": 76.16,
+     "Q2": 80.27,
+     "Q3": 104.72,
+     "Q4": 137.93,
+     "Q5": 229.84
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "kieszonkowe": {
+    "value": {
+     "ogolem": 33.53,
+     "Q1": 14.08,
+     "Q2": 25.74,
+     "Q3": 37.36,
+     "Q4": 55.57,
+     "Q5": 34.94
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   },
+   "pozostale_wydatki_niekonsumpcyjne": {
+    "value": {
+     "ogolem": 71.71,
+     "Q1": 38.65,
+     "Q2": 42.15,
+     "Q3": 51.52,
+     "Q4": 78.16,
+     "Q5": 149.13
+    },
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 30 'Przeciętne miesięczne rozchody na 1 osobę w gospodarstwach domowych według grup kwintylowych'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Działy COICOP 1999 (układ starszy, 12 działów). Kieszonkowe nie jest przypisane do działu."
+   }
+  },
+  "wydatki_podkategorie_ogolem": {
+   "02a_napoje_alkoholowe": {
+    "value": 25.79,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "02b_wyroby_tytoniowe": {
+    "value": 23.15,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04a_najem_i_inne_oplaty_rezydualnie": {
+    "value": 40.38,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": false,
+    "note": "WYLICZONE: 393,19 − 18,92 (konserwacja) − 113,59 (woda i usługi) − 220,30 (energia). GUS nie podaje osobnej pozycji 'najem' w 37a. W Tabl. 37 (COICOP 1999) pozycja 'opłaty na rzecz właścicieli oraz inne usługi związane z zamieszkiwaniem' = 101,19 zł (obejmuje czynsz spółdzielczy, wywóz śmieci itp.)."
+   },
+   "04b_konserwacja_naprawa_mieszkania": {
+    "value": 18.92,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04c_zaopatrzenie_w_wode": {
+    "value": 25.76,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04d_wywoz_smieci": {
+    "value": 29.49,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04e_kanalizacja": {
+    "value": 27.37,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04f_pozostale_uslugi_mieszkaniowe": {
+    "value": 30.97,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04g_energia_paliwa_razem": {
+    "value": 220.3,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04g1_energia_elektryczna": {
+    "value": 84.67,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04g2_gaz": {
+    "value": 54.99,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04g3_paliwa_stale": {
+    "value": 31.56,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "04g4_cieplo": {
+    "value": 48.68,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "07a_zakup_pojazdow": {
+    "value": 50.22,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "07b_paliwa_i_smary": {
+    "value": 101.98,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "07c_eksploatacja_pojazdow_razem": {
+    "value": 132.39,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "07d_transport_pasazerski": {
+    "value": 13.55,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "06a_produkty_lecznicze": {
+    "value": 61.11,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "06b_uslugi_medyczne_pozaszpitalne": {
+    "value": 43.88,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "11a_gastronomia": {
+    "value": 91.07,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "11b_zakwaterowanie": {
+    "value": 16.53,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "09_turystyka_zorganizowana": {
+    "value": 44.13,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   },
+   "12_ubezpieczenia": {
+    "value": 35.98,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "Tylko 'ogółem' (wszystkie gospodarstwa); GUS nie podaje tych pozycji wg kwintyli."
+   }
+  },
+  "wydatki_wg_coicop2018_ogolem": {
+   "01": {
+    "value": 506.78,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "02": {
+    "value": 48.95,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "03": {
+    "value": 72.3,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "04": {
+    "value": 393.19,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "05": {
+    "value": 100.58,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "06": {
+    "value": 120.12,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "07": {
+    "value": 196.95,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "08_informacja_komunikacja": {
+    "value": 97.58,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "09_rekreacja_sport_kultura": {
+    "value": 123.38,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "10": {
+    "value": 19.74,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "11": {
+    "value": 107.6,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "12_ubezpieczenia_finanse": {
+    "value": 36.45,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   },
+   "13_higiena_osobista_pozostale": {
+    "value": 86.57,
+    "unit": "PLN/osobę/miesiąc",
+    "year_of_data": 2025,
+    "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 37a 'Przeciętne miesięczne wydatki na towary i usługi konsumpcyjne na 1 osobę ... (według COICOP 2018)'",
+    "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+    "verified": true,
+    "note": "COICOP 2018 (13 działów). Suma działów 1910,19 + kieszonkowe 33,53 = 1943,72."
+   }
+  },
+  "przecietna_liczba_osob_w_gospodarstwie": {
+   "value": {
+    "ogolem": 2.39,
+    "Q1": 2.95,
+    "Q2": 2.67,
+    "Q3": 2.46,
+    "Q4": 2.24,
+    "Q5": 1.97
+   },
+   "unit": "osoby",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 2 'Dane ogólne o gospodarstwach domowych według grup kwintylowych'",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": ""
+  },
+  "liczba_badanych_gospodarstw": {
+   "value": 28380,
+   "unit": "gospodarstwa",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, Tabl. 2 'Dane ogólne o gospodarstwach domowych według grup kwintylowych'",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": ""
+  },
+  "udzial_wydatkow_w_dochodzie": {
+   "value": 57.6,
+   "unit": "%",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX, publikacja PDF, rozdz. 'Dochody i wydatki'",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": "59,3% w 2024 r."
+  },
+  "nadwyzka_dochodu_nad_wydatkami_BBGD": {
+   "value": 42.4,
+   "unit": "% dochodu rozporządzalnego",
+   "year_of_data": 2025,
+   "source_title": "GUS, Budżety gospodarstw domowych w 2025 r. (publ. 29.09.2026), tablice XLSX",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/warunki-zycia/dochody-wydatki-i-warunki-zycia-ludnosci/budzety-gospodarstw-domowych-w-2025-r-,9,24.html",
+   "verified": true,
+   "note": "WYLICZONE: 100 − 57,6. To NIE jest stopa oszczędności z rachunków narodowych. BBGD zaniża wydatki (m.in. nie obejmuje części zakupów, spłat kredytów, inwestycji mieszkaniowych)."
+  },
+  "stopa_oszczednosci_brutto_gosp_dom_ESA": {
+   "value": 9.04,
+   "unit": "% dochodu rozporządzalnego brutto",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, nasa_10_ki, Gross household saving rate (S14_S15), aktualizacja 16.11.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/nasa_10_ki/default/table",
+   "verified": true,
+   "note": "2024: 8,90%. Właściwa miara oszczędności (rachunki narodowe)."
+  }
+ },
+ "2_vat_efektywny": {
+  "stawki_2026": {
+   "value": {
+    "podstawowa": 23,
+    "obnizona_zal3": 8,
+    "obnizona_zal10": 5,
+    "gastronomia_PKWiU56": 8,
+    "eksport_WDT": 0
+   },
+   "unit": "%",
+   "year_of_data": 2026,
+   "source_title": "Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+   "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+   "verified": true,
+   "note": "Art. 41 ust. 1/2 mówią 22%/7%; art. 146ef utrzymuje 23%/8% do końca roku, w którym wydatki obronne wg ustawy budżetowej nie przekroczą 3% PKB (w 2026 nadal 23%/8%). Zerowy VAT na żywność obowiązywał 1.02.2022–31.03.2024 i już nie obowiązuje. Energia elektryczna, gaz i ciepło w 2026 mają 23% (brak przepisów przejściowych)."
+  },
+  "efektywna_stawka_wg_dzialu_COICOP2018": {
+   "01_Żywność i napoje bezalkoholowe": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 6.49,
+     "stawka_od_ceny_netto_pct": 6.94,
+     "VAT_PLN_na_osobe_miesiecznie": 32.88
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "02_Napoje alkoholowe i wyroby tytoniowe": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 18.7,
+     "stawka_od_ceny_netto_pct": 23.0,
+     "VAT_PLN_na_osobe_miesiecznie": 9.15
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "03_Odzież i obuwie": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 18.7,
+     "stawka_od_ceny_netto_pct": 23.0,
+     "VAT_PLN_na_osobe_miesiecznie": 13.52
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "04_Mieszkanie, woda, energia": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 12.8,
+     "stawka_od_ceny_netto_pct": 14.68,
+     "VAT_PLN_na_osobe_miesiecznie": 50.35
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "05_Wyposażenie mieszkania": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 18.7,
+     "stawka_od_ceny_netto_pct": 23.0,
+     "VAT_PLN_na_osobe_miesiecznie": 18.81
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "06_Zdrowie": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 4.31,
+     "stawka_od_ceny_netto_pct": 4.5,
+     "VAT_PLN_na_osobe_miesiecznie": 5.18
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "07_Transport": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 16.32,
+     "stawka_od_ceny_netto_pct": 19.51,
+     "VAT_PLN_na_osobe_miesiecznie": 32.15
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "08_Informacja i komunikacja": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 16.96,
+     "stawka_od_ceny_netto_pct": 20.42,
+     "VAT_PLN_na_osobe_miesiecznie": 16.55
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "09_Rekreacja, sport i kultura": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 8.42,
+     "stawka_od_ceny_netto_pct": 9.2,
+     "VAT_PLN_na_osobe_miesiecznie": 10.39
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "10_Edukacja": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 0.0,
+     "stawka_od_ceny_netto_pct": 0.0,
+     "VAT_PLN_na_osobe_miesiecznie": 0.0
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "11_Restauracje i zakwaterowanie": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 8.45,
+     "stawka_od_ceny_netto_pct": 9.23,
+     "VAT_PLN_na_osobe_miesiecznie": 9.09
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "12_Ubezpieczenia i usługi finansowe": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 0.0,
+     "stawka_od_ceny_netto_pct": 0.0,
+     "VAT_PLN_na_osobe_miesiecznie": 0.0
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   },
+   "13_Higiena osobista i pozostałe": {
+    "value": {
+     "udzial_VAT_w_cenie_brutto_pct": 14.15,
+     "stawka_od_ceny_netto_pct": 16.49,
+     "VAT_PLN_na_osobe_miesiecznie": 12.25
+    },
+    "unit": "%/PLN",
+    "year_of_data": 2026,
+    "source_title": "Własne wyliczenie: mapowanie podkategorii GUS Tabl. 37a (2025) na stawki z Ustawa o podatku od towarów i usług, tekst jednolity Dz.U. 2026 poz. 1263 (obwieszczenie z 1.09.2026): art. 41, art. 43, art. 146ef, zał. nr 3 (8%) i nr 10 (5%)",
+    "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+    "verified": false,
+    "note": "Szacunek zbudowany przez projekt (nie jest to oficjalna statystyka). Szczegóły i założenia w data-2026.md §2 oraz w polu 'mapowanie_pozycji'. Liczony tylko VAT bezpośredni w cenie (bez akcyzy, bez VAT ukrytego w kosztach sektorów zwolnionych)."
+   }
+  },
+  "mapowanie_pozycji": [
+   {
+    "dzial": "01",
+    "pozycja": "zboża i produkty zbożowe",
+    "wydatek_PLN": 74.83,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.7,8,12 (CN 10,11,19)",
+    "VAT_PLN": 3.56
+   },
+   {
+    "dzial": "01",
+    "pozycja": "mięso",
+    "wydatek_PLN": 110.97,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.1,11 (CN 02, ex16)",
+    "VAT_PLN": 5.28
+   },
+   {
+    "dzial": "01",
+    "pozycja": "ryby i owoce morza",
+    "wydatek_PLN": 15.3,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.2 (homary/ośmiornice 23% pominięte)",
+    "VAT_PLN": 0.73
+   },
+   {
+    "dzial": "01",
+    "pozycja": "mleko, produkty mleczne, jaja",
+    "wydatek_PLN": 71.84,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.3",
+    "VAT_PLN": 3.42
+   },
+   {
+    "dzial": "01",
+    "pozycja": "oleje i tłuszcze",
+    "wydatek_PLN": 17.6,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.10",
+    "VAT_PLN": 0.84
+   },
+   {
+    "dzial": "01",
+    "pozycja": "owoce i orzechy",
+    "wydatek_PLN": 37.99,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.6",
+    "VAT_PLN": 1.81
+   },
+   {
+    "dzial": "01",
+    "pozycja": "warzywa",
+    "wydatek_PLN": 56.52,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.5,13",
+    "VAT_PLN": 2.69
+   },
+   {
+    "dzial": "01",
+    "pozycja": "cukier, wyroby cukiernicze, desery",
+    "wydatek_PLN": 33.45,
+    "udzialy_stawek": {
+     "23": 0.6,
+     "5": 0.35,
+     "8": 0.05
+    },
+    "podstawa": "ZAŁOŻENIE: czekolada/kakao (CN 18) i cukierki bez kakao (CN 1704) 23%; dżemy, miód, lody 5%; cukier 8% (Zał.3 poz.2)",
+    "VAT_PLN": 4.43
+   },
+   {
+    "dzial": "01",
+    "pozycja": "dania gotowe i pozostała żywność",
+    "wydatek_PLN": 41.8,
+    "udzialy_stawek": {
+     "5": 0.5,
+     "8": 0.5
+    },
+    "podstawa": "ZAŁOŻENIE: zupy, dania gotowe, żywność dla niemowląt 5%; sosy, przyprawy, przetwory n.e.c. 8% (Zał.3 poz.1,4,5)",
+    "VAT_PLN": 2.54
+   },
+   {
+    "dzial": "01",
+    "pozycja": "soki owocowe i warzywne",
+    "wydatek_PLN": 4.5,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.13 (ex 20, w tym CN 2009)",
+    "VAT_PLN": 0.21
+   },
+   {
+    "dzial": "01",
+    "pozycja": "kawa",
+    "wydatek_PLN": 13.75,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "wyłączona z Zał.3 poz.1",
+    "VAT_PLN": 2.57
+   },
+   {
+    "dzial": "01",
+    "pozycja": "herbata i napary",
+    "wydatek_PLN": 4.15,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "wyłączona z Zał.3 poz.1 (zioła/napary częściowo 8% pominięte)",
+    "VAT_PLN": 0.78
+   },
+   {
+    "dzial": "01",
+    "pozycja": "woda butelkowana",
+    "wydatek_PLN": 8.47,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "Zał.3 poz.16 obejmuje tylko wodę z sieci",
+    "VAT_PLN": 1.58
+   },
+   {
+    "dzial": "01",
+    "pozycja": "napoje orzeźwiające",
+    "wydatek_PLN": 8.49,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "poza Zał.10 poz.17 (chyba że >=20% soku)",
+    "VAT_PLN": 1.59
+   },
+   {
+    "dzial": "01",
+    "pozycja": "pozostałe napoje bezalkoholowe",
+    "wydatek_PLN": 7.11,
+    "udzialy_stawek": {
+     "5": 0.5,
+     "23": 0.5
+    },
+    "podstawa": "ZAŁOŻENIE 50/50 (napoje mleczne, roślinne 5%; inne 23%)",
+    "VAT_PLN": 0.83
+   },
+   {
+    "dzial": "02",
+    "pozycja": "napoje alkoholowe",
+    "wydatek_PLN": 25.79,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa + akcyza",
+    "VAT_PLN": 4.82
+   },
+   {
+    "dzial": "02",
+    "pozycja": "wyroby tytoniowe",
+    "wydatek_PLN": 23.15,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa + akcyza",
+    "VAT_PLN": 4.33
+   },
+   {
+    "dzial": "03",
+    "pozycja": "odzież i obuwie",
+    "wydatek_PLN": 72.3,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa (naprawy 8% pominięte, 0,45 zł)",
+    "VAT_PLN": 13.52
+   },
+   {
+    "dzial": "04",
+    "pozycja": "najem i pozostałe opłaty mieszkaniowe (rezydualnie)",
+    "wydatek_PLN": 40.38,
+    "udzialy_stawek": {
+     "0": 1
+    },
+    "podstawa": "zw. art.43 ust.1 pkt 36 i pkt 11; kwota = 393,19 - 18,92 - 113,59 - 220,30",
+    "VAT_PLN": 0.0
+   },
+   {
+    "dzial": "04",
+    "pozycja": "materiały do konserwacji i napraw mieszkania",
+    "wydatek_PLN": 14.65,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 2.74
+   },
+   {
+    "dzial": "04",
+    "pozycja": "usługi konserwacji i napraw mieszkania",
+    "wydatek_PLN": 4.27,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "art.41 ust.12 pkt 2 (roboty konserwacyjne)",
+    "VAT_PLN": 0.32
+   },
+   {
+    "dzial": "04",
+    "pozycja": "zaopatrzenie w wodę",
+    "wydatek_PLN": 25.76,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.24",
+    "VAT_PLN": 1.91
+   },
+   {
+    "dzial": "04",
+    "pozycja": "wywóz śmieci",
+    "wydatek_PLN": 29.49,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "ZAŁOŻENIE: opłata gminna nie jest objęta VAT, ale gmina płaci 8% VAT (Zał.3 poz.27-28) bez odliczenia -> VAT ukryty w opłacie",
+    "VAT_PLN": 2.18
+   },
+   {
+    "dzial": "04",
+    "pozycja": "usługi kanalizacyjne",
+    "wydatek_PLN": 27.37,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.26",
+    "VAT_PLN": 2.03
+   },
+   {
+    "dzial": "04",
+    "pozycja": "pozostałe usługi mieszkaniowe n.e.c. (zarządca, wspólnota)",
+    "wydatek_PLN": 30.97,
+    "udzialy_stawek": {
+     "0": 1
+    },
+    "podstawa": "ZAŁOŻENIE: zaliczki wspólnot/spółdzielni zw. lub poza VAT (art.43 ust.1 pkt 11)",
+    "VAT_PLN": 0.0
+   },
+   {
+    "dzial": "04",
+    "pozycja": "energia elektryczna",
+    "wydatek_PLN": 84.67,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "w 2026 brak obniżonej stawki",
+    "VAT_PLN": 15.83
+   },
+   {
+    "dzial": "04",
+    "pozycja": "gaz",
+    "wydatek_PLN": 54.99,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "w 2026 brak obniżonej stawki",
+    "VAT_PLN": 10.28
+   },
+   {
+    "dzial": "04",
+    "pozycja": "paliwa stałe",
+    "wydatek_PLN": 31.56,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "ZAŁOŻENIE: węgiel i drewno 23%",
+    "VAT_PLN": 5.9
+   },
+   {
+    "dzial": "04",
+    "pozycja": "ciepło systemowe",
+    "wydatek_PLN": 48.68,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "w 2026 brak obniżonej stawki",
+    "VAT_PLN": 9.1
+   },
+   {
+    "dzial": "05",
+    "pozycja": "wyposażenie mieszkania i prowadzenie gospodarstwa",
+    "wydatek_PLN": 100.58,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 18.81
+   },
+   {
+    "dzial": "06",
+    "pozycja": "produkty lecznicze",
+    "wydatek_PLN": 61.11,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.14",
+    "VAT_PLN": 4.53
+   },
+   {
+    "dzial": "06",
+    "pozycja": "wyroby medyczne i sprzęt wspomagający",
+    "wydatek_PLN": 8.76,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.13 (1,86+6,78+0,12 reszta)",
+    "VAT_PLN": 0.65
+   },
+   {
+    "dzial": "06",
+    "pozycja": "usługi medyczne pozaszpitalne, szpitalne, inne",
+    "wydatek_PLN": 50.25,
+    "udzialy_stawek": {
+     "0": 1
+    },
+    "podstawa": "zw. art.43 ust.1 pkt 18-19 (43,88+4,75+1,63)",
+    "VAT_PLN": 0.0
+   },
+   {
+    "dzial": "07",
+    "pozycja": "zakup pojazdów",
+    "wydatek_PLN": 50.22,
+    "udzialy_stawek": {
+     "23": 0.7,
+     "0": 0.3
+    },
+    "podstawa": "ZAŁOŻENIE: 30% to auta używane od osób prywatnych / procedura marży (bez VAT od całej ceny); + akcyza",
+    "VAT_PLN": 6.57
+   },
+   {
+    "dzial": "07",
+    "pozycja": "części i akcesoria",
+    "wydatek_PLN": 10.74,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 2.01
+   },
+   {
+    "dzial": "07",
+    "pozycja": "paliwa i smary",
+    "wydatek_PLN": 101.98,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa + akcyza + opłata paliwowa",
+    "VAT_PLN": 19.07
+   },
+   {
+    "dzial": "07",
+    "pozycja": "konserwacja i naprawa pojazdów",
+    "wydatek_PLN": 16.42,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 3.07
+   },
+   {
+    "dzial": "07",
+    "pozycja": "pozostałe usługi (parking, autostrady)",
+    "wydatek_PLN": 3.25,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "ZAŁOŻENIE: 23% (opłaty publiczne bez VAT pominięte)",
+    "VAT_PLN": 0.61
+   },
+   {
+    "dzial": "07",
+    "pozycja": "transport pasażerski kolej/drogowy/mieszany",
+    "wydatek_PLN": 8.65,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.38-41",
+    "VAT_PLN": 0.64
+   },
+   {
+    "dzial": "07",
+    "pozycja": "transport lotniczy",
+    "wydatek_PLN": 4.7,
+    "udzialy_stawek": {
+     "0": 1
+    },
+    "podstawa": "ZAŁOŻENIE: głównie międzynarodowy, 0% (art.83 ust.3)",
+    "VAT_PLN": 0.0
+   },
+   {
+    "dzial": "07",
+    "pozycja": "usługi pocztowe i kurierskie, inne",
+    "wydatek_PLN": 0.79,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "usługa powszechna zw. pominięta",
+    "VAT_PLN": 0.15
+   },
+   {
+    "dzial": "08",
+    "pozycja": "sprzęt informacyjno-telekomunikacyjny",
+    "wydatek_PLN": 12.99,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 2.43
+   },
+   {
+    "dzial": "08",
+    "pozycja": "usługi telekomunikacyjne",
+    "wydatek_PLN": 72.43,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa (0,44+28,97+7,67+35,20+0,15 reszta)",
+    "VAT_PLN": 13.54
+   },
+   {
+    "dzial": "08",
+    "pozycja": "pozostałe usługi informacyjne (TV kablowa, abonament RTV)",
+    "wydatek_PLN": 11.88,
+    "udzialy_stawek": {
+     "8": 0.6,
+     "0": 0.4
+    },
+    "podstawa": "ZAŁOŻENIE: odbiór TV 8% (Zał.3 poz.48); abonament RTV poza VAT; streaming 23% pominięty",
+    "VAT_PLN": 0.53
+   },
+   {
+    "dzial": "09",
+    "pozycja": "sprzęt i artykuły rekreacyjne",
+    "wydatek_PLN": 12.21,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 2.28
+   },
+   {
+    "dzial": "09",
+    "pozycja": "rośliny, kwiaty, art. ogrodnicze",
+    "wydatek_PLN": 14.89,
+    "udzialy_stawek": {
+     "8": 0.5,
+     "23": 0.5
+    },
+    "podstawa": "ZAŁOŻENIE 50/50 (rośliny CN 06: 8%, Zał.3 poz.8)",
+    "VAT_PLN": 1.94
+   },
+   {
+    "dzial": "09",
+    "pozycja": "zwierzęta domowe i artykuły dla nich",
+    "wydatek_PLN": 17.18,
+    "udzialy_stawek": {
+     "8": 0.7,
+     "23": 0.3
+    },
+    "podstawa": "ZAŁOŻENIE: karma = pasze 8% (Zał.3 poz.10c), akcesoria 23%",
+    "VAT_PLN": 1.85
+   },
+   {
+    "dzial": "09",
+    "pozycja": "usługi weterynaryjne",
+    "wydatek_PLN": 6.34,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.49",
+    "VAT_PLN": 0.47
+   },
+   {
+    "dzial": "09",
+    "pozycja": "usługi rekreacyjne i sportowe",
+    "wydatek_PLN": 10.77,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.55,65,68 (część fitness 23% pominięta)",
+    "VAT_PLN": 0.8
+   },
+   {
+    "dzial": "09",
+    "pozycja": "gry hazardowe",
+    "wydatek_PLN": 0.32,
+    "udzialy_stawek": {
+     "0": 1
+    },
+    "podstawa": "zw. art.43 ust.1 pkt 15 (podatek od gier zamiast VAT)",
+    "VAT_PLN": 0.0
+   },
+   {
+    "dzial": "09",
+    "pozycja": "pozostałe rekreacja (reszta)",
+    "wydatek_PLN": 0.37,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "rezydualne",
+    "VAT_PLN": 0.07
+   },
+   {
+    "dzial": "09",
+    "pozycja": "kino, teatr, koncerty, muzea",
+    "wydatek_PLN": 4.76,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.64,66 (część zw. art.43 ust.1 pkt 33 pominięta)",
+    "VAT_PLN": 0.35
+   },
+   {
+    "dzial": "09",
+    "pozycja": "usługi fotograficzne i inne kulturalne",
+    "wydatek_PLN": 3.26,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "ZAŁOŻENIE 23%",
+    "VAT_PLN": 0.61
+   },
+   {
+    "dzial": "09",
+    "pozycja": "książki",
+    "wydatek_PLN": 3.23,
+    "udzialy_stawek": {
+     "5": 1
+    },
+    "podstawa": "Zał.10 poz.19",
+    "VAT_PLN": 0.15
+   },
+   {
+    "dzial": "09",
+    "pozycja": "gazety i czasopisma",
+    "wydatek_PLN": 1.69,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.17 (lokalne 5%)",
+    "VAT_PLN": 0.13
+   },
+   {
+    "dzial": "09",
+    "pozycja": "druki i materiały biurowe",
+    "wydatek_PLN": 3.74,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 0.7
+   },
+   {
+    "dzial": "09",
+    "pozycja": "turystyka zorganizowana",
+    "wydatek_PLN": 44.13,
+    "udzialy_stawek": {
+     "23": 0.12
+    },
+    "podstawa": "ZAŁOŻENIE: procedura marży art.119; marża ~12% ceny opodatkowana 23%",
+    "VAT_PLN": 0.99
+   },
+   {
+    "dzial": "10",
+    "pozycja": "edukacja",
+    "wydatek_PLN": 19.74,
+    "udzialy_stawek": {
+     "0": 1
+    },
+    "podstawa": "zw. art.43 ust.1 pkt 26-29",
+    "VAT_PLN": 0.0
+   },
+   {
+    "dzial": "11",
+    "pozycja": "restauracje, kawiarnie",
+    "wydatek_PLN": 66.35,
+    "udzialy_stawek": {
+     "8": 0.85,
+     "23": 0.15
+    },
+    "podstawa": "art.41 ust.12f; ZAŁOŻENIE: 15% to napoje 23% (alkohol, kawa, napoje)",
+    "VAT_PLN": 6.04
+   },
+   {
+    "dzial": "11",
+    "pozycja": "stołówki",
+    "wydatek_PLN": 24.72,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "art.41 ust.12f (stołówki szkolne zw. pominięte)",
+    "VAT_PLN": 1.83
+   },
+   {
+    "dzial": "11",
+    "pozycja": "usługi zakwaterowania",
+    "wydatek_PLN": 16.53,
+    "udzialy_stawek": {
+     "8": 1
+    },
+    "podstawa": "Zał.3 poz.47",
+    "VAT_PLN": 1.22
+   },
+   {
+    "dzial": "12",
+    "pozycja": "ubezpieczenia i usługi finansowe",
+    "wydatek_PLN": 36.45,
+    "udzialy_stawek": {
+     "0": 1
+    },
+    "podstawa": "zw. art.43 ust.1 pkt 37-41",
+    "VAT_PLN": 0.0
+   },
+   {
+    "dzial": "13",
+    "pozycja": "urządzenia elektryczne do higieny",
+    "wydatek_PLN": 1.08,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 0.2
+   },
+   {
+    "dzial": "13",
+    "pozycja": "kosmetyki i artykuły higieniczne",
+    "wydatek_PLN": 46.33,
+    "udzialy_stawek": {
+     "23": 0.85,
+     "5": 0.15
+    },
+    "podstawa": "ZAŁOŻENIE: 15% to podpaski, tampony, pieluchy (Zał.10 poz.21) 5%",
+    "VAT_PLN": 7.69
+   },
+   {
+    "dzial": "13",
+    "pozycja": "fryzjer i kosmetyczka",
+    "wydatek_PLN": 17.14,
+    "udzialy_stawek": {
+     "8": 0.7,
+     "23": 0.3
+    },
+    "podstawa": "Zał.3 poz.59-61 fryzjer 8%; ZAŁOŻENIE 30% to usługi kosmetyczne 23%",
+    "VAT_PLN": 1.85
+   },
+   {
+    "dzial": "13",
+    "pozycja": "pozostałe artykuły osobiste (biżuteria itp.)",
+    "wydatek_PLN": 12.14,
+    "udzialy_stawek": {
+     "23": 1
+    },
+    "podstawa": "stawka podstawowa",
+    "VAT_PLN": 2.27
+   },
+   {
+    "dzial": "13",
+    "pozycja": "ochrona socjalna",
+    "wydatek_PLN": 3.54,
+    "udzialy_stawek": {
+     "0": 1
+    },
+    "podstawa": "zw. art.43 ust.1 pkt 22-24",
+    "VAT_PLN": 0.0
+   },
+   {
+    "dzial": "13",
+    "pozycja": "pozostałe usługi (bez kieszonkowego)",
+    "wydatek_PLN": 6.33,
+    "udzialy_stawek": {
+     "8": 0.5,
+     "0": 0.5
+    },
+    "podstawa": "ZAŁOŻENIE: pogrzebowe 8% (Zał.3 poz.62), opłaty urzędowe/prawne poza VAT lub zw.",
+    "VAT_PLN": 0.23
+   }
+  ],
+  "VAT_w_wydatkach_przecietnej_osoby": {
+   "value": 213.83,
+   "unit": "PLN/osobę/miesiąc",
+   "year_of_data": 2025,
+   "source_title": "Własne wyliczenie (jw.)",
+   "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+   "verified": false,
+   "note": "Średnio 11.01% wydatków konsumpcyjnych brutto (kieszonkowe 33,53 zł przypisane średnią stawką). Wydatki z BBGD 2025, stawki z 2026."
+  },
+  "efektywna_stawka_COICOP1999_dla_kwintyli": {
+   "value": {
+    "01": 6.49,
+    "02": 18.7,
+    "03": 18.7,
+    "04": 12.8,
+    "05": 18.7,
+    "06": 4.31,
+    "07": 16.32,
+    "08_lacznosc": 18.7,
+    "09_rekreacja_kultura": 8.98,
+    "10": 0.0,
+    "11": 8.45,
+    "12_pozostale": 9.96
+   },
+   "unit": "% ceny brutto",
+   "year_of_data": 2026,
+   "source_title": "Własne przeliczenie stawek z mapowania COICOP 2018 na działy COICOP 1999 (Tabl. 30)",
+   "source_url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20260001263",
+   "verified": false,
+   "note": "08_1999 ≈ usługi telekom. 23%; 09_1999 = dział 09_2018 + sprzęt IT/AV (12,99 zł) + usługi TV (11,88 zł); 12_1999 = działy 12+13 z 2018. Do stosowania z kwintylami z Tabl. 30."
+  },
+  "MF_efektywna_stawka_konsumpcja_gosp_dom": {
+   "value": 16.3,
+   "unit": "% (VAT / baza netto)",
+   "year_of_data": "2014-2017",
+   "source_title": "MF, 'Raport na temat wielkości luki podatkowej w podatku VAT w Polsce w latach 2004-2017', MF Opracowania i Analizy nr 3-2019, Tabela w rozdz. 3.1",
+   "source_url": "https://www.gov.pl/attachment/a5ad8b4d-0f1f-486f-8e8a-e4e29726b8a5",
+   "verified": true,
+   "note": "Efektywna stawka VAT dla całej konsumpcji finalnej gospodarstw domowych (rachunki narodowe, przed stawką 0% na żywność). Zużycie pośrednie 'pozostałych sektorów' (VAT ukryty w kosztach sektorów zwolnionych): 19,1%. Wyższa niż nasz szacunek, bo baza netto i inna struktura konsumpcji (m.in. brak czynszu imputowanego w VAT)."
+  },
+  "EUROMOD_implicit_indirect_tax_rates": {
+   "value": {
+    "food": 6.7,
+    "alcohol": 46.0,
+    "tobacco": 81.7,
+    "clothing": 18.6,
+    "home_fuels_electricity_water": 18.5,
+    "housing_rents": 15.9,
+    "household_goods": 18.7,
+    "health": 4.9,
+    "private_transport": 41.6,
+    "public_transport": 7.7,
+    "communication": 18.5,
+    "recreation_culture": 11.4,
+    "education": 0.0,
+    "restaurants_hotels": 11.9,
+    "other": 13.3
+   },
+   "unit": "% wydatków (VAT+akcyza)",
+   "year_of_data": 2016,
+   "source_title": "EUROMOD Indirect Tax Country Report: Poland (ISER, Univ. of Essex), Table 15",
+   "source_url": "https://www.iser.essex.ac.uk/files/projects/Euromod/IndirectTaxCountryReport_PL.pdf",
+   "verified": true,
+   "note": "Punkt odniesienia (stawki z 2016 r., zawiera akcyzę). Ważne: model oparty na BBGD odtwarzał tylko 44–49% faktycznych wpływów z VAT (Table 12)."
+  }
+ },
+ "3_cofog_wydatki_sektora_GG_2024": {
+  "TOTAL": {
+   "value": {
+    "mln_PLN": 1806509.7,
+    "pct_PKB": 49.4,
+    "pct_wydatkow_ogolem": 100.0
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Wydatki ogółem. Najnowszy rok COFOG dla PL to 2024 (2025 jeszcze nieopublikowany)."
+  },
+  "GF01": {
+   "value": {
+    "mln_PLN": 189093.7,
+    "pct_PKB": 5.2,
+    "pct_wydatkow_ogolem": 10.5
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Ogólne usługi publiczne"
+  },
+  "GF0107": {
+   "value": {
+    "mln_PLN": 87832.0,
+    "pct_PKB": 2.4,
+    "pct_wydatkow_ogolem": 4.9
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "w tym: obsługa długu publicznego (odsetki)"
+  },
+  "GF02": {
+   "value": {
+    "mln_PLN": 107438.4,
+    "pct_PKB": 2.9,
+    "pct_wydatkow_ogolem": 5.9
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Obrona narodowa"
+  },
+  "GF03": {
+   "value": {
+    "mln_PLN": 87613.6,
+    "pct_PKB": 2.4,
+    "pct_wydatkow_ogolem": 4.8
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Porządek publiczny i bezpieczeństwo"
+  },
+  "GF04": {
+   "value": {
+    "mln_PLN": 224561.5,
+    "pct_PKB": 6.1,
+    "pct_wydatkow_ogolem": 12.4
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Sprawy gospodarcze"
+  },
+  "GF0405": {
+   "value": {
+    "mln_PLN": 125864.3,
+    "pct_PKB": 3.4,
+    "pct_wydatkow_ogolem": 7.0
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "w tym: transport"
+  },
+  "GF0403": {
+   "value": {
+    "mln_PLN": 37595.5,
+    "pct_PKB": 1.0,
+    "pct_wydatkow_ogolem": 2.1
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "w tym: paliwa i energia"
+  },
+  "GF05": {
+   "value": {
+    "mln_PLN": 26249.5,
+    "pct_PKB": 0.7,
+    "pct_wydatkow_ogolem": 1.5
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Ochrona środowiska"
+  },
+  "GF06": {
+   "value": {
+    "mln_PLN": 21988.1,
+    "pct_PKB": 0.6,
+    "pct_wydatkow_ogolem": 1.2
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Gospodarka mieszkaniowa i komunalna"
+  },
+  "GF07": {
+   "value": {
+    "mln_PLN": 224307.6,
+    "pct_PKB": 6.1,
+    "pct_wydatkow_ogolem": 12.4
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Ochrona zdrowia"
+  },
+  "GF08": {
+   "value": {
+    "mln_PLN": 51421.0,
+    "pct_PKB": 1.4,
+    "pct_wydatkow_ogolem": 2.8
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Rekreacja, kultura i religia"
+  },
+  "GF09": {
+   "value": {
+    "mln_PLN": 204990.8,
+    "pct_PKB": 5.6,
+    "pct_wydatkow_ogolem": 11.3
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Edukacja"
+  },
+  "GF10": {
+   "value": {
+    "mln_PLN": 668845.5,
+    "pct_PKB": 18.3,
+    "pct_wydatkow_ogolem": 37.0
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "Ochrona socjalna"
+  },
+  "GF1001": {
+   "value": {
+    "mln_PLN": 72067.9,
+    "pct_PKB": 2.0,
+    "pct_wydatkow_ogolem": 4.0
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "w tym: choroba i niepełnosprawność"
+  },
+  "GF1002": {
+   "value": {
+    "mln_PLN": 395954.6,
+    "pct_PKB": 10.8,
+    "pct_wydatkow_ogolem": 21.9
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "w tym: starość (emerytury)"
+  },
+  "GF1003": {
+   "value": {
+    "mln_PLN": 58182.0,
+    "pct_PKB": 1.6,
+    "pct_wydatkow_ogolem": 3.2
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "w tym: renty rodzinne"
+  },
+  "GF1004": {
+   "value": {
+    "mln_PLN": 111820.6,
+    "pct_PKB": 3.1,
+    "pct_wydatkow_ogolem": 6.2
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "w tym: rodzina i dzieci"
+  },
+  "GF1005": {
+   "value": {
+    "mln_PLN": 8360.9,
+    "pct_PKB": 0.2,
+    "pct_wydatkow_ogolem": 0.5
+   },
+   "unit": "mln PLN / % PKB / % wydatków",
+   "year_of_data": 2024,
+   "source_title": "Eurostat, gov_10a_exp 'General government expenditure by function (COFOG)', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_exp/default/table",
+   "verified": true,
+   "note": "w tym: bezrobocie"
+  },
+  "_uwaga": "Udziały w PKB i w wydatkach ogółem pobrane wprost z Eurostatu (jednostki PC_GDP, PC_TOT), zaokrąglone do 0,1."
+ },
+ "3b_sektor_GG_agregaty": {
+  "wydatki_ogolem_2025": {
+   "value": 1991233,
+   "unit": "mln PLN",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_main 'Government revenue, expenditure and main aggregates', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main/default/table",
+   "verified": true,
+   "note": "50,9% PKB. 2024: 1 806 449 mln PLN (49,2% PKB)."
+  },
+  "wydatki_ogolem_2025_pct_PKB": {
+   "value": 50.9,
+   "unit": "% PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_main 'Government revenue, expenditure and main aggregates', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main/default/table",
+   "verified": true,
+   "note": ""
+  },
+  "dochody_ogolem_2025": {
+   "value": 1707618,
+   "unit": "mln PLN",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_main 'Government revenue, expenditure and main aggregates', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main/default/table",
+   "verified": true,
+   "note": "43,6% PKB (UE-27: 46,3%)."
+  },
+  "deficyt_2025": {
+   "value": -283615,
+   "unit": "mln PLN",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_main 'Government revenue, expenditure and main aggregates', S13, aktualizacja 21.10.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_main/default/table",
+   "verified": true,
+   "note": "−7,2% PKB."
+  }
+ },
+ "4a_ustawa_budzetowa_2026": {
+  "dochody_ogolem": {
+   "value": 647200000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "dochody_podatkowe": {
+   "value": 579922620,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "VAT": {
+   "value": 341500000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "akcyza": {
+   "value": 103253000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Prezydent zawetował podwyżkę akcyzy na alkohol i opłaty cukrowej; ustawy budżetowej nie zmieniono, więc plan może być zawyżony. Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "PIT_udzial_budzetu_panstwa": {
+   "value": 32036796,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Po reformie dochodów JST od 2025 r. większość PIT trafia do samorządów (zob. JST). Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "CIT_udzial_budzetu_panstwa": {
+   "value": 80423109,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Zawiera ok. 6,6 mld zł z planowanej wyższej stawki CIT dla banków (uzasadnienie). Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "podatek_od_gier": {
+   "value": 6500000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "podatek_od_wydobycia_kopalin": {
+   "value": 3200000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "podatek_od_instytucji_finansowych_bankowy": {
+   "value": 7590000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "podatek_od_sprzedazy_detalicznej": {
+   "value": 4957715,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "podatki_wyrownawcze": {
+   "value": 462000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Nowa pozycja w 2026. Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "dochody_niepodatkowe": {
+   "value": 63643113,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "clo": {
+   "value": 8733000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Klasyfikowane jako dochód niepodatkowy. Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "wydatki_ogolem": {
+   "value": 918940000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Art. 1 ust. 2. Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "deficyt_maksymalny": {
+   "value": 271740000,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 z dnia 9 stycznia 2026 r. (Dz.U. 2026 poz. 62), zał. nr 1 'Dochody budżetu państwa'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "Art. 1 ust. 5. Plan; ustawa nie była nowelizowana (stan 27.11.2026). Kwoty projektu (druk 1749) i ustawy są identyczne."
+  },
+  "PIT_calkowite_wplywy_2026": {
+   "value": 225865780,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Uzasadnienie projektu ustawy budżetowej na 2026 r. (druk sejmowy nr 1749)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/1749/1749-uzasadnienie.pdf",
+   "verified": true,
+   "note": "Budżet państwa + JST (100%)."
+  },
+  "PIT_udzialy_JST_2026": {
+   "value": 193828984,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Uzasadnienie projektu ustawy budżetowej na 2026 r. (druk 1749)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/1749/1749-uzasadnienie.pdf",
+   "verified": true,
+   "note": "Z GZM; 2025: 174 067 361; 2024: 81 131 757."
+  }
+ },
+ "4b_wykonanie_budzetu_2025": {
+  "dochody_ogolem": {
+   "value": 594524380,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": "Plan 632 848 215."
+  },
+  "dochody_podatkowe": {
+   "value": 529224948,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": "Plan 570 772 190."
+  },
+  "VAT": {
+   "value": 321646382,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": "Plan 349 526 000."
+  },
+  "akcyza": {
+   "value": 92519250,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": "Plan 98 136 000."
+  },
+  "CIT_udzial_budzetu": {
+   "value": 63686738,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "PIT_udzial_budzetu": {
+   "value": 28752115,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "podatek_od_gier": {
+   "value": 6193261,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "kopaliny": {
+   "value": 4750532,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "podatek_bankowy": {
+   "value": 7040501,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "podatek_od_sprzedazy_detalicznej": {
+   "value": 4636158,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "wydatki": {
+   "value": 870190612,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "deficyt": {
+   "value": 275666233,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Sprawozdanie z wykonania budżetu państwa za okres od 1 stycznia do 31 grudnia 2025 r. (druk sejmowy nr 2629, 29.05.2026)",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/prints/2629/2629.pdf",
+   "verified": true,
+   "note": ""
+  }
+ },
+ "4c_eurostat_podatki_sektor_GG_2025": {
+  "podatki_i_skladki_razem": {
+   "value": {
+    "mln_PLN": 1473973,
+    "pct_PKB": 37.6,
+    "UE27_pct_PKB": 40.7
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": "Kod D2_D5_D91_D61_M_D995 (podatki + składki społeczne netto, po odjęciu kwot nieściągalnych). 2024: 1 372 467 mln PLN = 37,4% PKB; 2023: 35,9%."
+  },
+  "VAT": {
+   "value": {
+    "mln_PLN": 329763,
+    "pct_PKB": 8.4,
+    "UE27_pct_PKB": 7.2
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026, kod D211",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": ""
+  },
+  "akcyza_i_podatki_konsumpcyjne": {
+   "value": {
+    "mln_PLN": 108667,
+    "pct_PKB": 2.8,
+    "UE27_pct_PKB": 1.6
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026, kod D214A",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": ""
+  },
+  "podatki_od_produkcji_i_importu": {
+   "value": {
+    "mln_PLN": 561618,
+    "pct_PKB": 14.3,
+    "UE27_pct_PKB": 12.9
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026, kod D2",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": ""
+  },
+  "podatki_biezace_od_dochodu_majatku": {
+   "value": {
+    "mln_PLN": 313251,
+    "pct_PKB": 8.0,
+    "UE27_pct_PKB": 13.2
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026, kod D5",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": ""
+  },
+  "PIT_podatki_od_dochodow_osob": {
+   "value": {
+    "mln_PLN": 207070,
+    "pct_PKB": 5.3,
+    "UE27_pct_PKB": 9.6
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026, kod D51A_C1",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": ""
+  },
+  "CIT": {
+   "value": {
+    "mln_PLN": 91586,
+    "pct_PKB": 2.3,
+    "UE27_pct_PKB": null
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026, kod D51B_C2",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": ""
+  },
+  "podatki_od_gruntow_budynkow": {
+   "value": {
+    "mln_PLN": 28240,
+    "pct_PKB": 0.7,
+    "UE27_pct_PKB": null
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026, kod D29A",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": "Głównie podatek od nieruchomości, rolny i leśny (dochód JST)."
+  },
+  "skladki_spoleczne_netto": {
+   "value": {
+    "mln_PLN": 601085,
+    "pct_PKB": 15.4,
+    "UE27_pct_PKB": 14.3
+   },
+   "unit": "mln PLN / % PKB",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, gov_10a_taxag 'Main national accounts tax aggregates', S13_S212 (sektor GG + instytucje UE), aktualizacja 05.11.2026, kod D61",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/gov_10a_taxag/default/table",
+   "verified": true,
+   "note": "W ESA składka zdrowotna NFZ jest liczona jako składka społeczna."
+  }
+ },
+ "4d_FUS_plan_2026": {
+  "przychody_ogolem_memorialowo": {
+   "value": 508850092,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 (Dz.U. 2026 poz. 62), plany finansowe państwowych funduszy celowych, Tabela 28 'Fundusz Ubezpieczeń Społecznych'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "skladki_przypis": {
+   "value": 403455122,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 (Dz.U. 2026 poz. 62), plany finansowe państwowych funduszy celowych, Tabela 28 'Fundusz Ubezpieczeń Społecznych'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": "W tym emerytalny 252 303 074; rentowy 105 216 456; chorobowy 31 149 830; wypadkowy 14 785 762. Obejmuje część składki emerytalnej przekazywaną do FRD (4 841 474)."
+  },
+  "skladki_kasowo": {
+   "value": 399420570,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 (Dz.U. 2026 poz. 62), plany finansowe państwowych funduszy celowych, Tabela 28 'Fundusz Ubezpieczeń Społecznych' (część C, kasowo)",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "dotacja_z_budzetu_panstwa": {
+   "value": 90752553,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 (Dz.U. 2026 poz. 62), plany finansowe państwowych funduszy celowych, Tabela 28 'Fundusz Ubezpieczeń Społecznych'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "koszty_ogolem": {
+   "value": 505008460,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ustawa budżetowa na rok 2026 (Dz.U. 2026 poz. 62), plany finansowe państwowych funduszy celowych, Tabela 28 'Fundusz Ubezpieczeń Społecznych'",
+   "source_url": "https://api.sejm.gov.pl/eli/acts/DU/2026/62/text/O/D20260062.pdf",
+   "verified": true,
+   "note": ""
+  }
+ },
+ "4e_NFZ_plan_2026": {
+  "przychody_ze_skladki_zdrowotnej": {
+   "value": 184347480,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ministerstwo Finansów, odpowiedź na interpelację nr 17053 (3.06.2026), dane z planu finansowego NFZ na 2026 r. po zmianach",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDUUB8Q/i17053-o2.pdf",
+   "verified": true,
+   "note": "Plan NFZ na 2026 nie został zatwierdzony przez MZ i MF; Fundusz działa na projekcie z 29.07.2025 po zmianach. Późniejsze zmiany (zarządzenia Prezesa NFZ 73/2026/DEF, 84/2026/DEF, 86/2026/DEF, 107/2026/DEF z lipca–października 2026) nie zostały odczytane."
+  },
+  "przychody_ogolem": {
+   "value": 221716127,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ministerstwo Finansów, odpowiedź na interpelację nr 17053 (3.06.2026), dane z planu finansowego NFZ na 2026 r. po zmianach",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDUUB8Q/i17053-o2.pdf",
+   "verified": true,
+   "note": "Przychody = koszty (plan zrównoważony). Plan NFZ na 2026 nie został zatwierdzony przez MZ i MF; Fundusz działa na projekcie z 29.07.2025 po zmianach. Późniejsze zmiany (zarządzenia Prezesa NFZ 73/2026/DEF, 84/2026/DEF, 86/2026/DEF, 107/2026/DEF z lipca–października 2026) nie zostały odczytane."
+  },
+  "dotacja_podmiotowa_z_budzetu": {
+   "value": 30192145,
+   "unit": "tys. PLN",
+   "year_of_data": 2026,
+   "source_title": "Ministerstwo Finansów, odpowiedź na interpelację nr 17053 (3.06.2026), dane z planu finansowego NFZ na 2026 r. po zmianach",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDUUB8Q/i17053-o2.pdf",
+   "verified": true,
+   "note": "26,0 mld w ustawie budżetowej + 4,0 mld (9.03.2026) + 1,4 mld (18.05.2026)."
+  },
+  "wykonanie_2025_skladki": {
+   "value": 170581486.82,
+   "unit": "tys. PLN",
+   "year_of_data": 2025,
+   "source_title": "Ministerstwo Finansów, odpowiedź na interpelację nr 17053 (3.06.2026), dane z planu finansowego NFZ na 2026 r. po zmianach",
+   "source_url": "https://api.sejm.gov.pl/sejm/term10/interpellations/attachment/ATTDUUB8Q/i17053-o2.pdf",
+   "verified": true,
+   "note": "Wstępne sprawozdanie. Przychody ogółem 2025: 214 751 985,81 tys. zł."
+  }
+ },
+ "4f_JST": {
+  "PIT_naleznosc_2026_wszystkie_JST": {
+   "value": 193164204056,
+   "unit": "PLN",
+   "year_of_data": 2026,
+   "source_title": "MF, 'Kwoty subwencji ogólnej na rok 2026 oraz dochodów z tytułu udziału w PIT i CIT' (xlsx, kwoty ostateczne z 14.10.2025); sumy wg typu JST policzone przez projekt",
+   "source_url": "https://www.gov.pl/attachment/23e9b124-8545-4178-ab54-81a9df16ace6",
+   "verified": true,
+   "note": "Gminy 88 138 305 070; miasta na prawach powiatu 72 826 760 620; powiaty 24 801 309 192; województwa 7 397 829 174. Bez GZM. Od 2025 r. (nowa ustawa o dochodach JST) kwota zależy od bazy podatkowej sprzed 2 lat, a nie od stałego % udziału."
+  },
+  "CIT_naleznosc_2026_wszystkie_JST": {
+   "value": 27464890108,
+   "unit": "PLN",
+   "year_of_data": 2026,
+   "source_title": "MF, 'Kwoty subwencji ogólnej na rok 2026 oraz dochodów z tytułu udziału w PIT i CIT' (xlsx, kwoty ostateczne z 14.10.2025); sumy wg typu JST policzone przez projekt",
+   "source_url": "https://www.gov.pl/attachment/23e9b124-8545-4178-ab54-81a9df16ace6",
+   "verified": true,
+   "note": "Gminy 3 176 075 547; m.n.p.p. 8 372 032 344; powiaty 3 378 495 846; województwa 12 538 286 371."
+  },
+  "PIT_wykonanie_2025": {
+   "value": 173452600683.33,
+   "unit": "PLN",
+   "year_of_data": 2025,
+   "source_title": "MF, 'Informacja z wykonania budżetów JST za IV kwartały 2025 roku' (Rb-27S)",
+   "source_url": "https://www.gov.pl/attachment/99d69e61-a570-4564-9585-b5fef74797f3",
+   "verified": true,
+   "note": ""
+  },
+  "CIT_wykonanie_2025": {
+   "value": 28157340925.85,
+   "unit": "PLN",
+   "year_of_data": 2025,
+   "source_title": "MF, 'Informacja z wykonania budżetów JST za IV kwartały 2025 roku' (Rb-27S)",
+   "source_url": "https://www.gov.pl/attachment/99d69e61-a570-4564-9585-b5fef74797f3",
+   "verified": true,
+   "note": ""
+  },
+  "podatek_od_nieruchomosci_wykonanie_2025": {
+   "value": 37733963626.18,
+   "unit": "PLN",
+   "year_of_data": 2025,
+   "source_title": "MF, 'Informacja z wykonania budżetów JST za IV kwartały 2025 roku' (Rb-27S)",
+   "source_url": "https://www.gov.pl/attachment/99d69e61-a570-4564-9585-b5fef74797f3",
+   "verified": true,
+   "note": "Gminy 23 764 267 937,46 + m.n.p.p. 13 969 695 688,72. 2024: 34 932 475 206,69. Skutki obniżenia górnych stawek: 3 659 177 736,40."
+  },
+  "dochody_ogolem_JST_wykonanie_2025": {
+   "value": 468212138462.38,
+   "unit": "PLN",
+   "year_of_data": 2025,
+   "source_title": "MF, 'Informacja z wykonania budżetów JST za IV kwartały 2025 roku' (Rb-27S)",
+   "source_url": "https://www.gov.pl/attachment/99d69e61-a570-4564-9585-b5fef74797f3",
+   "verified": true,
+   "note": ""
+  }
+ },
+ "5_wskazniki_porownawcze": {
+  "dzien_wolnosci_podatkowej_2026": {
+   "value": "2026-07-09",
+   "unit": "data",
+   "year_of_data": 2026,
+   "source_title": "Centrum im. Adama Smitha, 'Dzień Wolności Podatkowej 2026' (smith.pl, 9.07.2026)",
+   "source_url": "https://smith.pl/dzien-wolnosci-podatkowej-2026/",
+   "verified": true,
+   "note": "190. dzień roku. Metoda CAS: relacja wszystkich wydatków sektora publicznego (budżet państwa, JST, fundusze celowe itd.) do PKB × 365 dni (cytat z komunikatu CAS 2025). 2025: 4 lipca; 2024: 28 czerwca; 2023: 21 czerwca. Dawna domena adamsmith.pl już nie działa."
+  },
+  "DWP_2026_relacja_wydatkow_do_PKB": {
+   "value": 51.8,
+   "unit": "% PKB",
+   "year_of_data": 2026,
+   "source_title": "pit.pl powołujący się na CAS (wtórne)",
+   "source_url": "https://www.pit.pl/?p=52447",
+   "verified": false,
+   "note": "Komunikat CAS z wartością dla 2026 niedostępny (403). Nie wiadomo, czyją prognozę wydatków/PKB użyto. Dla porównania Eurostat: wydatki GG 2025 = 50,9% PKB."
+  },
+  "DWP_2025_metoda": {
+   "value": {
+    "data": "2025-07-04",
+    "wydatki_pct_PKB": 50.3,
+    "dni": 184
+   },
+   "unit": "",
+   "year_of_data": 2025,
+   "source_title": "CAS, komunikat '4 lipca Dzień Wolności Podatkowej 2025' (3.07.2025)",
+   "source_url": "https://smith.pl/wp-content/uploads/2025/08/IP-25-DZIEN-WOLNOSCI-PODATKOWEJ-F-1.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "klin_podatkowy_PL_singiel_100AW": {
+   "value": 35.03,
+   "unit": "% kosztów pracy",
+   "year_of_data": 2025,
+   "source_title": "OECD Taxing Wages 2026, dane OECD Data Explorer (DSD_TAX_WAGES_COMP@DF_TW_COMP, AV_TW, S_C0, AW100)",
+   "source_url": "https://www.oecd.org/en/publications/taxing-wages-2026_3a5169ef-en.html",
+   "verified": true,
+   "note": "2024: 34,74. Strony oecd.org blokują automaty; liczby pobrano z API OECD: https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_TAX_WAGES_COMP@DF_TW_COMP,/POL+OECD_REP..PT_COS_LB.....A?startPeriod=2024"
+  },
+  "klin_podatkowy_OECD_srednia_singiel_100AW": {
+   "value": 35.08,
+   "unit": "% kosztów pracy",
+   "year_of_data": 2025,
+   "source_title": "OECD Taxing Wages 2026 (API jw.)",
+   "source_url": "https://www.oecd.org/en/publications/taxing-wages-2026_3a5169ef-en.html",
+   "verified": true,
+   "note": "Komunikat prasowy OECD (IV 2026) podaje 35,1%."
+  },
+  "klin_podatkowy_PL_malzenstwo_1_zarabiajacy_2_dzieci": {
+   "value": 14.19,
+   "unit": "% kosztów pracy",
+   "year_of_data": 2025,
+   "source_title": "OECD Taxing Wages 2026 (API jw.)",
+   "source_url": "https://www.oecd.org/en/publications/taxing-wages-2026_3a5169ef-en.html",
+   "verified": true,
+   "note": "Średnia OECD: 26,16. 2024 PL: 11,89."
+  },
+  "klin_podatkowy_PL_singiel_167AW": {
+   "value": 39.18,
+   "unit": "% kosztów pracy",
+   "year_of_data": 2025,
+   "source_title": "OECD Taxing Wages 2026 (API jw.)",
+   "source_url": "https://www.oecd.org/en/publications/taxing-wages-2026_3a5169ef-en.html",
+   "verified": true,
+   "note": ""
+  }
+ },
+ "6_makro": {
+  "PKB_2025_nominalny": {
+   "value": 3915394,
+   "unit": "mln PLN, ceny bieżące",
+   "year_of_data": 2025,
+   "source_title": "Eurostat, nama_10_gdp (B1GQ, CP_MNAC), aktualizacja 24.11.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/nama_10_gdp/default/table",
+   "verified": true,
+   "note": "2024: 3 669 531 mln PLN. Ta sama wartość w GUS 'Produkt krajowy brutto: zaktualizowany szacunek za 2025 r.' (6.10.2026), realny wzrost 3,8%."
+  },
+  "ludnosc_1_stycznia_2026": {
+   "value": 36332765,
+   "unit": "osoby",
+   "year_of_data": 2026,
+   "source_title": "Eurostat, demo_gind (JAN), aktualizacja 26.11.2026",
+   "source_url": "https://ec.europa.eu/eurostat/databrowser/view/demo_gind/default/table",
+   "verified": true,
+   "note": "1.01.2025: 36 497 495; średnia 2025: 36 415 130."
+  },
+  "ludnosc_31_12_2025_GUS": {
+   "value": 37332510,
+   "unit": "osoby",
+   "year_of_data": 2025,
+   "source_title": "GUS, 'Ludność. Stan i struktura oraz ruch naturalny w przekroju terytorialnym w 2025 r. Stan w dniu 31 grudnia', tabl. 1",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/ludnosc/ludnosc/ludnosc-stan-i-struktura-oraz-ruch-naturalny-w-przekroju-terytorialnym-w-2025-r-stan-w-dniu-31-grudnia,6,40.html",
+   "verified": true,
+   "note": "Oficjalna liczba krajowa (rekomendowana do narzędzia). 30.06.2026: 37 242 958. UWAGA: Eurostat (demo_gind) podaje ok. 1 mln mniej (36 332 765 na 1.01.2026), z przerwą w szeregu w 2021 r.; prawdopodobnie inna definicja ludności (rezydenci zwyczajni wg NSP 2021). Nie weryfikowano przyczyny w metadanych."
+  },
+  "podatnicy_PIT_skala_2024": {
+   "value": 25582561,
+   "unit": "podatnicy",
+   "year_of_data": 2024,
+   "source_title": "MF, 'Informacja dotycząca rozliczenia podatku dochodowego od osób fizycznych za 2024 rok'",
+   "source_url": "https://www.podatki.gov.pl/media/sj0bmwos/informacja-dotycząca-rozliczenia-pit-za-2024.pdf",
+   "verified": true,
+   "note": "24 235 607 złożyło zeznanie samodzielnie, 1 346 954 rozliczył organ rentowy. 1 935 495 (7,6%) z dochodem > 120 000 zł. MF nie publikuje łącznej liczby bez duplikatów (ta sama osoba może mieć PIT-37, PIT-38 i ryczałt)."
+  },
+  "podatnicy_PIT_liniowy_2024": {
+   "value": 558618,
+   "unit": "podatnicy",
+   "year_of_data": 2024,
+   "source_title": "MF, 'Informacja dotycząca rozliczenia podatku dochodowego od osób fizycznych za 2024 rok'",
+   "source_url": "https://www.podatki.gov.pl/media/sj0bmwos/informacja-dotycząca-rozliczenia-pit-za-2024.pdf",
+   "verified": true,
+   "note": ""
+  },
+  "zeznania_ryczalt_2024": {
+   "value": 2091556,
+   "unit": "zeznania",
+   "year_of_data": 2024,
+   "source_title": "MF, 'Informacja dotycząca rozliczenia ryczałtu od przychodów ewidencjonowanych za 2024'",
+   "source_url": "https://www.podatki.gov.pl/media/htglabgr/informacja-ryczałt-za-2024.pdf",
+   "verified": true,
+   "note": "1 018 148 z działalności, 1 073 192 tylko z najmu prywatnego."
+  },
+  "pracujacy_BAEL_Q3_2026": {
+   "value": 17272,
+   "unit": "tys. osób (15–89 lat)",
+   "year_of_data": 2026,
+   "source_title": "GUS, 'Pracujący, bezrobotni i bierni zawodowo (wyniki wstępne BAEL w 3 kwartale 2026 r.)', 25.11.2026",
+   "source_url": "https://stat.gov.pl/obszary-tematyczne/rynek-pracy/pracujacy-bezrobotni-bierni-zawodowo-wg-bael/pracujacy-bezrobotni-i-bierni-zawodowo-wyniki-wstepne-badania-aktywnosci-ekonomicznej-ludnosci-w-3-kwartale-2026-r-,12,70.html",
+   "verified": true,
+   "note": "Wyniki wstępne. Eurostat lfsa_egan 2025 (15–74): 17 186,9 tys."
+  },
+  "ubezpieczeni_emerytalnie_ZUS": {
+   "value": 16.2,
+   "unit": "mln osób (ponad)",
+   "year_of_data": 2026,
+   "source_title": "ZUS, informacja o wynikach FUS za I półrocze 2026",
+   "source_url": "https://www.zus.pl/-/fus-stabilnie-rozpocz%C4%85%C5%82-2026-rok-duplikuj-0",
+   "verified": true,
+   "note": "Stan na koniec czerwca 2026."
+  },
+  "przecietne_wynagrodzenie_2025": {
+   "value": 8903.56,
+   "unit": "PLN brutto/miesiąc",
+   "year_of_data": 2025,
+   "source_title": "GUS, 'Komunikat w sprawie przeciętnego wynagrodzenia w gospodarce narodowej w 2025 r.' (9.02.2026), M.P. 2026 poz. 232",
+   "source_url": "https://stat.gov.pl/sygnalne/komunikaty-i-obwieszczenia/lista-komunikatow-i-obwieszczen/komunikat-w-sprawie-przecietnego-wynagrodzenia-w-gospodarce-narodowej-w-2025-r-,273,13.html",
+   "verified": true,
+   "note": ""
+  }
+ },
+ "_meta": {
+  "generated": "2026-11-27",
+  "description": "Dane źródłowe dla narzędzia 'Ile naprawdę oddaję państwu?'. Każda wartość: value, unit, year_of_data, source_title, source_url, verified, note. verified=true oznacza, że wartość odczytano bezpośrednio z dokumentu/zbioru źródłowego.",
+  "companion": "data-2026.md"
+ }
+}

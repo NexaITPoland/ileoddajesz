@@ -1,0 +1,81 @@
+---
+/* „Ile podatku jest w…”: liczone przy budowaniu strony ze stawek w rates-2026.json. */
+import rates from '../data/rates-2026.json';
+import { fuelUnit, packUnit, alcoholUnit, electricityMonthly, type Rates } from '../lib/engine';
+const R = rates as unknown as Rates;
+const zl = (n: number) => `${n.toLocaleString('pl-PL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} zł`;
+type Row = { label: string; unit: string; price: number; parts: { label: string; g: string; v: number }[]; note: string };
+const pb = fuelUnit(R, 'petrol'), on = fuelUnit(R, 'diesel'), pack = packUnit(R);
+const pbStd = fuelUnit(R, 'petrol', 'standard'), onStd = fuelUnit(R, 'diesel', 'standard');
+const until = new Date(R.fuel.reliefUntil).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' });
+const vatPct = Math.round(R.fuel.vatRate * 100);
+const vodka = alcoholUnit(R, 'vodka'), beer = alcoholUnit(R, 'beer'), wine = alcoholUnit(R, 'wine');
+const el = electricityMonthly(R, 200);
+const pctOf = (u: { total: number; price: number }) => Math.round((u.total / u.price) * 100);
+const range = (kind: 'vodka' | 'beer' | 'wine', r: number[]) => { const a = alcoholUnit(R, kind, r[1]), b = alcoholUnit(R, kind, r[0]); return ` Przy cenie od ${zl(r[0])} do ${zl(r[1])} podatki to ${pctOf(a)}–${pctOf(b)}% ceny.`; };
+const elLo = electricityMonthly(R, 200, R.electricity.priceRange[1]), elHi = electricityMonthly(R, 200, R.electricity.priceRange[0]);
+const elShare = (e: typeof el) => Math.round(((e.vat + e.excise + e.levies) / e.bill) * 100);
+const rows: Row[] = [
+  { label: 'Benzyna 95', unit: '1 litr', price: pb.price, parts: [{ label: 'akcyza', g: 'akcyza', v: pb.excise }, { label: 'opłata paliwowa i emisyjna', g: 'lokalne', v: pb.fees }, { label: `VAT ${vatPct}%`, g: 'vat', v: pb.vat }], note: `Do ${until} obowiązuje czasowa obniżka: VAT ${vatPct}% zamiast 23% i niższa akcyza. Przy stawkach standardowych litr kosztowałby ok. ${zl(pbStd.price)}, a podatki stanowiłyby ${Math.round(pbStd.total / pbStd.price * 100)}% ceny. VAT liczy się też od akcyzy i opłat – to podatek od podatku.` },
+  { label: 'Olej napędowy', unit: '1 litr', price: on.price, parts: [{ label: 'akcyza', g: 'akcyza', v: on.excise }, { label: 'opłata paliwowa i emisyjna', g: 'lokalne', v: on.fees }, { label: `VAT ${vatPct}%`, g: 'vat', v: on.vat }], note: `Bez czasowej obniżki: ok. ${zl(onStd.price)} za litr i ${Math.round(onStd.total / onStd.price * 100)}% podatków. Opłata paliwowa finansuje drogi i kolej, opłata emisyjna – ochronę środowiska.` },
+  { label: 'Papierosy', unit: 'paczka 20 szt.', price: pack.price, parts: [{ label: 'akcyza', g: 'akcyza', v: pack.excise }, { label: 'VAT 23%', g: 'vat', v: pack.vat }], note: 'Akcyza to stawka kwotowa (414 zł za 1000 sztuk) plus 32,05% ceny detalicznej. Cenę paczki wyliczyliśmy ze średniej ceny ogłoszonej przez Ministra Finansów za 2025 r. (20,75 zł), dodając podwyżkę akcyzy z 2026 r.' },
+  { label: 'Wódka 40%', unit: 'butelka 0,5 l', price: vodka.price, parts: [{ label: 'akcyza', g: 'akcyza', v: vodka.excise }, { label: 'VAT 23%', g: 'vat', v: vodka.vat }], note: 'Akcyzę liczy się od ilości czystego alkoholu: 0,5 l × 40% = 0,2 l spirytusu.' + range('vodka', R.alcohol.vodkaRange) },
+  { label: 'Piwo', unit: 'butelka 0,5 l', price: beer.price, parts: [{ label: 'akcyza', g: 'akcyza', v: beer.excise }, { label: 'VAT 23%', g: 'vat', v: beer.vat }], note: 'Akcyza na piwo zależy od zawartości ekstraktu (stopnie Plato); przyjęliśmy typowe 12°.' + range('beer', R.alcohol.beerRange) },
+  { label: 'Wino', unit: 'butelka 0,75 l', price: wine.price, parts: [{ label: 'akcyza', g: 'akcyza', v: wine.excise }, { label: 'VAT 23%', g: 'vat', v: wine.vat }], note: 'Wino ma stałą stawkę akcyzy za hektolitr, niezależnie od mocy (do 15%).' + range('wine', R.alcohol.wineRange) },
+  { label: 'Prąd', unit: `rachunek za 200 kWh`, price: el.bill, parts: [{ label: 'akcyza', g: 'akcyza', v: el.excise }, { label: 'opłaty mocowa, OZE, kogeneracyjna', g: 'lokalne', v: el.levies }, { label: 'VAT 23%', g: 'vat', v: el.vat }], note: `Opłaty mocowa, OZE i kogeneracyjna to opłaty ustawowe doliczane na rachunku; finansują rezerwy mocy i dopłaty do zielonej energii. Przy cenie od ${zl(R.electricity.priceRange[0])} do ${zl(R.electricity.priceRange[1])} za kWh daniny to ${elShare(elLo)}–${elShare(elHi)}% rachunku.` },
+  ...R.products.map((p) => {
+    const vat = p.price * p.vatRate / (1 + p.vatRate);
+    const parts = [{ label: `VAT ${Math.round(p.vatRate * 100)}%`, g: 'vat', v: Math.round(vat * 100) / 100 }];
+    if (p.excise) parts.unshift({ label: 'akcyza', g: 'akcyza', v: p.excise });
+    if (p.levies) parts.unshift({ label: p.leviesLabel ?? 'opłaty', g: 'lokalne', v: p.levies });
+    return { label: p.label, unit: p.unit, price: p.price, parts, note: p.note };
+  }),
+];
+---
+<section class="sec" id="produkty">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker"><b>10</b> Ile podatku jest w…</p>
+      <h2 class="h2">Codzienne zakupy pod lupą</h2>
+      <p class="lead">Ten sam mechanizm w przykładach, które znasz ze sklepu. Stawki podatków są ustawowe; ceny paliw to ceny maksymalne z 27 listopada {R.meta.year} r., pozostałe ceny to typowe ceny sklepowe.</p>
+    </div>
+    <ul class="prod">
+      {rows.map((r) => {
+        const tax = r.parts.reduce((s, p) => s + p.v, 0);
+        const share = tax / r.price;
+        return (
+          <li class="prod-i">
+            <div class="prod-top"><div><b>{r.label}</b><small>{r.unit} · {zl(r.price)}</small></div><span class="prod-pct num">{Math.round(share * 100)}%<small>to daniny</small></span></div>
+            <div class="prod-bar" role="img" aria-label={`${r.label}: ${zl(tax)} z ${zl(r.price)} to podatki i opłaty`}>
+              {r.parts.map((p) => <span class={`g-${p.g}`} style={`width:${(p.v / r.price) * 100}%`}></span>)}
+              <span class="rest"></span>
+            </div>
+            <ul class="prod-leg">
+              {r.parts.map((p) => <li><span class={`dot g-${p.g}`}></span>{p.label} <b class="num">{zl(p.v)}</b></li>)}
+              <li><span class="dot"></span>producent, transport, sklep <b class="num">{zl(r.price - tax)}</b></li>
+            </ul>
+            <p class="prod-note">{r.note}</p>
+          </li>
+        );
+      })}
+    </ul>
+    <p class="note">Ceny: {R.fuel.priceNote} {R.tobacco.priceNote} {R.alcohol.priceNote} {R.electricity.priceNote} Stawki i źródła: <a href="/metodologia/#akcyza">Metodologia</a>.</p>
+  </div>
+</section>
+<style>
+  .prod { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+  .prod-i { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-l); padding: 18px; display: grid; gap: 12px; align-content: start; }
+  .prod-top { display: flex; justify-content: space-between; gap: 12px; }
+  .prod-top b { font-family: var(--display); font-size: 1.1rem; display: block; }
+  .prod-top small { color: var(--faint); font-size: 14px; }
+  .prod-pct { font-family: var(--display); font-size: 1.8rem; font-weight: 700; line-height: 1; text-align: right; }
+  .prod-pct small { display: block; font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--faint); margin-top: 4px; }
+  .prod-bar { display: flex; height: 22px; border-radius: 6px; overflow: hidden; background: var(--bg-2); }
+  .prod-bar span { background: var(--c); height: 100%; }
+  .prod-bar span + span { border-left: 2px solid var(--panel); }
+  .prod-bar .rest { flex: 1; background: var(--bg-2); }
+  .prod-leg { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
+  .prod-leg li { display: flex; gap: 8px; align-items: center; }
+  .prod-leg b { margin-left: auto; color: var(--ink); }
+  .prod-note { font-size: 13.5px; color: var(--faint); }
+</style>

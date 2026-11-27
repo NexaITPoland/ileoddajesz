@@ -1,0 +1,201 @@
+---
+import Base from '../layouts/Base.astro';
+import rates from '../data/rates-2026.json';
+const R = rates;
+const zl = (n: number) => `${Math.round(n).toLocaleString('pl-PL')} zł`;
+const p = (x: number) => `${(x * 100).toLocaleString('pl-PL', { maximumFractionDigits: 2 })}%`;
+const kinds = [
+  { name: 'Składki emerytalna i rentowa', who: 'Pracodawca (część z pensji, część od siebie)', when: 'Co miesiąc, do 15. (firmy z osobowością prawną) lub 20. dnia', where: 'ZUS → Fundusz Ubezpieczeń Społecznych', what: `${p(R.zus.emerEmp + R.zus.emerEr)} i ${p(R.zus.rentEmp + R.zus.rentEr)} pensji brutto (do limitu ${zl(R.zus.annualCap)} rocznie)` },
+  { name: 'Składki chorobowa i wypadkowa', who: 'Pracodawca', when: 'Co miesiąc, do 15. (firmy z osobowością prawną) lub 20. dnia', where: 'ZUS', what: `${p(R.zus.chor)} (z pensji) i ok. ${p(R.zus.wyp)} (od pracodawcy)` },
+  { name: 'Fundusz Pracy, Solidarnościowy i FGŚP', who: 'Pracodawca', when: 'Co miesiąc, do 15. (firmy z osobowością prawną) lub 20. dnia', where: 'ZUS → fundusze celowe', what: `${p(R.zus.fp)} (1% FP + 1,45% FS) i ${p(R.zus.fgsp)} pensji brutto` },
+  { name: 'Składka zdrowotna', who: 'Pracodawca (z Twojej pensji) lub przedsiębiorca', when: 'Co miesiąc', where: 'ZUS → NFZ', what: `${p(R.health.rate)} podstawy (pracownik); dla firm zależnie od formy opodatkowania` },
+  { name: 'PIT – podatek dochodowy', who: 'Pracodawca pobiera zaliczki; rozliczasz się sam raz w roku', when: 'Zaliczki do 20. dnia; zeznanie do 30 kwietnia', where: 'Urząd skarbowy → budżet państwa i samorządy', what: `${p(R.pit.rate1)} do ${zl(R.pit.threshold)} dochodu, ${p(R.pit.rate2)} powyżej; ${zl(R.pit.taxFree)} kwoty wolnej` },
+  { name: 'VAT', who: 'Sprzedawca – ale w cenie płacisz Ty', when: 'Przy każdym zakupie; sklep rozlicza do 25. dnia', where: 'Urząd skarbowy → budżet państwa', what: '23%, 8%, 5% lub 0% ceny netto' },
+  { name: 'Akcyza', who: 'Producent lub importer – w cenie płacisz Ty', when: 'Zanim towar trafi do sklepu', where: 'Urząd skarbowy → budżet państwa', what: 'Paliwa, alkohol, wyroby tytoniowe, energia, samochody' },
+  { name: 'Opłaty celowe', who: 'Producent, sprzedawca, dostawca energii', when: 'W cenie paliwa, napojów, na rachunku za prąd', where: 'Fundusze celowe (drogi, NFZ, energetyka)', what: 'Opłata paliwowa, emisyjna, cukrowa, mocowa, OZE' },
+  { name: 'Podatek od nieruchomości', who: 'Właściciel', when: 'W ratach: 15 marca, 15 maja, 15 września, 15 listopada', where: 'Gmina', what: `Do ${R.local.propertyPerM2.toLocaleString('pl-PL')} zł za m² mieszkania rocznie (stawka gminy)` },
+  { name: 'Podatek od odsetek („Belka”)', who: 'Bank lub dom maklerski pobiera za Ciebie', when: 'Przy wypłacie odsetek lub sprzedaży inwestycji', where: 'Urząd skarbowy', what: `${p(R.local.belka)} zysku` },
+];
+const glossary = [
+  ['Brutto', 'Pensja zapisana w umowie. Nie dostajesz jej w całości: najpierw potrąca się z niej składki i zaliczkę na podatek.'],
+  ['Netto („na rękę”)', 'To, co trafia na Twoje konto.'],
+  ['Brutto-brutto (koszt pracodawcy)', 'Pensja brutto plus składki, które pracodawca płaci „od siebie”. Tyle naprawdę kosztuje Twoje stanowisko pracy.'],
+  ['Klin podatkowy', 'Różnica między kosztem pracy a pensją na rękę, wyrażona w procentach kosztu pracy. Tak porównuje kraje OECD.'],
+  ['Kwota wolna od podatku', `Część rocznego dochodu (${zl(R.pit.taxFree)}), od której nie płacisz PIT. Działa przez „kwotę zmniejszającą podatek” ${zl(R.pit.reducingAnnual)} rocznie (${zl(R.pit.reducingMonthly)} w każdej zaliczce).`],
+  ['Próg podatkowy', `Dochód ${zl(R.pit.threshold)} rocznie. Od nadwyżki ponad próg płacisz ${p(R.pit.rate2)} zamiast ${p(R.pit.rate1)}.`],
+  ['Koszty uzyskania przychodu', `Stała kwota, którą ustawa odejmuje od pensji przed policzeniem podatku: ${zl(R.pit.kupMonthly)} miesięcznie (${zl(R.pit.kupMonthlyElevated)} przy dojazdach z innej miejscowości).`],
+  ['Zaliczka na podatek', 'Miesięczna „rata” PIT, którą pracodawca potrąca z pensji. Ostateczny podatek liczy się w rocznym zeznaniu.'],
+  ['Podatek pośredni', 'Podatek wliczony w cenę (VAT, akcyza). Formalnie płaci go firma, ale w dużej mierze ponosi go kupujący (dokładny podział zależy od rynku).'],
+  ['Opłata celowa', 'Danina przeznaczona na konkretny cel, np. opłata paliwowa na drogi. Nazywa się „opłatą”, ale działa jak podatek w cenie.'],
+  ['Deficyt i dług publiczny', 'Gdy państwo wydaje więcej, niż zbiera, pożycza. Od długu płaci się odsetki z bieżących danin, a zapadające obligacje zwykle spłaca się nowymi pożyczkami.'],
+  ['COFOG', 'Międzynarodowa klasyfikacja wydatków państwa według celów (zdrowie, edukacja, obrona…). Używamy jej w sekcji „Na co idą pieniądze”.'],
+];
+const quiz = [
+  { q: 'Kto przelewa do ZUS składki potrącone z Twojej pensji na umowie o pracę?', a: ['Ty, co miesiąc przez internet', 'Pracodawca', 'Bank, w którym masz konto'], ok: 1, why: 'Pracodawca jest płatnikiem: potrąca Twoją część składek z pensji, dokłada swoją i przelewa całość do ZUS: do 15. dnia następnego miesiąca (firmy z osobowością prawną, np. sp. z o.o.) albo do 20. (pozostali pracodawcy).' },
+  { q: 'Bochenek chleba kosztuje 5 zł z 5% VAT. Ile z tego to VAT?', a: ['25 gr', 'ok. 24 gr', '5 zł × 23% = 1,15 zł'], ok: 1, why: 'VAT jest doliczany do ceny netto, więc w cenie brutto stanowi 5/105, czyli ok. 4,8% ceny: 5 zł × 5/105 ≈ 0,24 zł.' },
+  { q: 'Czy VAT na stacji paliw jest liczony także od akcyzy?', a: ['Tak', 'Nie', 'Tylko na olej napędowy'], ok: 0, why: 'Podstawą VAT jest cała cena netto, łącznie z akcyzą i opłatą paliwową. To przykład „podatku od podatku”.' },
+  { q: `Do jakiego rocznego dochodu nie płacisz PIT według skali podatkowej?`, a: [`${zl(R.pit.taxFree)}`, `${zl(R.pit.threshold)}`, 'Każdy dochód jest opodatkowany'], ok: 0, why: `Kwota wolna od podatku w ${R.meta.year} r. to ${zl(R.pit.taxFree)} rocznie. Powyżej płacisz ${p(R.pit.rate1)}, a od dochodu ponad ${zl(R.pit.threshold)} – ${p(R.pit.rate2)}.` },
+  { q: 'Kiedy najpóźniej trzeba złożyć roczne zeznanie PIT za ten rok?', a: ['31 grudnia', '30 kwietnia następnego roku', 'Nie trzeba, robi to pracodawca'], ok: 1, why: 'Zeznanie składa się od 15 lutego do 30 kwietnia następnego roku. Jeśli tego nie zrobisz, Twój e-PIT przygotowany przez urząd zostanie zaakceptowany automatycznie 30 kwietnia (dotyczy m.in. PIT-37).' },
+];
+---
+<Base title="Jak działa system podatkowy" path="/jak-dziala-system/" description="Prosto o tym, jak pieniądze z Twojej pensji i zakupów trafiają do ZUS, NFZ, urzędu skarbowego i gminy, kiedy to się dzieje i dokąd płyną dalej. Z diagramem, słowniczkiem i quizem.">
+  <section class="sec">
+    <div class="wrap">
+      <div class="head">
+        <p class="kicker">Edukacja</p>
+        <h1 class="h1">Jak działa system podatkowy</h1>
+        <p class="lead">Pieniądze trafiają do państwa trzema drogami: z pensji (zanim ją zobaczysz), w cenach zakupów i bezpośrednio do gminy. Poniżej każda droga po kolei.</p>
+      </div>
+
+      <figure class="card map" aria-labelledby="map-cap" tabindex="0">
+        <svg viewBox="0 0 1000 560" role="img" aria-labelledby="map-title map-desc">
+          <title id="map-title">Droga pieniędzy od obywatela do państwa</title>
+          <desc id="map-desc">Ty pracujesz i kupujesz. Pracodawca przekazuje składki do ZUS i NFZ oraz PIT do urzędu skarbowego. Sklepy i producenci przekazują VAT i akcyzę do urzędu skarbowego. Gmina pobiera podatki lokalne. Pieniądze trafiają do budżetu państwa, funduszy ZUS i NFZ oraz samorządów, a stamtąd na emerytury, leczenie, szkoły, drogi i inne wydatki.</desc>
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="currentColor" /></marker></defs>
+          <g class="m-col" font-family="Inter, sans-serif">
+            <g class="m-node m-you"><rect x="20" y="210" width="150" height="120" rx="18" /><text x="95" y="262" text-anchor="middle" class="m-t">TY</text><text x="95" y="290" text-anchor="middle" class="m-s">pracujesz i kupujesz</text></g>
+            <g class="m-node"><rect x="260" y="60" width="190" height="90" rx="14" /><text x="355" y="100" text-anchor="middle" class="m-t2">Pracodawca</text><text x="355" y="124" text-anchor="middle" class="m-s">potrąca i przelewa</text></g>
+            <g class="m-node"><rect x="260" y="235" width="190" height="90" rx="14" /><text x="355" y="275" text-anchor="middle" class="m-t2">Sklep, producent</text><text x="355" y="299" text-anchor="middle" class="m-s">VAT i akcyza w cenie</text></g>
+            <g class="m-node"><rect x="260" y="410" width="190" height="90" rx="14" /><text x="355" y="450" text-anchor="middle" class="m-t2">Ty sam</text><text x="355" y="474" text-anchor="middle" class="m-s">raty, rachunki</text></g>
+            <g class="m-node m-zus"><rect x="540" y="30" width="190" height="70" rx="14" /><text x="635" y="72" text-anchor="middle" class="m-t2">ZUS</text></g>
+            <g class="m-node m-nfz"><rect x="540" y="120" width="190" height="70" rx="14" /><text x="635" y="162" text-anchor="middle" class="m-t2">NFZ</text></g>
+            <g class="m-node m-us"><rect x="540" y="235" width="190" height="90" rx="14" /><text x="635" y="275" text-anchor="middle" class="m-t2">Urząd skarbowy</text><text x="635" y="299" text-anchor="middle" class="m-s">PIT, VAT, akcyza</text></g>
+            <g class="m-node m-gm"><rect x="540" y="410" width="190" height="90" rx="14" /><text x="635" y="450" text-anchor="middle" class="m-t2">Gmina</text><text x="635" y="474" text-anchor="middle" class="m-s">nieruchomość, śmieci</text></g>
+            <g class="m-out"><rect x="810" y="20" width="175" height="520" rx="18" />
+              <text x="897" y="62" text-anchor="middle" class="m-t2">Wydatki</text>
+              <text x="897" y="110" text-anchor="middle" class="m-s">emerytury i renty</text>
+              <text x="897" y="160" text-anchor="middle" class="m-s">leczenie</text>
+              <text x="897" y="220" text-anchor="middle" class="m-s">szkoły i uczelnie</text>
+              <text x="897" y="270" text-anchor="middle" class="m-s">obronność, policja</text>
+              <text x="897" y="320" text-anchor="middle" class="m-s">drogi, kolej</text>
+              <text x="897" y="370" text-anchor="middle" class="m-s">świadczenia rodzinne</text>
+              <text x="897" y="420" text-anchor="middle" class="m-s">administracja</text>
+              <text x="897" y="470" text-anchor="middle" class="m-s">odsetki od długu</text>
+            </g>
+          </g>
+          <g class="m-arrows" fill="none" stroke-width="3" marker-end="url(#ar)">
+            <path d="M170 250 C 210 200, 220 120, 256 105" class="a-you" />
+            <path d="M170 270 L 256 280" class="a-you" />
+            <path d="M170 295 C 210 360, 220 440, 256 455" class="a-you" />
+            <path d="M450 90 L 536 66" class="a-zus" />
+            <path d="M450 110 L 536 152" class="a-nfz" />
+            <path d="M450 130 C 500 180, 500 240, 536 262" class="a-pit" />
+            <path d="M450 280 L 536 280" class="a-vat" />
+            <path d="M450 455 L 536 455" class="a-gm" />
+            <path d="M730 65 L 806 105" class="a-out" />
+            <path d="M730 155 L 806 160" class="a-out" />
+            <path d="M730 280 L 806 280" class="a-out" />
+            <path d="M730 455 L 806 420" class="a-out" />
+          </g>
+        </svg>
+        <figcaption id="map-cap" class="note">Uproszczony schemat. Budżet państwa dopłaca też do ZUS i NFZ, a samorządy dostają większość wpływów z PIT (ok. 86% w planie na 2026 r.) i część wpływów z CIT.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2">Trzy drogi, którymi płacisz</h2>
+      </div>
+      <div class="ways">
+        <article class="card way g-zus"><span class="way-n">1</span><h3 class="h3">Z pensji – zanim ją zobaczysz</h3><p class="body">Na umowie o pracę pracodawca jest „płatnikiem”: oblicza Twoje składki i zaliczkę na PIT, potrąca je z pensji brutto, dokłada własne składki i przelewa wszystko do ZUS i urzędu skarbowego. Na konto dostajesz już tylko netto. Dlatego łatwo nie zauważyć, ile naprawdę kosztuje praca.</p></article>
+        <article class="card way g-vat"><span class="way-n">2</span><h3 class="h3">W cenach – przy każdym zakupie</h3><p class="body">VAT, akcyzę i opłaty celowe formalnie płacą firmy: sklep, producent, importer, elektrownia. Wliczają je jednak w cenę, więc w dużej mierze ponosi je kupujący. Na paragonie zobaczysz kwotę VAT, ale akcyzy i opłaty paliwowej już nie.</p></article>
+        <article class="card way g-lokalne"><span class="way-n">3</span><h3 class="h3">Bezpośrednio – raty i rachunki</h3><p class="body">Podatek od nieruchomości, opłatę za śmieci czy abonament RTV płacisz sam, przelewem do gminy lub Poczty Polskiej. Te daniny widać najlepiej, choć zwykle są najmniejsze.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="h2">Najważniejsze daniny: kto, kiedy, gdzie</h2>
+        <p class="lead">Stawki na {R.meta.year} r. Pełna lista z podstawą prawną: <a href="/metodologia/">Metodologia</a>.</p>
+      </div>
+      <div class="tbl-wrap" tabindex="0" role="region" aria-label="Tabela (przewijana poziomo)">
+        <table>
+          <thead><tr><th>Danina</th><th>Kto przelewa</th><th>Kiedy</th><th>Dokąd</th><th>Ile</th></tr></thead>
+          <tbody>{kinds.map((k) => <tr><td><strong>{k.name}</strong></td><td>{k.who}</td><td>{k.when}</td><td>{k.where}</td><td>{k.what}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="quiz">
+    <div class="wrap narrow">
+      <div class="head">
+        <h2 class="h2">Sprawdź się: 5 pytań</h2>
+        <p class="lead">Krótki quiz pomaga zapamiętać więcej niż samo czytanie. Wybierz odpowiedź, a od razu zobaczysz wyjaśnienie.</p>
+      </div>
+      <ol class="quiz">
+        {quiz.map((q, i) => (
+          <li class="card qz" data-ok={q.ok}>
+            <fieldset><legend class="h3">{i + 1}. {q.q}</legend>
+              <div class="qz-a">{q.a.map((a, j) => <button type="button" class="qz-b" data-i={j}>{a}</button>)}</div>
+            </fieldset>
+            <p class="qz-why" hidden aria-live="polite"><strong class="qz-res"></strong> {q.why}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="qz-score h3" id="qz-score" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><h2 class="h2">Słowniczek</h2></div>
+      <dl class="gloss">{glossary.map(([t, d]) => <div class="card"><dt class="h3">{t}</dt><dd class="body">{d}</dd></div>)}</dl>
+      <p class="body" style="margin-top:32px"><a class="btn btn--primary" href="/">Policz swoje daniny →</a></p>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const items = [...document.querySelectorAll<HTMLElement>('.qz')];
+  let done = 0, good = 0;
+  for (const it of items) {
+    const ok = Number(it.dataset.ok);
+    it.querySelectorAll<HTMLButtonElement>('.qz-b').forEach((b) => b.addEventListener('click', () => {
+      if (it.classList.contains('is-done')) return;
+      it.classList.add('is-done'); done++;
+      const right = Number(b.dataset.i) === ok; if (right) good++;
+      it.querySelectorAll<HTMLButtonElement>('.qz-b').forEach((x) => { x.disabled = true; if (Number(x.dataset.i) === ok) x.classList.add('is-ok'); });
+      if (!right) b.classList.add('is-bad');
+      const why = it.querySelector<HTMLElement>('.qz-why')!; why.hidden = false;
+      why.querySelector('.qz-res')!.textContent = right ? 'Dobrze!' : 'Nie tym razem.';
+      if (done === items.length) document.getElementById('qz-score')!.textContent = `Twój wynik: ${good} z ${items.length}.`;
+    }));
+  }
+</script>
+
+<style>
+  .narrow { max-width: 820px; }
+  .map { padding: clamp(12px, 2vw, 24px); overflow-x: auto; }
+  .map svg { min-width: 640px; width: 100%; height: auto; color: var(--faint); }
+  .m-node rect { fill: var(--panel-2); stroke: var(--line-strong); stroke-width: 2; }
+  .m-you rect { fill: var(--c-you); stroke: none; }
+  .m-you text { fill: #fff; }
+  .m-zus rect { stroke: var(--c-zus); } .m-nfz rect { stroke: var(--c-nfz); } .m-us rect { stroke: var(--c-pit); } .m-gm rect { stroke: var(--c-lokalne); }
+  .m-out rect { fill: var(--bg-2); stroke: var(--line-strong); stroke-width: 2; stroke-dasharray: 6 6; }
+  .m-t { font: 700 30px Sora, Inter, sans-serif; } .m-t2 { font: 600 19px Sora, Inter, sans-serif; fill: var(--ink); } .m-s { font: 500 15px Inter, sans-serif; fill: var(--muted); }
+  .m-you .m-s { fill: #eafff6; }
+  .m-arrows path { stroke: var(--line-strong); }
+  .a-zus { stroke: var(--c-zus) !important; color: var(--c-zus); } .a-nfz { stroke: var(--c-nfz) !important; color: var(--c-nfz); } .a-pit { stroke: var(--c-pit) !important; color: var(--c-pit); } .a-vat { stroke: var(--c-vat) !important; color: var(--c-vat); } .a-gm { stroke: var(--c-lokalne) !important; color: var(--c-lokalne); } .a-you { stroke: var(--c-you) !important; color: var(--c-you); }
+  .ways { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+  .way { border-top: 6px solid var(--c); position: relative; display: grid; gap: 10px; align-content: start; }
+  .way-n { font-family: var(--display); font-size: 2.4rem; font-weight: 700; color: var(--c); line-height: 1; }
+  .quiz { display: grid; gap: 16px; }
+  .qz fieldset { border: 0; padding: 0; margin: 0; }
+  .qz legend { margin-bottom: 14px; padding: 0; }
+  .qz-a { display: grid; gap: 8px; }
+  .qz-b { text-align: left; padding: 12px 16px; border-radius: var(--r-m); border: 2px solid var(--line-strong); background: var(--panel-2); cursor: pointer; font-size: 16px; }
+  .qz-b:hover:not(:disabled) { border-color: var(--accent); }
+  .qz-b.is-ok { border-color: var(--c-you); background: color-mix(in srgb, var(--c-you) 14%, var(--panel)); }
+  .qz-b.is-bad { border-color: var(--c-pit); background: color-mix(in srgb, var(--c-pit) 12%, var(--panel)); }
+  .qz-b:disabled { cursor: default; color: var(--ink); }
+  .qz-why { margin-top: 14px; color: var(--muted); }
+  .qz-score { margin-top: 18px; }
+  .gloss { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+  .gloss .card { padding: 18px 20px; }
+  .gloss dt { margin-bottom: 6px; }
+</style>
